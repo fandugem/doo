@@ -23,12 +23,10 @@
             </ul>
         </nav>
     </header>
-
     <section id="about">
         <h2>About Me</h2>
         <p>Introduce yourself briefly, mention your experience in marketing, and what makes you unique.</p>
     </section>
-
     <section id="portfolio">
         <h2>Portfolio</h2>
         <div class="project">
@@ -38,7 +36,7 @@
         </div>
     </section>
 
-    <section id="skills">
+  <section id="skills">
         <h2>Skills</h2>
         <ul>
             <li>SEO Optimization</li>
@@ -49,7 +47,7 @@
         </ul>
     </section>
 
-    <section id="contact">
+  <section id="contact">
         <h2>Contact</h2>
         <form>
             <input type="text" placeholder="Your Name">
@@ -59,12 +57,12 @@
         </form>
     </section>
 
-    <footer>
+  <footer>
         <p>&copy; 2025 Your Name. All rights reserved.</p>
         <button id="toggle-darkmode">Dark Mode</button>
     </footer>
 
-    <script src="script.js"></script>
+   <script src="script.js"></script>
 </body>
 </html>
 body {
