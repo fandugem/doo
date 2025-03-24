@@ -1,8 +1,9 @@
-![IMG20240216114038](https://github.com/user-attachments/assets/26448970-3a1f-41a5-bf22-9b91bb7c0af9)/gym-website  
+/gym-website  
 │── index.html  
 │── style.css  
 │── script.js  
-└── img/ ()
+└── img/ (![Screenshot_2025-02-26-21-05-11-22_0438eb925998df20b3482ec25499d226](https://github.com/user-attachments/assets/b4a596ef-6f27-416d-a5d5-393c4343fe8c)
+)
 
 <!DOCTYPE html>
 <html lang="en">
