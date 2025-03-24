@@ -1,18 +1,15 @@
-/forto-fandu-marketing  
-│── index.html  
-│── style.css  
-│── script.js  
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - fandu</title>
+    <title>Portfoliofandu</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
     <header>
-        <h1>forto-fandu-marketing</h1>
+        <h1>fandu</h1>
         <nav>
             <ul>
                 <li><a href="#about">About</a></li>
@@ -63,7 +60,7 @@
 
    <script src="script.js"></script>
 </body>
-</html>
+<
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -73,46 +70,46 @@ body {
     color: #333;
 }
 
-header {
+<header {
     background-color: #333;
     color: white;
     padding: 20px;
 }
 
-nav ul {
+<nav ul {
     list-style: none;
     padding: 0;
 }
 
-nav ul li {
+<nav ul li {
     display: inline;
     margin: 0 15px;
 }
 
-nav ul li a {
+<nav ul li a {
     text-decoration: none;
     color: white;
     font-weight: bold;
 }
 
-section {
+<section {
     padding: 50px;
     border-bottom: 1px solid #ddd;
 }
-
-.project img {
+<
+project img {
     width: 100%;
     max-width: 300px;
     border-radius: 5px;
 }
 
-footer {
+<footer {
     background-color: #333;
     color: white;
     padding: 10px;
     text-align: center;
 }
-
+<
 button {
     background-color: #555;
     color: white;
@@ -120,15 +117,17 @@ button {
     border: none;
     cursor: pointer;
 }
-
+<
 .dark-mode {
     background-color: #121212;
     color: white;
 }
-
+<
 .dark-mode nav ul li a {
-    color: white;
+    color: black;
 }
-document.getElementById("toggle-darkmode").addEventListener("click", function() {
-    document.body.classList.toggle("dark-mode");
+document.getElementById("toggle-<darkmode").addEventListener("click<", function() {
+    document.body.classList.toggle("dar<k-mode");
 });
+document.getElementById("toggle-<darkmode").addEventListener("click<", function() {
+    document. 
