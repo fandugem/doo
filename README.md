@@ -2,13 +2,12 @@
 │── index.html  
 │── style.css  
 │── script.js  
-│── /img  (Folder buat gambar, kalau ada)
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Your Name</title>
+    <title>Portfolio - fandu</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
