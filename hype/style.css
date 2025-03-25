@@ -4,3 +4,22 @@ body {
     background-color: #111;
     color: white;
 }
+
+body {
+    background-image: url('img/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+@keyframes movingBg {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+body {
+    background: linear-gradient(-45deg, #ff0000, #ff7300, #ffeb00, #3cff00, #00fff7, #002bff, #8000ff);
+    background-size: 400% 400%;
+    animation: movingBg 10s ease infinite;
+}
