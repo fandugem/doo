@@ -55,7 +55,7 @@ button {
 }
 
 body {
-    background-image: url('img/sad.gif');
+    background-image: url('img/background.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
