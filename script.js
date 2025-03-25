@@ -46,3 +46,26 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const menuBtn = document.querySelector(".menu-btn");
+    const closeBtn = document.querySelector(".close-btn");
+    const sidebar = document.getElementById("sidebar");
+
+    // Buka sidebar
+    menuBtn.addEventListener("click", function () {
+        sidebar.classList.add("active");
+    });
+
+    // Tutup sidebar
+    closeBtn.addEventListener("click", function () {
+        sidebar.classList.remove("active");
+    });
+
+    // Klik di luar sidebar buat nutup
+    document.addEventListener("click", function (event) {
+        if (!sidebar.contains(event.target) && !menuBtn.contains(event.target)) {
+            sidebar.classList.remove("active");
+        }
+    });
+});
