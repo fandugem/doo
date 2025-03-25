@@ -167,3 +167,64 @@ button {
 .menu.active .menu-content {
     display: block;
 }
+
+/* Tombol titik tiga */
+.menu-btn {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+/* Sidebar (tersembunyi awalnya) */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -250px; /* Geser ke luar layar */
+    width: 250px;
+    height: 100%;
+    background-color: #111;
+    color: white;
+    padding: 15px;
+    box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.5);
+    transition: right 0.3s ease-in-out;
+}
+
+/* Tombol close */
+.close-btn {
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    float: right;
+    cursor: pointer;
+}
+
+/* Sidebar aktif (muncul) */
+.sidebar.active {
+    right: 0;
+}
+
+/* List menu */
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.sidebar ul li a:hover {
+    text-decoration: underline;
+}
