@@ -1,70 +1,34 @@
-/* General Styles */
-body {
-    font-family: Arial, sans-serif;
+/* Reset CSS */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body Styling */
+body {
+    background-color: #111;
+    color: #fff;
     text-align: center;
-    background-color: white;
-    color: black;
-}
-
-#header-right {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Jarak antara dark mode button dan GIF */
-}
-
-#gif-icon {
-    width: 40px;
-    height: auto;
-}
-
-.top-controls {
-    display: flex;
-    align-items: center; /* Biar sejajar */
-    gap: 10px; /* Jarak antara GIF dan tombol */
-    position: absolute;
-    top: 10px;
-    left: 10px;
-}
-#toggle-darkmode {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 5px;
-}
-
-#darkmode-icon {
-    width: 30px; /* Ukuran icon */
-    transition: 0.3s;
-}
-
-body.dark-mode {
-    background-color: #121212;
-    color: white;
-}
-
-body.dark-mode a {
-    color: #bb86fc;
-}
-
-/* Dark Mode */
-.dark-mode {
-    background-color: black;
-    color: white;
+    padding: 20px;
 }
 
 /* Header */
 header {
-    background-color: #222;
-    color: white;
-    padding: 20px;
+    background: #222;
+    padding: 20px 0;
+}
+
+h1 {
+    font-size: 28px;
+    color: #a58eff;
 }
 
 /* Navigation */
 nav ul {
     list-style: none;
-    padding: 0;
+    padding: 10px 0;
 }
 
 nav ul li {
@@ -73,222 +37,109 @@ nav ul li {
 }
 
 nav ul li a {
+    color: #a58eff;
     text-decoration: none;
-    color: white;
     font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #fff;
 }
 
 /* Sections */
 section {
-    padding: 50px;
-    border-bottom: 1px solid #ddd;
+    margin: 40px 0;
+    padding: 20px;
+    background: #222;
+    border-radius: 10px;
 }
 
-/* Button */
-button {
-    background-color: #555;
-    color: white;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    margin: 20px;
+h2 {
+    color: #a58eff;
 }
 
-.social-media {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    margin-top: 20px;
+/* About Section */
+#about p {
+    margin-bottom: 15px;
+    font-size: 14px;
 }
 
-.social-media a img {
-    width: 40px;
-    height: 40px;
-    transition: transform 0.3s;
+/* Image Styling */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
 }
 
-.social-media a img:hover {
-    transform: scale(1.2);
-}
-
-/* Posisi di pojok kanan atas */
-.top-right {
-    position: fixed; /* Biar tetap di atas saat scroll */
-    top: 10px;
-    right: 10px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    z-index: 1000; /* Biar selalu di atas elemen lain */
-}
-
-/* Search Bar */
-#searchBar {
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-/* Menu titik tiga */
-.menu {
-    position: relative;
-    display: inline-block;
-}
-
-.menu-btn {
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-}
-
-.menu-content {
-    display: none;
-    position: absolute;
-    right: 0;
-    background-color: white;
-    min-width: 120px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-}
-
-.menu-content a {
-    display: block;
-    padding: 8px;
-    text-decoration: none;
-    color: black;
-}
-
-.menu-content a:hover {
-    background-color: #ddd;
-}
-
-/* Tampilkan dropdown pas diklik */
-.menu.active .menu-content {
-    display: block;
-}
-
-/* Tombol titik tiga */
-.menu-btn {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    font-size: 24px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    z-index: 1000;
-}
-
-/* Sidebar (tersembunyi awalnya) */
+/* Sidebar */
 .sidebar {
     position: fixed;
     top: 0;
-    right: -250px; /* Geser ke luar layar */
+    left: -250px;
     width: 250px;
     height: 100%;
-    background-color: #111;
-    color: white;
-    padding: 15px;
-    box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.5);
-    transition: right 0.3s ease-in-out;
+    background: #333;
+    transition: 0.3s;
+    padding-top: 60px;
 }
 
-/* Tombol close */
-.close-btn {
-    font-size: 24px;
-    background: none;
-    border: none;
-    color: white;
-    float: right;
-    cursor: pointer;
-}
-
-/* Sidebar aktif (muncul) */
-.sidebar.active {
-    right: 0;
-}
-
-/* List menu */
 .sidebar ul {
     list-style-type: none;
-    padding: 0;
 }
 
 .sidebar ul li {
-    margin: 15px 0;
+    padding: 15px;
+    text-align: center;
 }
 
 .sidebar ul li a {
-    color: white;
+    color: #a58eff;
     text-decoration: none;
     font-size: 18px;
+    display: block;
 }
 
 .sidebar ul li a:hover {
-    text-decoration: underline;
+    color: white;
 }
 
-/* Tombol titik tiga */
-.menu-container {
+/* Sidebar Button */
+.menu-btn {
     position: fixed;
+    left: 10px;
     top: 10px;
-    right: 10px;
-    z-index: 1000;
-}
-
-.menu-btn {
-    font-size: 24px;
-    background: none;
+    background: transparent;
     border: none;
+    font-size: 30px;
     cursor: pointer;
+    color: #a58eff;
 }
 
-/* Menu dropdown (tersembunyi awalnya) */
-.menu-dropdown {
-    display: none;
+.close-btn {
+    background: transparent;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
     position: absolute;
-    right: 0;
-    background-color: #111;
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.3);
+    top: 10px;
+    right: 15px;
 }
 
-.menu-dropdown a {
-    display: block;
-    color: white;
-    text-decoration: none;
-    padding: 5px;
+/* Social Media Icons */
+.social-media img {
+    width: 30px;
+    margin: 10px;
+    transition: 0.3s;
 }
 
-.menu-dropdown a:hover {
-    background-color: #333;
+.social-media img:hover {
+    transform: scale(1.1);
 }
 
-/* Search Bar */
-#searchBar {
-    width: 100%;
-    padding: 5px;
-    margin-bottom: 10px;
-}
-
-/* Menu aktif */
-.menu-dropdown.active {
-    display: block;
-}
-
-/* Default warna titik tiga */
-.menu-btn {
-    font-size: 24px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: black; /* Default hitam */
-}
-
-/* Warna titik tiga pas dark mode */
-.dark-mode .menu-btn {
-    color: white; /* Jadi putih pas dark mode */
+/* Footer */
+footer {
+    margin-top: 30px;
+    padding: 15px;
+    background: #222;
 }
