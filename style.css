@@ -53,3 +53,10 @@ button {
     background-color: black;
     color: white;
 }
+
+body {
+    background-image: url('img/background.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
