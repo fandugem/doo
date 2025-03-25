@@ -86,3 +86,27 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const menuBtn = document.querySelector(".menu-btn");
+    const menuDropdown = document.querySelector(".menu-dropdown");
+    const toggleDarkMode = document.getElementById("toggle-darkmode");
+    const body = document.body;
+
+    // Toggle menu pas diklik
+    menuBtn.addEventListener("click", function () {
+        menuDropdown.classList.toggle("active");
+    });
+
+    // Klik di luar buat nutup menu
+    document.addEventListener("click", function (event) {
+        if (!menuBtn.contains(event.target) && !menuDropdown.contains(event.target)) {
+            menuDropdown.classList.remove("active");
+        }
+    });
+
+    // Toggle dark mode
+    toggleDarkMode.addEventListener("click", function () {
+        body.classList.toggle("dark-mode");
+    });
+});
