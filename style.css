@@ -55,18 +55,3 @@ button {
 }
 
 
-/* Anime character bergerak */
-.anime-character {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 200px;
-    transform: translateX(-50%);
-    animation: bounce 2s infinite;
-}
-
-/* Animasi lompat-lompat */
-@keyframes bounce {
-    0%, 100% { transform: translateX(-50%) translateY(0); }
-    50% { transform: translateX(-50%) translateY(-20px); }
-}
