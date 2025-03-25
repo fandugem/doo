@@ -1,6 +1,6 @@
-document.getElementById("toggle-darkmode")
-.addEventListener("click", function() {
-    console.log("Dark mode button clicked!");document.getElementById("toggle-darkmode").addEventListener("click", function() {
-    alert("Button clicked!"); 
-    document.body.classList.toggle("dark-mode");
+document.addEventListener("DOMContentLoaded", function () {
+    let button = document.getElementById("toggle-darkmode");
+    button.addEventListener("click", function () {
+        document.body.classList.toggle("dark-mode");
+    });
 });
