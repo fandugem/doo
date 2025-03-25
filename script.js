@@ -5,8 +5,4 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-document.addEventListener("mousemove", function(event) {
-    let anime = document.getElementById("anime");
-    let x = event.clientX;
-    anime.style.left = x + "px";
-});
+
