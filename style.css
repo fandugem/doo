@@ -55,20 +55,6 @@ button {
 }
 
 
-/* Background utama */
-body {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-
-.background {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    background: url('img/bg.jpg') no-repeat center center/cover;
-}
-
 /* Anime character bergerak */
 .anime-character {
     position: absolute;
