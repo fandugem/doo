@@ -60,3 +60,8 @@ body {
     background-position: center;
     background-repeat: no-repeat;
 }
+
+
+body {
+    background-image: url('https://raw.githubusercontent.com/username/repository/main/img/background.jpg'); 
+}
