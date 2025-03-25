@@ -54,6 +54,9 @@ button {
     margin: 20px;
 }
 
-
-
-
+body {
+    background-image: url('img/sad.gif');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
