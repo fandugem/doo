@@ -69,3 +69,20 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const menuBtn = document.querySelector(".menu-btn");
+    const menuDropdown = document.querySelector(".menu-dropdown");
+
+    // Toggle menu pas diklik
+    menuBtn.addEventListener("click", function () {
+        menuDropdown.classList.toggle("active");
+    });
+
+    // Klik di luar buat nutup menu
+    document.addEventListener("click", function (event) {
+        if (!menuBtn.contains(event.target) && !menuDropdown.contains(event.target)) {
+            menuDropdown.classList.remove("active");
+        }
+    });
+});
