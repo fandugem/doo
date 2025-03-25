@@ -28,6 +28,15 @@ body {
     transition: 0.3s;
 }
 
+body.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+
+body.dark-mode a {
+    color: #bb86fc;
+}
+
 /* Dark Mode */
 .dark-mode {
     background-color: black;
