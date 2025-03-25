@@ -2,7 +2,6 @@
 
 Website sederhana tentang manfaat pergi ke gym dan gaya hidup sehat.  
 
-![IMG_20250325_103237](https://github.com/user-attachments/assets/e1b2e737-2fa0-46ce-9530-217fa37d475e)
 
 ## Fitur  
 - Mode gelap  
@@ -18,3 +17,4 @@ Website sederhana tentang manfaat pergi ke gym dan gaya hidup sehat.
 - Instagram: [Gym IG](https://instagram.com/gym)  
 
 © 2025 Gym Lifestyle. Stay Strong!
+![IMG_20250325_103237](https://github.com/user-attachments/assets/e1b2e737-2fa0-46ce-9530-217fa37d475e)
