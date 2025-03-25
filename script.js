@@ -21,3 +21,28 @@ toggleButton.addEventListener("click", () => {
         localStorage.setItem("darkMode", "disabled");
     }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Toggle dropdown menu
+    const menuBtn = document.querySelector(".menu-btn");
+    const menu = document.querySelector(".menu");
+
+    menuBtn.addEventListener("click", function () {
+        menu.classList.toggle("active");
+    });
+
+    // Fungsi search
+    const searchBar = document.getElementById("searchBar");
+    searchBar.addEventListener("keyup", function (event) {
+        if (event.key === "Enter") {
+            const query = searchBar.value.toLowerCase();
+            const sections = document.querySelectorAll("section");
+
+            sections.forEach(section => {
+                if (section.textContent.toLowerCase().includes(query)) {
+                    section.scrollIntoView({ behavior: "smooth" });
+                }
+            });
+        }
+    });
+});
