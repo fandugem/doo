@@ -8,6 +8,17 @@ body {
     color: black;
 }
 
+#header-right {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Jarak antara dark mode button dan GIF */
+}
+
+#gif-icon {
+    width: 40px;
+    height: auto;
+}
+
 .top-controls {
     display: flex;
     align-items: center; /* Biar sejajar */
