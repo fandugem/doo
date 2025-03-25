@@ -8,6 +8,12 @@ body {
     color: black;
 }
 
+/* Dark Mode */
+.dark-mode {
+    background-color: black;
+    color: white;
+}
+
 /* Header */
 header {
     background-color: #222;
