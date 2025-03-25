@@ -93,3 +93,20 @@ button {
     cursor: pointer;
     margin: 20px;
 }
+
+.social-media {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.social-media a img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s;
+}
+
+.social-media a img:hover {
+    transform: scale(1.2);
+}
