@@ -20,10 +20,12 @@ body {
     background: none;
     border: none;
     cursor: pointer;
+    padding: 5px;
 }
-#toggle-darkmode img {
+
+#darkmode-icon {
     width: 30px; /* Ukuran icon */
-    height: auto;
+    transition: 0.3s;
 }
 
 /* Dark Mode */
