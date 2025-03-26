@@ -103,6 +103,21 @@ img {
     color: white;
 }
 
+.menu-btn, .darkmode-btn, #gif-icon {
+    position: fixed;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.menu-btn { left: 10px; top: 10px; }
+.darkmode-btn { right: 10px; top: 10px; }
+#gif-icon { right: 10px; bottom: 10px; width: 50px; cursor: pointer; }
 /* Sidebar Button */
 .menu-btn {
     position: fixed;
