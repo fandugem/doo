@@ -1,12 +1,14 @@
-# gym-side
+# think
 
-Website sederhana tentang manfaat pergi ke gym dan gaya hidup sehat.  
-
+website profesional keren,lucu,yang menyediakan semua kebutuhan ticket,belanja online,edukasi,hiburan dll
 
 ## Fitur  
 - Mode gelap  
-- Desain simpel dan responsif  
-- Informasi tentang manfaat berolahraga  
+- Desain banyak animasi hidup simpel dan responsif  
+- Informasi tentang semua yang menurut doo suka
+- banyak link tersembunyi
+- pilihan pertanyaan dan jawaban
+- terhubung langsung dll
 
 ## Cara Menjalankan  
 1. Download atau clone repository ini  
@@ -16,4 +18,5 @@ Website sederhana tentang manfaat pergi ke gym dan gaya hidup sehat.
 - Email: gym@example.com  
 - Instagram: [Gym IG](https://instagram.com/gym)  
 
-© 2025 Gym Lifestyle. Stay Strong!
+disclaimer
+© 2025 doo. 
