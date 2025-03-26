@@ -160,6 +160,17 @@ img {
     right: 15px;
 }
 
+.darkmode-btn {
+    width: 35px;  /* Atur ukuran sesuai kebutuhan */
+    height: 35px; /* Bisa disesuaikan */
+    cursor: pointer;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    border-radius: 50%; /* Biar iconnya lebih rapih */
+    object-fit: cover; /* Biar gambar ga kepanjangan/lebar */
+}
+
 /* Social Media Icons */
 .social-media img {
     width: 30px;
