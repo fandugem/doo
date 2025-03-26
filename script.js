@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
 }
     
     if (menuButton) {
-        menuButton.addEventListener("click", toggleSidebar);
+        menuButton.addEventListener("click", function);
     } else {
         console.error("Menu button not found!");
     }
