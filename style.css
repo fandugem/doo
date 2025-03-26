@@ -18,12 +18,13 @@ body {
 .sidebar {
     position: fixed;
     top: 0;
-    left: -250px;
+    left: -100%;
     width: 250px;
     height: 100%;
-    background: #333;
-    transition: left 0.3s ease-in-out;
+    background: #222;
+    transition: all 0.3s ease-in-out;
     padding-top: 60px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.5);
 }
 
 .sidebar.active {
@@ -82,4 +83,24 @@ body {
     background: none;
     border: none;
     cursor: pointer;
+}
+
+.dark-mode {
+    background-color: #000;
+    color: #fff;
+}
+
+.dark-mode header,
+.dark-mode section,
+.dark-mode footer,
+.dark-mode .sidebar {
+    background-color: #111;
+}
+
+.dark-mode a {
+    color: #a58eff;
+}
+
+.dark-mode a:hover {
+    color: white;
 }
