@@ -3,6 +3,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const darkModeToggle = document.getElementById("toggle-darkmode");
     const body = document.body;
 
+    const gifIcon = document.getElementById("gif-icon");
+
+if (gifIcon) {
+    gifIcon.addEventListener("click", function () {
+        window.location.href = "hype/index.html"; // Ganti dengan halaman yang lo mau
+    });
+} else {
+    console.error("GIF icon not found!");
+}
+    
     // Cek localStorage dan langsung apply dark mode kalau sebelumnya aktif
 if (localStorage.getItem("darkMode") === "enabled") {
         body.classList.add("dark-mode");
