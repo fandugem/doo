@@ -17,7 +17,7 @@ if (localStorage.getItem("darkMode") === "enabled") {
 
     function updateDarkModeIcon() {
         const isDarkMode = body.classList.contains("dark-mode");
-        darkModeToggle.src = isDarkMode ? "img/light-mode.png" : "img/dark-mode.png";
+        darkModeToggle.src = isDarkMode ? "img/dark.png" : "img/white.png";
     }
 
     if (darkModeToggle) {
