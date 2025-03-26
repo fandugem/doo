@@ -14,63 +14,7 @@ body {
     padding: 20px;
 }
 
-/* Header */
-header {
-    background: #222;
-    padding: 20px 0;
-}
-
-h1 {
-    font-size: 28px;
-    color: #a58eff;
-}
-
-/* Navigation */
-nav ul {
-    list-style: none;
-    padding: 10px 0;
-}
-
-nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: #a58eff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-nav ul li a:hover {
-    color: #fff;
-}
-
-/* Sections */
-section {
-    margin: 40px 0;
-    padding: 20px;
-    background: #222;
-    border-radius: 10px;
-}
-
-h2 {
-    color: #a58eff;
-}
-
-/* About Section */
-#about p {
-    margin-bottom: 15px;
-    font-size: 14px;
-}
-
-/* Image Styling */
-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
-
+/* Sidebar */
 .sidebar {
     position: fixed;
     top: 0;
@@ -78,12 +22,12 @@ img {
     width: 250px;
     height: 100%;
     background: #333;
-    transition: left 0.3s ease;
+    transition: left 0.3s ease-in-out;
     padding-top: 60px;
 }
 
 .sidebar.active {
-    left: 0; /* Biar muncul saat aktif */
+    left: 0;
 }
 
 .sidebar ul {
@@ -98,14 +42,13 @@ img {
 .sidebar ul li a {
     color: #a58eff;
     text-decoration: none;
-    font-size: 18px;
-    display: block;
 }
 
 .sidebar ul li a:hover {
     color: white;
 }
 
+/* Dark Mode */
 .dark-mode {
     background-color: #000;
     color: #fff;
@@ -117,81 +60,26 @@ img {
     background-color: #111;
 }
 
-.dark-mode nav ul li a {
-    color: #ddd;
-}
-
-.dark-mode nav ul li a:hover {
-    color: #fff;
-}
-
+/* Buttons */
 .menu-btn, .darkmode-btn, #gif-icon {
     position: fixed;
     z-index: 1000;
     background: rgba(0, 0, 0, 0.5);
     border: none;
-    color: white;
-    padding: 10px;
-    font-size: 20px;
     cursor: pointer;
-    border-radius: 5px;
 }
 
-.menu-btn { left: 10px; top: 10px; }
-.darkmode-btn { right: 10px; top: 10px; }
-#gif-icon { right: 10px; bottom: 10px; width: 50px; cursor: pointer; }
-/* Sidebar Button */
-.menu-btn {
-    position: fixed;
-    left: 10px;
-    top: 10px;
-    background: transparent;
-    border: none;
-    font-size: 30px;
-    cursor: pointer;
-    color: #a58eff;
-}
+.menu-btn { left: 10px; top: 10px; font-size: 30px; }
+.darkmode-btn { right: 10px; top: 10px; width: 30px; }
+#gif-icon { right: 10px; bottom: 10px; width: 50px; }
 
 .close-btn {
     position: absolute;
     top: 10px;
     right: 15px;
     font-size: 30px;
+    color: white;
     background: none;
     border: none;
-    color: white;
     cursor: pointer;
-}
-
-.darkmode-btn {
-    width: 30px;
-    height: 30px;
-    padding: 5px;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 50%;
-    object-fit: contain;
-    transition: filter 0.3s ease-in-out;
-}
-
-/* Efek glow saat dark mode aktif */
-.dark-mode .darkmode-btn {
-    filter: drop-shadow(0 0 10px rgba(165, 142, 255, 0.9)); /* Glow ungu */
-}
-
-/* Social Media Icons */
-.social-media img {
-    width: 30px;
-    margin: 10px;
-    transition: 0.3s;
-}
-
-.social-media img:hover {
-    transform: scale(1.1);
-}
-
-/* Footer */
-footer {
-    margin-top: 30px;
-    padding: 15px;
-    background: #222;
 }
