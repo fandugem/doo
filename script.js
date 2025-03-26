@@ -3,18 +3,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const darkModeToggle = document.getElementById("toggle-darkmode");
     const body = document.body;
 
-    const gifIcon = document.getElementById("gif-icon");
-
-if (gifIcon) {
-    gifIcon.addEventListener("click", function () {
-        window.location.href = "hype/index.html"; // Ganti dengan halaman yang lo mau
-    });
-} else {
-    console.error("GIF icon not found!");
-}
-    
     // Cek localStorage dan langsung apply dark mode kalau sebelumnya aktif
-if (localStorage.getItem("darkMode") === "enabled") {
+    if (localStorage.getItem("darkMode") === "enabled") {
         body.classList.add("dark-mode");
     }
     updateDarkModeIcon(); // Panggil supaya ikon sesuai saat reload
@@ -26,8 +16,9 @@ if (localStorage.getItem("darkMode") === "enabled") {
     }
 
     function updateDarkModeIcon() {
-        const isDarkMode = body.classList.contains("dark-mode");
-        darkModeToggle.src = isDarkMode ? "img/dark.png" : "img/white.png";
+        if (darkModeToggle) {
+            darkModeToggle.src = body.classList.contains("dark-mode") ? "img/dark.png" : "img/white.png";
+        }
     }
 
     if (darkModeToggle) {
@@ -45,7 +36,7 @@ if (localStorage.getItem("darkMode") === "enabled") {
     }
 
     function closeSidebar(event) {
-        if (!sidebar.contains(event.target) && !menuButton.contains(event.target)) {
+        if (sidebar && !sidebar.contains(event.target) && menuButton && !menuButton.contains(event.target)) {
             sidebar.classList.remove("active");
         }
     }
@@ -61,9 +52,11 @@ if (localStorage.getItem("darkMode") === "enabled") {
     // GIF Icon Navigation
     const gifIcon = document.getElementById("gif-icon");
 
-    if (darkModeToggle) {
-        darkModeToggle.addEventListener("click", toggleDarkMode);
+    if (gifIcon) {
+        gifIcon.addEventListener("click", function () {
+            window.location.href = "hype/index.html"; // Ganti dengan halaman yang lo mau
+        });
     } else {
-        console.error("Dark mode button not found!");
+        console.error("GIF icon not found!");
     }
 });
