@@ -55,8 +55,6 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error("Menu button not found!");
     }
 
-    document.addEventListener("click", closeSidebar);
-
     // GIF Icon Navigation
     const gifIcon = document.getElementById("gif-icon");
 
