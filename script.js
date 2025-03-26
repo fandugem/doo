@@ -1,19 +1,23 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // Dark Mode Toggle
     const darkModeToggle = document.getElementById("toggle-darkmode");
     const body = document.body;
 
     // Cek localStorage dan langsung apply dark mode kalau sebelumnya aktif
-    if (localStorage.getItem("darkMode") === "enabled") {
+if (localStorage.getItem("darkMode") === "enabled") {
         body.classList.add("dark-mode");
     }
+    updateDarkModeIcon(); // Panggil supaya ikon sesuai saat reload
 
     function toggleDarkMode() {
         body.classList.toggle("dark-mode");
-        if (body.classList.contains("dark-mode")) {
-            localStorage.setItem("darkMode", "enabled");
-        } else {
-            localStorage.setItem("darkMode", "disabled");
-        }
+        localStorage.setItem("darkMode", body.classList.contains("dark-mode") ? "enabled" : "disabled");
+        updateDarkModeIcon(); // Ubah ikon tiap kali dark mode berubah
+    }
+
+    function updateDarkModeIcon() {
+        const isDarkMode = body.classList.contains("dark-mode");
+        darkModeToggle.src = isDarkMode ? "img/light-mode.png" : "img/dark-mode.png";
     }
 
     if (darkModeToggle) {
