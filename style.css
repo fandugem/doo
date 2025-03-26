@@ -103,6 +103,25 @@ img {
     color: white;
 }
 
+.dark-mode {
+    background-color: #000;
+    color: #fff;
+}
+
+.dark-mode header,
+.dark-mode section,
+.dark-mode footer {
+    background-color: #111;
+}
+
+.dark-mode nav ul li a {
+    color: #ddd;
+}
+
+.dark-mode nav ul li a:hover {
+    color: #fff;
+}
+
 .menu-btn, .darkmode-btn, #gif-icon {
     position: fixed;
     z-index: 1000;
