@@ -41,6 +41,14 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    function toggleSidebar() {
+    const menuButton = document.getElementById("menu-btn");
+    menuButton.innerText = "Web masih dalam pengembangan";
+    setTimeout(() => {
+        menuButton.innerText = "☰"; // Balikin ke ikon semula setelah 2 detik
+    }, 2000);
+}
+    
     if (menuButton) {
         menuButton.addEventListener("click", toggleSidebar);
     } else {
