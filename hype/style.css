@@ -1,25 +1,31 @@
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #111;
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+.live-wallpaper-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     color: white;
-}
-
-body {
-    background-image: url('img/mylivewallpapers-com-Green-Dragon-Roronoa-Zoro-4K.mp4');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-}
-
-@keyframes movingBg {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-body {
-    background: linear-gradient(-45deg, #ff0000, #ff7300, #ffeb00, #3cff00, #00fff7, #002bff, #8000ff);
-    background-size: 400% 400%;
-    animation: movingBg 10s ease infinite;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    text-align: center;
 }
