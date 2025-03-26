@@ -6,6 +6,14 @@
     font-family: Arial, sans-serif;
 }
 
+main {
+    width: 90%;
+    max-width: 800px;
+    margin: auto;
+    text-align: left;
+    padding: 20px;
+}
+
 /* Body Styling */
 body {
     background-color: #111;
