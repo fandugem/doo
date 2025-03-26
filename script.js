@@ -15,9 +15,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function updateDarkModeIcon() {
-        const isDarkMode = body.classList.contains("dark-mode");
         if (darkModeToggle) {
-            darkModeToggle.src = isDarkMode ? "img/dark.png" : "img/white.png";
+            darkModeToggle.src = body.classList.contains("dark-mode") ? "img/dark.png" : "img/white.png";
         }
     }
 
@@ -27,8 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error("Dark mode button not found!");
     }
 
-    // Sidebar Menu (Tombol Titik Tiga)
-    document.addEventListener("DOMContentLoaded", function () {
+    // Sidebar Menu
     const menuButton = document.getElementById("menu-btn");
     const sidebar = document.getElementById("sidebar");
     const closeButton = document.getElementById("close-btn");
@@ -38,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function closeSidebar(event) {
-        if (!sidebar.contains(event.target) && event.target !== menuButton) {
+        if (!sidebar.contains(event.target) && event.target !== menuButton && event.target !== closeButton) {
             sidebar.classList.remove("active");
         }
     }
@@ -56,13 +54,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     document.addEventListener("click", closeSidebar);
-});
 
     // GIF Icon Navigation
     const gifIcon = document.getElementById("gif-icon");
     if (gifIcon) {
         gifIcon.addEventListener("click", function () {
-            window.location.href = "hype/index.html"; // Ganti dengan halaman yang lo mau
+            window.location.href = "hype/index.html"; // Ganti dengan halaman tujuan
         });
     } else {
         console.error("GIF icon not found!");
