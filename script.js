@@ -16,9 +16,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function updateDarkModeIcon() {
-        if (darkModeToggle) {
-            darkModeToggle.src = body.classList.contains("dark-mode") ? "img/dark.png" : "img/white.png";
-        }
+        const isDarkMode = body.classList.contains("dark-mode");
+        darkModeToggle.src = isDarkMode ? "img/dark.png" : "img/white.png";
     }
 
     if (darkModeToggle) {
@@ -36,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function closeSidebar(event) {
-        if (sidebar && !sidebar.contains(event.target) && menuButton && !menuButton.contains(event.target)) {
+        if (!sidebar.contains(event.target) && !menuButton.contains(event.target)) {
             sidebar.classList.remove("active");
         }
     }
@@ -49,12 +48,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.addEventListener("click", closeSidebar);
 
-    // GIF Icon Navigation
+    // GIF Icon Navigation (FIXED)
     const gifIcon = document.getElementById("gif-icon");
 
     if (gifIcon) {
         gifIcon.addEventListener("click", function () {
-            window.location.href = "hype/index.html"; // Ganti dengan halaman yang lo mau
+            window.location.href = "hype/index.html"; // Ganti sesuai halaman tujuan
         });
     } else {
         console.error("GIF icon not found!");
