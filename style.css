@@ -161,14 +161,12 @@ img {
 }
 
 .darkmode-btn {
-    width: 35px;  /* Atur ukuran sesuai kebutuhan */
-    height: 35px; /* Bisa disesuaikan */
-    cursor: pointer;
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    border-radius: 50%; /* Biar iconnya lebih rapih */
-    object-fit: cover; /* Biar gambar ga kepanjangan/lebar */
+    width: 30px;  /* Lebih kecil */
+    height: 30px;
+    padding: 5px;
+    background: rgba(0, 0, 0, 0.5); /* Biar nggak terlalu mencolok */
+    border-radius: 50%; 
+    object-fit: contain; /* Biar nggak ketarik aneh */
 }
 
 /* Social Media Icons */
