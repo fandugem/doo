@@ -1,61 +1,62 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Dark Mode Toggle
-    const darkModeToggle = document.getElementById("toggle-darkmode");
-    const body = document.body;
+// Dark Mode Toggle
+const darkModeToggle = document.getElementById("toggle-darkmode");
+const body = document.body;
 
-    // Cek localStorage dan langsung apply dark mode kalau sebelumnya aktif
-    if (localStorage.getItem("darkMode") === "enabled") {
-        body.classList.add("dark-mode");
-    }
-    updateDarkModeIcon(); // Panggil supaya ikon sesuai saat reload
+// Cek localStorage dan langsung apply dark mode kalau sebelumnya aktif
 
-    function toggleDarkMode() {
-        body.classList.toggle("dark-mode");
-        localStorage.setItem("darkMode", body.classList.contains("dark-mode") ? "enabled" : "disabled");
-        updateDarkModeIcon(); // Ubah ikon tiap kali dark mode berubah
-    }
+if (localStorage.getItem("darkMode") === "enabled") {
+body.classList.add("dark-mode");
+}
+updateDarkModeIcon(); // Panggil supaya ikon sesuai saat reload
 
-    function updateDarkModeIcon() {
-        const isDarkMode = body.classList.contains("dark-mode");
-        darkModeToggle.src = isDarkMode ? "img/dark.png" : "img/white.png";
-    }
+function toggleDarkMode() {  
+    body.classList.toggle("dark-mode");  
+    localStorage.setItem("darkMode", body.classList.contains("dark-mode") ? "enabled" : "disabled");  
+    updateDarkModeIcon(); // Ubah ikon tiap kali dark mode berubah  
+}  
 
-    if (darkModeToggle) {
-        darkModeToggle.addEventListener("click", toggleDarkMode);
-    } else {
-        console.error("Dark mode button not found!");
-    }
+function updateDarkModeIcon() {  
+    const isDarkMode = body.classList.contains("dark-mode");  
+    darkModeToggle.src = isDarkMode ? "img/dark.png" : "img/white.png";  
+}  
 
-    // Sidebar Menu
-    const sidebar = document.getElementById("sidebar");
-    const menuButton = document.getElementById("menu-btn");
+if (darkModeToggle) {  
+    darkModeToggle.addEventListener("click", toggleDarkMode);  
+} else {  
+    console.error("Dark mode button not found!");  
+}  
 
-    function toggleSidebar() {
-        sidebar.classList.toggle("active");
-    }
+// Sidebar Menu  
+const sidebar = document.getElementById("sidebar");  
+const menuButton = document.getElementById("menu-btn");  
 
-    function closeSidebar(event) {
-        if (!sidebar.contains(event.target) && !menuButton.contains(event.target)) {
-            sidebar.classList.remove("active");
-        }
-    }
+function toggleSidebar() {  
+    sidebar.classList.toggle("active");  
+}  
 
-    if (menuButton) {
-        menuButton.addEventListener("click", toggleSidebar);
-    } else {
-        console.error("Menu button not found!");
-    }
+function closeSidebar(event) {  
+    if (!sidebar.contains(event.target) && !menuButton.contains(event.target)) {  
+        sidebar.classList.remove("active");  
+    }  
+}  
 
-    document.addEventListener("click", closeSidebar);
+if (menuButton) {  
+    menuButton.addEventListener("click", toggleSidebar);  
+} else {  
+    console.error("Menu button not found!");  
+}  
 
-    // GIF Icon Navigation (FIXED)
-    const gifIcon = document.getElementById("gif-icon");
+document.addEventListener("click", closeSidebar);  
 
-    if (gifIcon) {
-        gifIcon.addEventListener("click", function () {
-            window.location.href = "hype/index.html"; // Ganti sesuai halaman tujuan
-        });
-    } else {
-        console.error("GIF icon not found!");
-    }
+// GIF Icon Navigation  
+const gifIcon = document.getElementById("gif-icon");  
+
+if (darkModeToggle) {  
+    darkModeToggle.addEventListener("click", toggleDarkMode);  
+} else {  
+    console.error("Dark mode button not found!");  
+}
+
 });
+
