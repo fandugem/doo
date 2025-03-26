@@ -28,29 +28,35 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Sidebar Menu (Tombol Titik Tiga)
+    document.addEventListener("DOMContentLoaded", function () {
     const menuButton = document.getElementById("menu-btn");
     const sidebar = document.getElementById("sidebar");
+    const closeButton = document.getElementById("close-btn");
 
     function toggleSidebar() {
         sidebar.classList.toggle("active");
     }
 
     function closeSidebar(event) {
-        if (!sidebar.contains(event.target) && !menuButton.contains(event.target)) {
+        if (!sidebar.contains(event.target) && event.target !== menuButton) {
             sidebar.classList.remove("active");
         }
     }
 
     if (menuButton) {
-        menuButton.addEventListener("click", function (event) {
-            event.stopPropagation();
-            sidebar.classList.toggle("active");
-        });
+        menuButton.addEventListener("click", toggleSidebar);
     } else {
         console.error("Menu button not found!");
     }
 
+    if (closeButton) {
+        closeButton.addEventListener("click", function () {
+            sidebar.classList.remove("active");
+        });
+    }
+
     document.addEventListener("click", closeSidebar);
+});
 
     // GIF Icon Navigation
     const gifIcon = document.getElementById("gif-icon");
