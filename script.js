@@ -3,29 +3,24 @@ document.addEventListener("DOMContentLoaded", function () {
     const darkModeToggle = document.getElementById("toggle-darkmode");
     const body = document.body;
 
-    // Cek apakah user pernah aktifin dark mode sebelumnya
     if (localStorage.getItem("darkMode") === "enabled") {
         body.classList.add("dark-mode");
     }
 
-    // Auto ganti dark mode setiap reload
     function toggleDarkMode() {
         body.classList.toggle("dark-mode");
-
-        if (body.classList.contains("dark-mode")) {
-            localStorage.setItem("darkMode", "enabled");
-        } else {
-            localStorage.setItem("darkMode", "disabled");
-        }
+        localStorage.setItem("darkMode", body.classList.contains("dark-mode") ? "enabled" : "disabled");
     }
 
     if (darkModeToggle) {
         darkModeToggle.addEventListener("click", toggleDarkMode);
+    } else {
+        console.error("Dark mode button not found!");
     }
 
     // Sidebar Menu
     const sidebar = document.getElementById("sidebar");
-    const menuButton = document.querySelector(".menu-btn");
+    const menuButton = document.getElementById("menu-btn");
 
     function toggleSidebar() {
         sidebar.classList.toggle("active");
@@ -39,6 +34,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (menuButton) {
         menuButton.addEventListener("click", toggleSidebar);
+    } else {
+        console.error("Menu button not found!");
     }
 
     document.addEventListener("click", closeSidebar);
@@ -50,5 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
         gifIcon.addEventListener("click", function () {
             window.location.href = "second_page.html"; // Ganti sesuai halaman tujuan
         });
+    } else {
+        console.error("GIF icon not found!");
     }
 });
