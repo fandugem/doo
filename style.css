@@ -161,18 +161,18 @@ img {
 }
 
 .darkmode-btn {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     padding: 5px;
     background: rgba(0, 0, 0, 0.5);
     border-radius: 50%;
     object-fit: contain;
-    transition: box-shadow 0.3s ease-in-out;
+    transition: filter 0.3s ease-in-out;
 }
 
-/* Efek glow pas dark mode aktif */
+/* Efek glow saat dark mode aktif */
 .dark-mode .darkmode-btn {
-    box-shadow: 0 0 10px rgba(165, 142, 255, 0.8); /* Warna ungu glow */
+    filter: drop-shadow(0 0 15px rgba(165, 142, 255, 0.9)); /* Glow ungu */
 }
 
 /* Social Media Icons */
