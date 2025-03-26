@@ -135,7 +135,7 @@ img {
 }
 
 .menu-btn { left: 10px; top: 10px; }
-.darkmode-btn { right: 20px; top: 20px; }
+.darkmode-btn { right: 10px; top: 10px; }
 #gif-icon { right: 10px; bottom: 10px; width: 50px; cursor: pointer; }
 /* Sidebar Button */
 .menu-btn {
