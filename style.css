@@ -172,7 +172,7 @@ img {
 
 /* Efek glow saat dark mode aktif */
 .dark-mode .darkmode-btn {
-    filter: drop-shadow(0 0 25px rgba(165, 142, 255, 0.9)); /* Glow ungu */
+    filter: drop-shadow(0 0 10px rgba(165, 142, 255, 0.9)); /* Glow ungu */
 }
 
 /* Social Media Icons */
