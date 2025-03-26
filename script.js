@@ -7,17 +7,18 @@ document.addEventListener("DOMContentLoaded", function () {
     if (localStorage.getItem("darkMode") === "enabled") {
         body.classList.add("dark-mode");
     }
-    updateDarkModeIcon(); // Panggil supaya ikon sesuai saat reload
+    updateDarkModeIcon();
 
     function toggleDarkMode() {
         body.classList.toggle("dark-mode");
         localStorage.setItem("darkMode", body.classList.contains("dark-mode") ? "enabled" : "disabled");
-        updateDarkModeIcon(); // Ubah ikon tiap kali dark mode berubah
+        updateDarkModeIcon();
     }
 
     function updateDarkModeIcon() {
+        const isDarkMode = body.classList.contains("dark-mode");
         if (darkModeToggle) {
-            darkModeToggle.src = body.classList.contains("dark-mode") ? "img/dark.png" : "img/white.png";
+            darkModeToggle.src = isDarkMode ? "img/dark.png" : "img/white.png";
         }
     }
 
@@ -27,37 +28,21 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error("Dark mode button not found!");
     }
 
-    // Sidebar Menu
+    // Sidebar Menu (Tombol titik tiga)
+    const menuButton = document.getElementById("menu-btn");
     const sidebar = document.getElementById("sidebar");
-    const menuButton = document.getElementById("menu-btn");
 
-    function toggleSidebar() {
-        sidebar.classList.toggle("active");
-    }
-
-    function closeSidebar(event) {
-        if (sidebar && !sidebar.contains(event.target) && menuButton && !menuButton.contains(event.target)) {
-            sidebar.classList.remove("active");
-        }
-    }
-
-    function toggleSidebar() {
-    const menuButton = document.getElementById("menu-btn");
-    menuButton.innerText = "Web masih dalam pengembangan";
-    setTimeout(() => {
-        menuButton.innerText = "☰"; // Balikin ke ikon semula setelah 2 detik
-    }, 2000);
-}
-    
     if (menuButton) {
-        menuButton.addEventListener("click", function);
+        menuButton.addEventListener("click", function (event) {
+            event.stopPropagation(); // Mencegah event dari dokumen nutup sidebar
+            alert("Web masih dalam pengembangan");
+        });
     } else {
         console.error("Menu button not found!");
     }
 
     // GIF Icon Navigation
     const gifIcon = document.getElementById("gif-icon");
-
     if (gifIcon) {
         gifIcon.addEventListener("click", function () {
             window.location.href = "hype/index.html"; // Ganti dengan halaman yang lo mau
