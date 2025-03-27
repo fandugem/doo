@@ -14,13 +14,13 @@ body {
     max-width: 600px;
     margin: auto;
     padding: 10px;
-    line-height: 1.6; /* Jarak antar paragraf lebih nyaman */
+    line-height: 1.9; /* Jarak antar paragraf lebih nyaman */
 }
 
 /* Header */
 header {
     background-color: auto;
-    padding: o px;
+    padding: 0px;
     text-align: center;
 }
 
@@ -73,13 +73,30 @@ nav a:hover {
     color: white;
 }
 
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 25px;
+    color: #ff4d4d; /* Warna merah biar lebih jelas */
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, color 0.3s ease-in-out;
+}
+
+.close-btn:hover {
+    transform: scale(1.2);
+    color: white;
+}
+
 /* Main Content */
 main {
     width: 80%;
     max-width: 700px;
     margin: auto;
     text-align: center;
-    padding: 10px;
+    padding: 25px;
 }
 
 /* Judul Biar Lebih Keliatan */
@@ -154,7 +171,7 @@ img:hover {
 .dark-mode section,
 .dark-mode footer,
 .dark-mode .sidebar {
-    background-color: #111;
+    background-color: #121212;
 }
 
 .dark-mode a {
@@ -197,7 +214,7 @@ footer {
     }
     main {
         width: 100%;
-        padding: 10px;
+        padding: 20px;
     }
     .menu-btn {
         font-size: 25px;
