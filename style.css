@@ -132,7 +132,7 @@ h1, h2, h3, p, a {
 
 @media (max-width: 600px) {
     .sidebar {
-        width: 200px; /* Kecilkan sidebar biar pas di HP */
+        width: 185px; /* Kecilkan sidebar biar pas di HP */
     }
     main {
         width: 100%; /* Biar kontennya full di HP */
@@ -158,4 +158,12 @@ h1, h2, h3, p, a {
 .menu a:hover {
     color: #ffcc00;
     transform: scale(1.1);
+}
+
+.contact-icons img {
+  transition: transform 0.3s ease-in-out;
+}
+
+.contact-icons img:hover {
+  transform: scale(1.1); /* Ikon membesar 10% saat hover */
 }
