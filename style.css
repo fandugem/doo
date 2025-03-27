@@ -134,3 +134,14 @@ body {
         font-size: 25px; /* Biar tombol menu nggak kegedean */
     }
 }
+
+body {
+    max-width: 800px; /* Biar nggak terlalu lebar */
+    margin: auto;
+    padding: 10px;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
