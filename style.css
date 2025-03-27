@@ -1,8 +1,7 @@
 /* Reset CSS */
-
 {
-margin:  10;
-padding: 10;
+margin:  10px;
+padding: 10px;
 box-sizing: border line;
 font-family: Arial, sans-serif;
 }
@@ -14,9 +13,9 @@ background-color: #111;
 color: #d4d4d4; 
 text-align: center;
 max-width: 600px;
-margin: auto;
-padding: 10px;
-line-height: 1.1; 
+margin: 0px;
+padding: 20px;
+line-height: 1.1px; 
 }
 
 /* Header */
@@ -98,7 +97,7 @@ width: 80%;
 max-width: 700px;
 margin: auto;
 text-align: center;
-padding: 25px;
+padding: 0px;
 }
 
 /* Judul Biar Lebih Keliatan */
@@ -186,7 +185,7 @@ color: white;
 
 /* Footer */
 footer {
-background-color: src="img/sad.gif";
+background-color: url (img/sad.gif)
 color: #a855f7;
 text-align: center;
 padding: 20px;
@@ -200,8 +199,8 @@ margin-top: 0.5px;
 }
 
 .contact-icons img {
-width: 25px;
-high: 25px;
+width: 0px;
+high: 0px;
 transition: transform 0.3s ease-in-out;
 }
 
