@@ -1,9 +1,9 @@
 /* Reset CSS */
 
 {
-margin:  10;
-padding: 10;
-box-sizing: border line;
+margin:  0;
+padding: 0;
+box-sizing: border-radius;
 font-family: Arial, sans-serif;
 }
 
@@ -21,22 +21,21 @@ line-height: 1.9; / Jarak antar paragraf lebih nyaman */
 
 /* Header */
 header {
-background-color: auto;
-padding: 0px;
+padding: 20px;
 text-align: center;
 }
 
 nav a {
 color: #a855f7; /* Warna ungu */
 font-weight: bold;
-text-decoration: classic;
+text-decoration: none;
 margin: 0 10px;
 font-size: 13px;
 }
 
 nav a:hover {
 text-decoration: underline;
-color: white;
+color: #bb86fc;
 }
 
 /* Sidebar */
@@ -57,7 +56,7 @@ left: 0;
 }
 
 .sidebar ul {
-list-style-type: smouth;
+list-style-type: none;
 }
 
 .sidebar ul li {
@@ -67,7 +66,7 @@ text-align: center;
 
 .sidebar ul li a {
 color: #a855f7;
-text-decoration: classic;
+text-decoration: none;
 font-size: 16px;
 }
 
@@ -84,7 +83,7 @@ color: #a855f7; /* Warna ungu gw suka yg lebih jelas */
 background: none;
 border: none;
 cursor: pointer;
-transition: transform 0.2s ease-in-out, color 0.3s ease-in-out;
+transition: transform 0.3s ease-in-out;
 }
 
 .close-btn:hover {
@@ -98,7 +97,7 @@ width: 80%;
 max-width: 700px;
 margin: auto;
 text-align: center;
-padding: 25px;
+padding: 15px;
 }
 
 /* Judul Biar Lebih Keliatan */
@@ -112,17 +111,17 @@ margin-bottom: 05px;
 /* Box buat Konten Utama */
 .content-box {
 background-color: #1a1a1a;
-padding: 0px;
-border-radius: 0px;
-margin-bottom: 0px;
-box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+padding: 20px;
+border-radius: 10px;
+margin-bottom: 07px;
+box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
 }
 
 /* Styling buat Image */
 img {
 width: 100%;
 border-radius: 10px;
-box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
 transition: transform 0.3s ease-in-out;
 }
 
@@ -158,8 +157,8 @@ width: 50px;
 }
 
 /* Efek Hover di Tombol */
-.menu-btn:hover, .darkmode-btn:hover, #gif-icon:hover {
-background: rgba(255, 255, 255, 0.2);
+.darkmode-btn:hover, #gif-icon:hover {
+background: rgba(255, 55, 255, 0.2);
 transition: background 0.3s ease;
 }
 
@@ -173,7 +172,7 @@ color: #ffffff;
 .dark-mode section,
 .dark-mode footer,
 .dark-mode .sidebar {
-background-color: #121212;
+background-color: #333;
 }
 
 .dark-mode a {
@@ -186,8 +185,9 @@ color: white;
 
 /* Footer */
 footer {
-background-color: src="img/sad.gif";
-color: #a855f7;
+background-image: url("img/giphy.gif");
+background-size: cover;
+color: #ffffff;
 text-align: center;
 padding: 20px;
 }
@@ -195,13 +195,12 @@ padding: 20px;
 .contact-icons {
 display: flex;
 justify-content: center;
-gap: 0.5px;
-margin-top: 0.5px;
+gap: 15px;
+margin-top: 15px;
 }
 
 .contact-icons img {
-width: 25px;
-high: 25px;
+width: 15px;
 transition: transform 0.3s ease-in-out;
 }
 
