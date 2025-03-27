@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const darkModeBtn = document.querySelector(".darkmode-btn");
     const body = document.body;
 
+    // Cek localStorage, kalau dark mode aktif, langsung apply
     if (localStorage.getItem("darkMode") === "enabled") {
         body.classList.add("dark-mode");
     }
@@ -24,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (darkModeToggle) {
         darkModeToggle.addEventListener("click", toggleDarkMode);
     }
-    
+
     if (darkModeBtn) {
         darkModeBtn.addEventListener("click", toggleDarkMode);
     }
@@ -32,14 +33,13 @@ document.addEventListener("DOMContentLoaded", function () {
     // Sidebar Menu
     const menuButton = document.getElementById("menu-btn");
     const sidebar = document.getElementById("sidebar");
-    const closeButton = document.getElementById("close-btn");
 
     function toggleSidebar() {
         sidebar.classList.toggle("active");
     }
 
     function closeSidebar(event) {
-        if (sidebar && sidebar.classList.contains("active") && !sidebar.contains(event.target) && event.target !== menuButton) {
+        if (!sidebar.contains(event.target) && event.target !== menuButton) {
             sidebar.classList.remove("active");
         }
     }
@@ -57,14 +57,4 @@ document.addEventListener("DOMContentLoaded", function () {
             window.location.href = "hype/index.html"; // Ganti dengan halaman tujuan
         });
     }
-});
-
-document.addEventListener("click", function (event) {
-  let sidebar = document.querySelector(".sidebar");
-  let menuButton = document.querySelector(".menu-button");
-
-  // Kalau yang diklik bukan sidebar atau menu button, sidebar hilang
-  if (!sidebar.contains(event.target) && !menuButton.contains(event.target)) {
-    sidebar.classList.remove("active");
-  }
 });
