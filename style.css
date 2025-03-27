@@ -1,7 +1,7 @@
 /* Reset CSS */
 {
-margin:  10px;
-padding: 10px;
+margin:  0px;
+padding: 0px;
 box-sizing: border line;
 font-family: Arial, sans-serif;
 }
@@ -14,7 +14,7 @@ color: #d4d4d4;
 text-align: center;
 max-width: 600px;
 margin: 0px;
-padding: 20px;
+padding: 0px;
 line-height: 1.1px; 
 }
 
