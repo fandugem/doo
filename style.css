@@ -1,7 +1,8 @@
 /* Reset CSS */
+
 {
-margin:  05px;
-padding: 10px;
+margin:  10;
+padding: 10;
 box-sizing: border line;
 font-family: Arial, sans-serif;
 }
@@ -10,27 +11,27 @@ font-family: Arial, sans-serif;
 /* Body Styling */
 body {
 background-color: #111;
-color: #d4d4d4; 
+color: #d4d4d4; / Ganti putih ke abu-abu biar lebih nyaman dibaca /
 text-align: center;
 max-width: 600px;
-margin: 05px;
-padding: 20px;
-line-height: 1.3px; 
+margin: auto;
+padding: 10px;
+line-height: 1.9; / Jarak antar paragraf lebih nyaman */
 }
 
 /* Header */
 header {
-background-color: none;
-padding: 15px;
+background-color: auto;
+padding: 0px;
 text-align: center;
 }
 
 nav a {
 color: #a855f7; /* Warna ungu */
 font-weight: bold;
-text-decoration: none;
+text-decoration: classic;
 margin: 0 10px;
-font-size: 3px;
+font-size: 13px;
 }
 
 nav a:hover {
@@ -67,7 +68,7 @@ text-align: center;
 .sidebar ul li a {
 color: #a855f7;
 text-decoration: classic;
-font-size: 33px;
+font-size: 16px;
 }
 
 .sidebar ul li a:hover {
@@ -79,7 +80,7 @@ position: absolute;
 top: 15px;
 right: 15px;
 font-size: 25px;
-color: #ff4d4d; /* Warna merah biar lebih jelas */
+color: #a855f7; /* Warna ungu gw suka yg lebih jelas */
 background: none;
 border: none;
 cursor: pointer;
@@ -97,7 +98,7 @@ width: 80%;
 max-width: 700px;
 margin: auto;
 text-align: center;
-padding: 20px;
+padding: 25px;
 }
 
 /* Judul Biar Lebih Keliatan */
@@ -111,8 +112,8 @@ margin-bottom: 05px;
 /* Box buat Konten Utama */
 .content-box {
 background-color: #1a1a1a;
-padding: 30px;
-border-radius: 05px;
+padding: 0px;
+border-radius: 0px;
 margin-bottom: 0px;
 box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
 }
@@ -185,10 +186,27 @@ color: white;
 
 /* Footer */
 footer {
-background-color: white;
+background-color: src="img/sad.gif";
 color: #a855f7;
 text-align: center;
 padding: 20px;
+}
+
+.contact-icons {
+display: flex;
+justify-content: center;
+gap: 0.5px;
+margin-top: 0.5px;
+}
+
+.contact-icons img {
+width: 25px;
+high: 25px;
+transition: transform 0.3s ease-in-out;
+}
+
+.contact-icons img:hover {
+transform: scale(1.5);
 }
 
 /* Responsif buat HP */
@@ -198,9 +216,9 @@ width: 185px;
 }
 main {
 width: 100%;
-padding: 10px;
+padding: 20px;
 }
 .menu-btn {
-font-size: 35px;
+font-size: 25px;
 }
 }
