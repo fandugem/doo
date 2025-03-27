@@ -58,3 +58,13 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
+document.addEventListener("click", function (event) {
+  let sidebar = document.querySelector(".sidebar");
+  let menuButton = document.querySelector(".menu-button");
+
+  // Kalau yang diklik bukan sidebar atau menu button, sidebar hilang
+  if (!sidebar.contains(event.target) && !menuButton.contains(event.target)) {
+    sidebar.classList.remove("active");
+  }
+});
