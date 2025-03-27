@@ -20,11 +20,12 @@ body {
     color: #fff;
     text-align: center;
     padding: 20px;
+    text-align: center; /* Biar semua teks ke tengah */
+    max-width: 800px; /* Biar nggak terlalu lebar */
+    margin: auto;
+    padding: 10px;
 }
 
-body {
-    text-align: center; /* Biar semua teks ke tengah */
-}
 h1, h2, h3, p, a {
     text-align: center;
 }
@@ -142,13 +143,11 @@ h1, h2, h3, p, a {
     }
 }
 
-body {
-    max-width: 800px; /* Biar nggak terlalu lebar */
-    margin: auto;
-    padding: 10px;
-}
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
 }
