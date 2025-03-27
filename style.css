@@ -191,23 +191,6 @@ text-align: center;
 padding: 20px;
 }
 
-.contact-icons {
-display: flex;
-justify-content: center;
-gap: 0.5px;
-margin-top: 0.5px;
-}
-
-.contact-icons img {
-width: 0px;
-high: 0px;
-transition: transform 0.3s ease-in-out;
-}
-
-.contact-icons img:hover {
-transform: scale(1.5);
-}
-
 /* Responsif buat HP */
 @media (max-width: 600px) {
 .sidebar {
