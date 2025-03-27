@@ -33,12 +33,14 @@ body {
 header {
     padding: 20px;
     text-align: center;
+    border-radius: 10px;
 }
 
 nav a {
     color: var(--primary-color);
     font-weight: bold;
     text-decoration: none;
+    border-radius: 10px;
     margin: 0 10px;
     font-size: 13px;
     transition: color var(--transition-speed);
@@ -119,6 +121,7 @@ main {
     margin: auto;
     text-align: center;
     padding: 15px;
+    border-radius: 10px;
 }
 
 /* Titles */
