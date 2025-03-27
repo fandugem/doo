@@ -161,7 +161,7 @@ h1, h2, h3, p, a {
 }
 
 .contact-icons img {
-    width: 40px;
+    width: 15px;
     height: auto;
     margin: 5px;
     transition: transform 0.3s ease-in-out;
