@@ -112,3 +112,8 @@ body {
 .dark-mode a:hover {
     color: white;
 }
+
+.menu-btn:hover, .darkmode-btn:hover, #gif-icon:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transition: background 0.3s ease;
+}
