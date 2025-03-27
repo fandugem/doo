@@ -1,3 +1,4 @@
+
 /* Reset CSS */
 * {
     margin: 0;
@@ -69,17 +70,7 @@ h1, h2, h3, p, a {
     color: white;
 }
 
-/* Dark Mode */
-.dark-mode {
-    background-color: #000;
-    color: #fff;
-}
 
-.dark-mode header,
-.dark-mode section,
-.dark-mode footer {
-    background-color: #111;
-}
 
 /* Buttons */
 .menu-btn, .darkmode-btn, #gif-icon {
@@ -105,9 +96,10 @@ h1, h2, h3, p, a {
     cursor: pointer;
 }
 
+/* DARK MODE */
 .dark-mode {
-    background-color: #000;
-    color: #fff;
+    background-color: #121212;
+    color: #ffffff;
 }
 
 .dark-mode header,
@@ -117,8 +109,13 @@ h1, h2, h3, p, a {
     background-color: #111;
 }
 
+.dark-mode .navbar, 
+.dark-mode .sidebar {
+    background-color: #1e1e1e;
+}
+
 .dark-mode a {
-    color: #a58eff;
+    color: #bb86fc; /* Warna ungu biar lebih keliatan */
 }
 
 .dark-mode a:hover {
@@ -166,4 +163,8 @@ h1, h2, h3, p, a {
 
 .contact-icons img:hover {
   transform: scale(1.1); /* Ikon membesar 10% saat hover */
+}
+
+.dark-mode .contact-icons img {
+    filter: invert(1); /* Biar icon hitam jadi putih */
 }
