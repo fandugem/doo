@@ -22,6 +22,13 @@ body {
     padding: 20px;
 }
 
+body {
+    text-align: center; /* Biar semua teks ke tengah */
+}
+h1, h2, h3, p, a {
+    text-align: center;
+}
+
 /* Sidebar */
 .sidebar {
     position: fixed;
