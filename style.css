@@ -1,7 +1,7 @@
 /* Reset CSS */
 {
-margin:  0px;
-padding: 0px;
+margin:  05px;
+padding: 10px;
 box-sizing: border line;
 font-family: Arial, sans-serif;
 }
@@ -13,24 +13,24 @@ background-color: #111;
 color: #d4d4d4; 
 text-align: center;
 max-width: 600px;
-margin: 0px;
-padding: 0px;
-line-height: 1.1px; 
+margin: 05px;
+padding: 20px;
+line-height: 1.3px; 
 }
 
 /* Header */
 header {
-background-color: auto;
-padding: 0px;
+background-color: none;
+padding: 15px;
 text-align: center;
 }
 
 nav a {
 color: #a855f7; /* Warna ungu */
 font-weight: bold;
-text-decoration: classic;
+text-decoration: none;
 margin: 0 10px;
-font-size: 13px;
+font-size: 3px;
 }
 
 nav a:hover {
@@ -67,7 +67,7 @@ text-align: center;
 .sidebar ul li a {
 color: #a855f7;
 text-decoration: classic;
-font-size: 16px;
+font-size: 33px;
 }
 
 .sidebar ul li a:hover {
@@ -97,7 +97,7 @@ width: 80%;
 max-width: 700px;
 margin: auto;
 text-align: center;
-padding: 0px;
+padding: 20px;
 }
 
 /* Judul Biar Lebih Keliatan */
@@ -111,8 +111,8 @@ margin-bottom: 05px;
 /* Box buat Konten Utama */
 .content-box {
 background-color: #1a1a1a;
-padding: 0px;
-border-radius: 0px;
+padding: 30px;
+border-radius: 05px;
 margin-bottom: 0px;
 box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
 }
@@ -185,7 +185,7 @@ color: white;
 
 /* Footer */
 footer {
-background-color: url (img/sad.gif)
+background-color: white;
 color: #a855f7;
 text-align: center;
 padding: 20px;
@@ -198,9 +198,9 @@ width: 185px;
 }
 main {
 width: 100%;
-padding: 20px;
+padding: 10px;
 }
 .menu-btn {
-font-size: 25px;
+font-size: 35px;
 }
 }
