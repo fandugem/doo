@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Dark Mode Toggle
     const darkModeToggle = document.getElementById("toggle-darkmode");
-    const darkModeBtn = document.querySelector(".darkmode-btn");
     const body = document.body;
 
     // Cek localStorage, kalau dark mode aktif, langsung apply
@@ -24,10 +23,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (darkModeToggle) {
         darkModeToggle.addEventListener("click", toggleDarkMode);
-    }
-
-    if (darkModeBtn) {
-        darkModeBtn.addEventListener("click", toggleDarkMode);
     }
 
     // Sidebar Menu
