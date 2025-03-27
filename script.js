@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Dark Mode Toggle
     const darkModeToggle = document.getElementById("toggle-darkmode");
+    const darkModeBtn = document.querySelector(".darkmode-btn");
     const body = document.body;
 
     if (localStorage.getItem("darkMode") === "enabled") {
@@ -22,8 +23,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (darkModeToggle) {
         darkModeToggle.addEventListener("click", toggleDarkMode);
-    } else {
-        console.error("Dark mode button not found!");
+    }
+    
+    if (darkModeBtn) {
+        darkModeBtn.addEventListener("click", toggleDarkMode);
     }
 
     // Sidebar Menu
@@ -36,32 +39,16 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function closeSidebar(event) {
-    if (!sidebar.contains(event.target) && event.target !== menuButton) {
-        sidebar.classList.remove("active");
-    }
-}
-
-   document.addEventListener("DOMContentLoaded", function () {
-    const darkModeBtn = document.querySelector(".darkmode-btn");
-    const body = document.body;
-
-    // Cek kalau sebelumnya user udah aktifin dark mode
-    if (localStorage.getItem("darkMode") === "enabled") {
-        body.classList.add("dark-mode");
-    }
-
-    // Toggle Dark Mode
-    darkModeBtn.addEventListener("click", function () {
-        body.classList.toggle("dark-mode");
-
-        // Simpan preferensi di localStorage
-        if (body.classList.contains("dark-mode")) {
-            localStorage.setItem("darkMode", "enabled");
-        } else {
-            localStorage.removeItem("darkMode");
+        if (sidebar && sidebar.classList.contains("active") && !sidebar.contains(event.target) && event.target !== menuButton) {
+            sidebar.classList.remove("active");
         }
-    });
-});
+    }
+
+    if (menuButton) {
+        menuButton.addEventListener("click", toggleSidebar);
+    }
+
+    document.addEventListener("click", closeSidebar);
 
     // GIF Icon Navigation
     const gifIcon = document.getElementById("gif-icon");
@@ -69,7 +56,5 @@ document.addEventListener("DOMContentLoaded", function () {
         gifIcon.addEventListener("click", function () {
             window.location.href = "hype/index.html"; // Ganti dengan halaman tujuan
         });
-    } else {
-        console.error("GIF icon not found!");
     }
 });
