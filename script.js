@@ -46,9 +46,7 @@ function closeSidebar(event) {
 
 if (menuButton) {  
     menuButton.addEventListener("click", toggleSidebar);  
-}  
-
-document.addEventListener("click", closeSidebar);  
+}
 
 // GIF Icon Navigation  
 const gifIcon = document.getElementById("gif-icon");  
