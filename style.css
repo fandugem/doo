@@ -159,3 +159,13 @@ h1, h2, h3, p, a {
     color: #ffcc00;
     transform: scale(1.1);
 }
+
+.contact-icons img {
+    width: 40px;
+    height: auto;
+    margin: 5px;
+    transition: transform 0.3s ease-in-out;
+}
+.contact-icons img:hover {
+    transform: scale(1.2);
+}
