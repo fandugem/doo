@@ -11,7 +11,7 @@ body {
     background-color: #111;
     color: #d4d4d4; /* Ganti putih ke abu-abu biar lebih nyaman dibaca */
     text-align: center;
-    max-width: 800px;
+    max-width: 600px;
     margin: auto;
     padding: 10px;
     line-height: 1.6; /* Jarak antar paragraf lebih nyaman */
@@ -173,22 +173,6 @@ footer {
     padding: 20px;
 }
 
-.contact-icons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 10px;
-}
-
-.contact-icons img {
-    width: 30px;
-    transition: transform 0.3s ease-in-out;
-}
-
-.contact-icons img:hover {
-    transform: scale(1.2);
-}
-
 /* Responsif buat HP */
 @media (max-width: 600px) {
     .sidebar {
@@ -201,8 +185,4 @@ footer {
     .menu-btn {
         font-size: 25px;
     }
-}
-
-body {
-    background-color: red !important;
 }
