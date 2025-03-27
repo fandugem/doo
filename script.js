@@ -41,19 +41,27 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    if (menuButton) {
-        menuButton.addEventListener("click", toggleSidebar);
-    } else {
-        console.error("Menu button not found!");
+   document.addEventListener("DOMContentLoaded", function () {
+    const darkModeBtn = document.querySelector(".darkmode-btn");
+    const body = document.body;
+
+    // Cek kalau sebelumnya user udah aktifin dark mode
+    if (localStorage.getItem("darkMode") === "enabled") {
+        body.classList.add("dark-mode");
     }
 
-    if (closeButton) {
-        closeButton.addEventListener("click", function () {
-            sidebar.classList.remove("active");
-        });
-    }
+    // Toggle Dark Mode
+    darkModeBtn.addEventListener("click", function () {
+        body.classList.toggle("dark-mode");
 
-    document.addEventListener("click", closeSidebar);
+        // Simpan preferensi di localStorage
+        if (body.classList.contains("dark-mode")) {
+            localStorage.setItem("darkMode", "enabled");
+        } else {
+            localStorage.removeItem("darkMode");
+        }
+    });
+});
 
     // GIF Icon Navigation
     const gifIcon = document.getElementById("gif-icon");
