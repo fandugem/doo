@@ -36,10 +36,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function closeSidebar(event) {
-        if (!sidebar.contains(event.target) && event.target !== menuButton && event.target !== closeButton) {
-            sidebar.classList.remove("active");
-        }
+    if (!sidebar.contains(event.target) && event.target !== menuButton) {
+        sidebar.classList.remove("active");
     }
+}
 
    document.addEventListener("DOMContentLoaded", function () {
     const darkModeBtn = document.querySelector(".darkmode-btn");
