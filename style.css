@@ -151,3 +151,11 @@ h1, h2, h3, p, a {
     margin: 0 auto;
     padding: 20px;
 }
+
+.menu a {
+    transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+.menu a:hover {
+    color: #ffcc00;
+    transform: scale(1.1);
+}
