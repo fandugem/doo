@@ -97,8 +97,8 @@ nav a:hover {
 
 .close-btn {
     position: absolute;
-    top: 30px;
-    right: 30px;
+    top: 20px;
+    right: 20px;
     font-size: 25px;
     color: var(--primary-color);
     background: none;
@@ -108,7 +108,7 @@ nav a:hover {
 }
 
 .close-btn:hover {
-    transform: scale(1.2);
+    transform: scale(0.3);
     color: white;
     outline: 2px solid var(--secondary-color);
     outline-offset: 2px;
@@ -120,8 +120,8 @@ main {
     max-width: 700px;
     margin: auto;
     text-align: center;
-    padding: 20px;
-    border-radius: 30px;
+    padding: 10px;
+    border-radius: 20px;
 }
 
 /* Titles */
@@ -135,7 +135,7 @@ h1, h2, h3 {
 /* Content Box */
 .content-box {
     background-color: #1a1a1a;
-    padding: 10px;
+    padding: 20px;
     border-radius: 20px;
     margin-bottom: 7px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
