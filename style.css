@@ -226,20 +226,6 @@ footer p {
                  0 0 30px rgba(255, 255, 255, 0.3);
 }
 
-/* Responsive Design */
-@media (max-width: 800px) {
-    .sidebar {
-        width: 200px;
-    }
-    main {
-        width: 100%;
-        padding: 15px;
-    }
-    .menu-btn {
-        font-size: 25px;
-    }
-}
-
 .contact-icon {
     width: 20px;  /* Adjust the size as needed */
     height: auto;  /* Maintain aspect ratio */
@@ -337,4 +323,18 @@ body {
     position: fixed;
     bottom: 20px;
     left: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 800px) {
+    .sidebar {
+        width: 200px;
+    }
+    main {
+        width: 100%;
+        padding: 15px;
+    }
+    .menu-btn {
+        font-size: 25px;
+    }
 }
