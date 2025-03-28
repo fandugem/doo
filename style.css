@@ -42,7 +42,7 @@ nav a {
     font-weight: bold;
     text-decoration: none;
     border-radius: 10px;
-    margin: 0 10px;
+    margin: auto;
     font-size: 11px;
     transition: color var(--transition-speed);
 }
@@ -130,15 +130,15 @@ h1, h2, h3 {
     color: var(--primary-color);
     font-weight: bold;
     text-align: center;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
 }
 
 /* Content Box */
 .content-box {
     background-color: #1a1a1a;
-    padding: 20px;
+    padding: 10px;
     border-radius: 10px;
-    margin-bottom: 7px;
+    margin-bottom: 0px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
 }
 
@@ -213,18 +213,18 @@ footer {
     background-size: cover;
     color: #121212;
     text-align: center;
-    font-size: 7px;
+    font-size: 8px;
     padding: 20px;
 }
 
 /* Responsive Design */
-@media (max-width: 600px) {
+@media (max-width: 800px) {
     .sidebar {
-        width: 185px;
+        width: 200px;
     }
     main {
         width: 100%;
-        padding: 20px;
+        padding: 15px;
     }
     .menu-btn {
         font-size: 25px;
@@ -276,10 +276,14 @@ body {
     transition: left 0.3s ease-in-out;
 }
 
-.sidebar-bg {
-    background: url("img/sad.gif") no-repeat center center/cover;
-    height: 100%;
-    opacity: 0.5;
+.sidebar {
+    background: url("img/sad.gif") center/cover no-repeat;
+    animation: bgMove 15s infinite alternate;
+}
+
+@keyframes bgMove {
+    0% { background-position: center top; }
+    100% { background-position: center bottom; }
 }
 
 #sidebar-video {
