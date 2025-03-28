@@ -1,4 +1,3 @@
-(document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
     // Dark Mode Toggle
     const darkModeToggle = document.getElementById("toggle-darkmode");
