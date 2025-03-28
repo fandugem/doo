@@ -369,3 +369,18 @@ img:hover, .menu-btn:hover, .darkmode-btn:hover, #gif-icon:hover {
     transform: scale(1.1);
     box-shadow: 0 0 15px rgba(168, 85, 247, 0.8);
 }
+
+body {
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.2) 0%, rgba(0, 0, 0, 1) 100%);
+    transition: background 0.5s;
+}
+
+@keyframes glowMove {
+    0% { box-shadow: 0 0 20px rgba(168, 85, 247, 0.8); }
+    50% { box-shadow: 0 0 40px rgba(168, 85, 247, 1); }
+    100% { box-shadow: 0 0 20px rgba(168, 85, 247, 0.8); }
+}
+
+.glow-effect {
+    animation: glowMove 2s infinite alternate;
+}
