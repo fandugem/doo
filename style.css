@@ -213,8 +213,17 @@ footer {
     background-size: cover;
     color: #121212;
     text-align: center;
-    font-size: 8px;
+    font-size: 10px;
     padding: 20px;
+    position: relative;
+}
+
+/* Efek cahaya putih di teks footer */
+footer p {
+    color: #000; /* Warna teks hitam */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 
+                 0 0 20px rgba(255, 255, 255, 0.5),
+                 0 0 30px rgba(255, 255, 255, 0.3);
 }
 
 /* Responsive Design */
@@ -234,13 +243,6 @@ footer {
 .contact-icon {
     width: 20px;  /* Adjust the size as needed */
     height: auto;  /* Maintain aspect ratio */
-}
-
-/* Use Modern Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
-body {
-    font-family: 'Roboto', sans-serif;
 }
 
 /* Add Gradients and Shadows */
