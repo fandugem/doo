@@ -1,151 +1,77 @@
-/* Reset CSS */
-*,
-*::before,
-*::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+body {
+    background-color: #111;
+    color: #fff;
+    font-family: Arial, sans-serif;
 }
 
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    /* Remove the overflow: hidden; to allow scrolling */
-    background-color: var(--background-color);
-    color: var(--text-color);
-    text-align: center;
-    max-width: 600px;
-    margin: auto;
-    padding: 10px;
-    line-height: 1.9;
-}
-
-/* Variables for consistency */
-:root {
-    --primary-color: #a855f7;
-    --secondary-color: #bb86fc;
-    --background-color: #111;
-    --text-color: #d4d4d4;
-    --border-radius: 10px;
-    --transition-speed: 0.3s;
-}
-
-/* Header Styling */
-header {
-    padding: 20px;
-    text-align: center;
-    border-radius: 10px;
-}
-
-/* Navigation */
-nav a {
-    color: var(--primary-color);
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: 10px;
-    margin: 0 10px;
-    font-size: 13px;
-    transition: color var(--transition-speed);
-}
-
-nav a:hover {
-    text-decoration: underline;
-    color: var(--secondary-color);
-}
-
-nav a:focus,
-nav a:hover {
-    outline: 2px solid var(--secondary-color);
-    outline-offset: 2px;
-}
-
-/* Sidebar */
 .sidebar {
     position: fixed;
+    left: -250px;
     top: 0;
-    left: -100%;
-    width: 300px;
+    width: 250px;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    transition: left 0.3s ease-in-out;
+}
+
+.sidebar-bg {
+    background: url('images/live-anime-bg.jpg') no-repeat center center/cover;
     height: 100%;
-    background: #222;
-    transition: left var(--transition-speed) ease-in-out;
-    padding-top: 60px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    opacity: 0.5;
 }
 
-.sidebar.active {
-    left: 0;
+.sidebar-menu {
+    list-style: none;
+    padding: 20px;
 }
 
-.sidebar ul {
-    list-style-type: none;
-}
-
-.sidebar ul li {
+.sidebar-item {
     padding: 15px;
+    border-radius: 5px;
     text-align: center;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
 }
 
-.sidebar ul li a {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-size: 16px;
+.sidebar-item:hover {
+    background: purple;
+    transform: scale(1.1);
 }
 
-.sidebar ul li a:hover {
-    color: white;
-}
-
-.close-btn {
+.menu-toggle {
     position: absolute;
     top: 15px;
     right: 15px;
-    font-size: 25px;
-    color: var(--primary-color);
-    background: none;
-    border: none;
+    font-size: 24px;
     cursor: pointer;
-    transition: transform 0.3s ease-in-out;
 }
 
-.close-btn:hover {
-    transform: scale(1.2);
-    color: white;
-    outline: 2px solid var(--secondary-color);
-    outline-offset: 2px;
-}
-
-/* Main Content */
-main {
-    width: 80%;
-    max-width: 700px;
-    margin: auto;
-    text-align: center;
-    padding: 15px;
-    border-radius: 10px;
-}
-
-/* Titles */
-h1, h2, h3 {
-    color: var(--primary-color);
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 5px;
-}
-
-/* Content Box */
-.content-box {
-    background-color: #1a1a1a;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 7px;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-}
-
-/* Image Styling */
-img {
+.glowing-image {
     width: 100%;
+    max-width: 300px;
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-    transition: transform 0.3s ease-in-out;
+    transition: filter 0.3s ease-in-out;
+}
+
+.glowing-image:hover {
+    filter: drop-shadow(0 0 10px purple);
+}
+
+.gif-icon {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+}
+
+.floating-animation {
+    position: fixed;
+    top: 50%;
+    right: 10px;
+    animation: float 3s infinite ease-in-out;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
