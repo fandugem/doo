@@ -11,7 +11,7 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    overflow: hidden;
+    /* Remove the overflow: hidden; to allow scrolling */
     background-color: var(--background-color);
     color: var(--text-color);
     text-align: center;
@@ -147,4 +147,5 @@ img {
     width: 100%;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-    transition: transform 
+    transition: transform 0.3s ease-in-out;
+}
