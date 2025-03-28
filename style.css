@@ -2,9 +2,9 @@
 *,
 *::before,
 *::after {
-    margin: 0px;
-    padding: 0px;
-    border-radius: 10px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
 
@@ -282,4 +282,81 @@ nav a:hover, .sidebar ul li a:hover, .close-btn:hover, img:hover {
 
 .darkmode-btn:hover, #gif-icon:hover {
     box-shadow: 0 0 10px rgba(255, 55, 255, 0.4);
+}
+body {
+    background-color: #111;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+.sidebar {
+    position: fixed;
+    left: -250px;
+    top: 0;
+    width: 250px;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    transition: left 0.3s ease-in-out;
+}
+
+.sidebar-bg {
+    background: url('images/live-anime-bg.jpg') no-repeat center center/cover;
+    height: 100%;
+    opacity: 0.5;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 20px;
+}
+
+.sidebar-item {
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.sidebar-item:hover {
+    background: purple;
+    transform: scale(1.1);
+}
+
+.menu-toggle {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.glowing-image {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+    transition: filter 0.3s ease-in-out;
+}
+
+.glowing-image:hover {
+    filter: drop-shadow(0 0 10px purple);
+}
+
+.gif-icon {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+}
+
+.floating-animation {
+    position: fixed;
+    top: 50%;
+    right: 10px;
+    animation: float 3s infinite ease-in-out;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
