@@ -4,7 +4,7 @@
 *::after {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    border-radius: 10px;
     font-family: Arial, sans-serif;
 }
 
@@ -383,4 +383,14 @@ body {
 
 .glow-effect {
     animation: glowMove 2s infinite alternate;
+}
+
+.sidebar {
+    background: url("img/sad.gif") center/cover no-repeat;
+    animation: bgMove 15s infinite alternate;
+}
+
+@keyframes bgMove {
+    0% { background-position: center top; }
+    100% { background-position: center bottom; }
 }
