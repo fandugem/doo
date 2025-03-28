@@ -402,3 +402,63 @@ body {
     object-fit: cover;
     z-index: -1;
 }
+
+/* Efek Glow Ungu untuk Semua Elemen */
+.glow-purple {
+    text-shadow: 0 0 10px rgba(168, 85, 247, 1), 0 0 20px rgba(168, 85, 247, 0.8);
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.8);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Efek Glow untuk Gambar & Icon */
+img, .icon {
+    filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.8));
+    transition: filter 0.3s ease-in-out;
+}
+
+/* Tambahkan Glow saat Hover */
+img:hover, .icon:hover {
+    filter: drop-shadow(0 0 20px rgba(168, 85, 247, 1));
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Sidebar tersembunyi */
+    width: 250px;
+    height: 100vh;
+    background: black;
+    transition: left 0.3s ease-in-out;
+}
+
+.sidebar.show {
+    left: 0;
+}
+
+.spotify-container {
+    position: relative;
+    display: inline-block;
+}
+
+.spotify-container {
+    position: relative;
+    display: inline-block;
+}
+
+.spotify-text {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.spotify-container:hover .spotify-text {
+    opacity: 1;
+}
