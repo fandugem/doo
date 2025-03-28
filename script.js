@@ -139,3 +139,34 @@ document.addEventListener("scroll", function () {
         document.querySelector(".sidebar").classList.remove("show");
     }
 });
+
+async function detectUserLanguage() {
+    try {
+        let response = await fetch("https://ipapi.co/json/");
+        let data = await response.json();
+        let countryCode = data.country_code;
+
+        let translations = {
+            "ID": { "welcome": "Selamat Datang", "about": "Tentang Saya", "contact": "Kontak" },
+            "ES": { "welcome": "Bienvenido", "about": "Sobre mí", "contact": "Contacto" },
+            "FR": { "welcome": "Bienvenue", "about": "À propos", "contact": "Contact" },
+            "default": { "welcome": "Welcome", "about": "About Me", "contact": "Contact" }
+        };
+
+        let lang = translations[countryCode] || translations["default"];
+
+        document.getElementById("welcome-text").innerText = lang.welcome;
+        document.getElementById("about-text").innerText = lang.about;
+        document.getElementById("contact-text").innerText = lang.contact;
+    } catch (error) {
+        console.error("Error detecting language:", error);
+    }
+}
+
+window.onload = detectUserLanguage;
+
+document.addEventListener("mousemove", function (event) {
+    let light = document.getElementById("scroll-light");
+    light.style.top = event.clientY + "px";
+    light.style.left = event.clientX + "px";
+});
