@@ -23,7 +23,7 @@ body {
     background-color: var(--background-color);
     color: var(--text-color);
     text-align: center;
-    font-size: 13px;
+    font-size: 7px;
     max-width: 600px;
     margin: auto;
     padding: 20px;
@@ -43,7 +43,7 @@ nav a {
     text-decoration: none;
     border-radius: 10px;
     margin: 0 10px;
-    font-size: 13px;
+    font-size: 7px;
     transition: color var(--transition-speed);
 }
 
