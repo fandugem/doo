@@ -490,3 +490,31 @@ img:hover, .icon:hover {
 .sidebar button i {
     font-size: 20px;
 }
+
+.extra-content {
+    margin: 50px auto;
+    width: 80%;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+}
+
+.persistent-gif {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 100px;
+    height: auto;
+    z-index: 999;
+}
+
+@keyframes glowing {
+    0% { box-shadow: 0 0 5px rgba(168, 85, 247, 0.5); }
+    50% { box-shadow: 0 0 20px rgba(168, 85, 247, 1); }
+    100% { box-shadow: 0 0 5px rgba(168, 85, 247, 0.5); }
+}
+
+.sidebar {
+    animation: glowing 2s infinite alternate;
+}
