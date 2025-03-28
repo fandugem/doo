@@ -230,6 +230,11 @@ footer {
     }
 }
 
+.contact-icon {
+    width: 20px;  /* Adjust the size as needed */
+    height: auto;  /* Maintain aspect ratio */
+}
+
 /* Add CSS Animations */
 @keyframes fadeIn {
     from { opacity: 0; }
