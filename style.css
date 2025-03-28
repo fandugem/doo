@@ -250,53 +250,6 @@ footer p {
     height: auto;  /* Maintain aspect ratio */
 }
 
-/* Add Gradients and Shadows */
-body {
-    background: linear-gradient(45deg, #111, #333);
-}
-
-.content-box, .sidebar, footer {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-nav a:hover, .sidebar ul li a:hover, .close-btn:hover, img:hover {
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.darkmode-btn:hover, #gif-icon:hover {
-    box-shadow: 0 0 10px rgba(255, 55, 255, 0.4);
-}
-body {
-    background-color: #111;
-    color: #fff;
-    font-family: Arial, sans-serif;
-}
-
-.menu-toggle {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    font-size: 24px;
-    cursor: pointer;
-}
-
-.glowing-image {
-    width: 100%;
-    max-width: 300px;
-    border-radius: 10px;
-    transition: filter 0.3s ease-in-out;
-}
-
-.glowing-image:hover {
-    filter: drop-shadow(0 0 10px purple);
-}
-
-.gif-icon {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-}
-
 /* Responsive Design */
 @media (max-width: 800px) {
     .sidebar {
