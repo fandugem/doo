@@ -1,3 +1,288 @@
+/* Reset CSS */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Variables for consistency */
+:root {
+    --primary-color: #a855f7;
+    --secondary-color: #bb86fc;
+    --background-color: #111;
+    --text-color: #d4d4d4;
+    --border-radius: 10px;
+    --transition-speed: 0.3s;
+}
+
+/* Body Styling */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    text-align: center;
+    max-width: 600px;
+    margin: auto;
+    padding: 10px;
+    line-height: 1.9;
+}
+
+/* Header */
+header {
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+nav a {
+    color: var(--primary-color);
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 10px;
+    margin: 0 10px;
+    font-size: 13px;
+    transition: color var(--transition-speed);
+}
+
+nav a:hover {
+    text-decoration: underline;
+    color: var(--secondary-color);
+}
+
+nav a:focus,
+nav a:hover {
+    outline: 2px solid var(--secondary-color);
+    outline-offset: 2px;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 300px;
+    height: 100%;
+    background: #222;
+    transition: left var(--transition-speed) ease-in-out;
+    padding-top: 60px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+/* Other styles remain the same */
+
+.sidebar ul {
+    list-style-type: none;
+}
+
+.sidebar ul li {
+    padding: 15px;
+    text-align: center;
+}
+
+.sidebar ul li a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.sidebar ul li a:hover {
+    color: white;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 25px;
+    color: var(--primary-color);
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.close-btn:hover {
+    transform: scale(1.2);
+    color: white;
+    outline: 2px solid var(--secondary-color);
+    outline-offset: 2px;
+}
+
+/* Main Content */
+main {
+    width: 80%;
+    max-width: 700px;
+    margin: auto;
+    text-align: center;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+/* Titles */
+h1, h2, h3 {
+    color: var(--primary-color);
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+/* Content Box */
+.content-box {
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 7px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+/* Image Styling */
+img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+img:hover {
+    transform: scale(1.05);
+}
+
+/* Navigation Buttons */
+.menu-btn, .darkmode-btn, #gif-icon {
+    position: fixed;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    cursor: pointer;
+}
+
+.menu-btn {
+    left: 10px;
+    top: 10px;
+    font-size: 30px;
+}
+
+.darkmode-btn {
+    right: 10px;
+    top: 10px;
+    width: 30px;
+}
+
+#gif-icon {
+    right: 10px;
+    bottom: 10px;
+    width: 50px;
+}
+
+/* Hover Effects on Buttons */
+.darkmode-btn:hover, #gif-icon:hover {
+    background: rgba(255, 55, 255, 0.2);
+    transition: background 0.3s ease;
+}
+
+/* Dark Mode */
+.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.dark-mode header,
+.dark-mode section,
+.dark-mode footer,
+.dark-mode .sidebar {
+    background-color: #333;
+}
+
+.dark-mode a {
+    color: var(--secondary-color);
+}
+
+.dark-mode a:hover {
+    color: white;
+}
+
+/* Footer */
+footer {
+    background-image: url("img/giphy.gif");
+    background-size: cover;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+}
+
+.contact-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.contact-icons img {
+    width: 15px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.contact-icons img:hover {
+    transform: scale(1.5);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .sidebar {
+        width: 185px;
+    }
+    main {
+        width: 100%;
+        padding: 20px;
+    }
+    .menu-btn {
+        font-size: 25px;
+    }
+}
+
+/* Add CSS Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+body {
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+header, nav a, .sidebar, .content-box, img, footer {
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Use Modern Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Add Gradients and Shadows */
+body {
+    background: linear-gradient(45deg, #111, #333);
+}
+
+.content-box, .sidebar, footer {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+nav a:hover, .sidebar ul li a:hover, .close-btn:hover, img:hover {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.darkmode-btn:hover, #gif-icon:hover {
+    box-shadow: 0 0 10px rgba(255, 55, 255, 0.4);
+}
 body {
     background-color: #111;
     color: #fff;
