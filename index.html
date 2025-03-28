@@ -5,7 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
     <title>My Think - Personal Portfolio</title>  
     <link rel="stylesheet" href="style.css">   
-    <script defer src="script.js"></script>  
+    <!-- Tambah ini di dalam <script defer src="script.js"></script> -->
+<script defer>
+document.addEventListener("DOMContentLoaded", function () {
+    const sidebar = document.getElementById("sidebar");
+    const menuButton = document.getElementById("menu-btn");
+    const closeButton = document.getElementById("close-btn");
+
+    // Fungsi Toggle Sidebar
+    function toggleSidebar() {
+        sidebar.classList.toggle("active");
+    }
+
+    // Fungsi Tutup Sidebar saat klik di luar
+    function closeSidebar(event) {
+        if (!sidebar.contains(event.target) && event.target !== menuButton) {
+            sidebar.classList.remove("active");
+        }
+    }
+
+    // Event Listener
+    menuButton.addEventListener("click", toggleSidebar);
+    closeButton.addEventListener("click", toggleSidebar);
+    document.addEventListener("click", closeSidebar);
+    
+    // Cegah sidebar nutup sendiri pas klik di dalam
+    sidebar.addEventListener("click", function(event) {
+        event.stopPropagation();
+    });
+});
+</script>  
 </head>  
 <body>  <button id="menu-btn" class="menu-btn">☰</button>  
 <img id="toggle-darkmode" class="darkmode-btn" alt="Dark Mode Toggle">  
