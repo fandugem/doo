@@ -81,3 +81,10 @@
     applyDarkMode();
     window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", applyDarkMode);
 });
+
+function applyDarkMode() {
+    document.body.classList.toggle("dark-mode");
+    document.querySelector("header").classList.toggle("dark-mode");
+    document.querySelector("footer").classList.toggle("dark-mode");
+    document.querySelector(".sidebar").classList.toggle("dark-mode");
+}
