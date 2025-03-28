@@ -241,11 +241,11 @@ footer {
 }
 
 body {
-    animation: fadeIn 1.5s ease-in-out;
+    animation: fadeIn 1s ease-in-out;
 }
 
 header, nav a, .sidebar, .content-box, img, footer {
-    animation: fadeIn 1.5s ease-in-out;
+    animation: fadeIn 1s ease-in-out;
 }
 
 /* Use Modern Fonts */
