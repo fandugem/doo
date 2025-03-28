@@ -462,3 +462,31 @@ img:hover, .icon:hover {
 .spotify-container:hover .spotify-text {
     opacity: 1;
 }
+
+#scroll-light {
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.6) 10%, rgba(168, 85, 247, 0) 70%);
+    pointer-events: none;
+    filter: blur(20px);
+    transition: top 0.1s linear, left 0.1s linear;
+}
+
+.sidebar button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+}
+
+.sidebar button i {
+    font-size: 20px;
+}
