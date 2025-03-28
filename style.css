@@ -208,7 +208,7 @@ img:hover {
 
 /* Footer */
 footer {
-    background-image: url("img/giphy.gif");
+    background-image: url("mylivewallpapers-com-Green-Dragon-Roronoa-Zoro-4K.mp4");
     background-size: cover;
     color: #121212;
     text-align: center;
@@ -289,7 +289,7 @@ body {
 }
 
 .sidebar-bg {
-    background: url('images/live-anime-bg.jpg') no-repeat center center/cover;
+    background: url("img/giphy.gif") no-repeat center center/cover;
     height: 100%;
     opacity: 0.5;
 }
