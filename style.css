@@ -4,7 +4,7 @@
 *::after {
     margin: 0;
     padding: 0;
-    border-size: border-box;
+    border-radius: 10px;
     font-family: Arial, sans-serif;
 }
 
@@ -23,7 +23,7 @@ body {
     background-color: var(--background-color);
     color: var(--text-color);
     text-align: center;
-    font-size: 7px;
+    font-size: 11px;
     max-width: 600px;
     margin: auto;
     padding: 20px;
@@ -32,7 +32,7 @@ body {
 
 /* Header */
 header {
-    padding: 10px;
+    padding: 20px;
     text-align: center;
     border-radius: 10px;
 }
@@ -43,7 +43,7 @@ nav a {
     text-decoration: none;
     border-radius: 10px;
     margin: 0 10px;
-    font-size: 7px;
+    font-size: 11px;
     transition: color var(--transition-speed);
 }
 
@@ -213,7 +213,7 @@ footer {
     background-size: cover;
     color: #121212;
     text-align: center;
-    font-size: 4px;
+    font-size: 7px;
     padding: 20px;
 }
 
@@ -232,22 +232,8 @@ footer {
 }
 
 .contact-icon {
-    width: 30px;  /* Adjust the size as needed */
+    width: 20px;  /* Adjust the size as needed */
     height: auto;  /* Maintain aspect ratio */
-}
-
-/* Add CSS Animations */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-body {
-    animation: fadeIn 1s ease-in-out;
-}
-
-header, nav a, .sidebar, .content-box, img, footer {
-    animation: fadeIn 1s ease-in-out;
 }
 
 /* Use Modern Fonts */
