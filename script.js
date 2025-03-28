@@ -117,7 +117,14 @@ function applyTranslation(lang) {
         }
     };
 
-    document.querySelector("#welcome-text").textContent = translations[lang]["welcome"];
-    document.querySelector("#about-text").textContent = translations[lang]["about"];
-    document.querySelector("#contact-text").textContent = translations[lang]["contact"];
+    document.querySelector("#about").textContent = translations[lang]["welcome"];
+    document.querySelector("#my-think").textContent = translations[lang]["about"];
+    document.querySelector("#contact").textContent = translations[lang]["contact"];
 }
+
+document.addEventListener("scroll", function () {
+    document.body.classList.add("glow-effect");
+    setTimeout(() => {
+        document.body.classList.remove("glow-effect");
+    }, 2000);
+});
