@@ -88,3 +88,36 @@ function applyDarkMode() {
     document.querySelector("footer").classList.toggle("dark-mode");
     document.querySelector(".sidebar").classList.toggle("dark-mode");
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    fetch("https://ipapi.co/json/")
+        .then(response => response.json())
+        .then(data => {
+            const countryCode = data.country_code;
+            if (countryCode === "ID") {
+                applyTranslation("id");
+            } else {
+                applyTranslation("en");
+            }
+        })
+        .catch(error => console.error("Gagal mendapatkan lokasi:", error));
+});
+
+function applyTranslation(lang) {
+    const translations = {
+        "en": {
+            "welcome": "Welcome to My Website",
+            "about": "About Me",
+            "contact": "Contact"
+        },
+        "id": {
+            "welcome": "Selamat Datang di Website Saya",
+            "about": "Tentang Saya",
+            "contact": "Kontak"
+        }
+    };
+
+    document.querySelector("#welcome-text").textContent = translations[lang]["welcome"];
+    document.querySelector("#about-text").textContent = translations[lang]["about"];
+    document.querySelector("#contact-text").textContent = translations[lang]["contact"];
+}
