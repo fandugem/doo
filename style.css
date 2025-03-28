@@ -289,7 +289,7 @@ body {
 }
 
 .sidebar-bg {
-    background: url("img/giphy.gif") no-repeat center center/cover;
+    background: url("none") no-repeat center center/cover;
     height: 100%;
     opacity: 0.5;
 }
