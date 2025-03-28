@@ -1,75 +1,58 @@
-(document.addEventListener("DOMContentLoaded", function () {
-  // Dark Mode Toggle
-  const darkModeToggle = document.getElementById("toggle-darkmode");
-  const body = document.body;
+document.addEventListener("DOMContentLoaded", function () {
+    // Dark Mode Toggle
+    const darkModeToggle = document.getElementById("toggle-darkmode");
+    const body = document.body;
 
-  // Check localStorage, if dark mode is enabled, apply it
-  if (localStorage.getItem("darkMode") === "enabled") {
-    body.classList.add("dark-mode");
-  }
-  updateDarkModeIcon();
-
-  function toggleDarkMode() {
-    body.classList.toggle("dark-mode");
-    localStorage.setItem("darkMode", body.classList.contains("dark-mode") ? "enabled" : "disabled");
+    // Check localStorage, if dark mode is enabled, apply it
+    if (localStorage.getItem("darkMode") === "enabled") {
+        body.classList.add("dark-mode");
+    }
     updateDarkModeIcon();
-  }
 
-  function updateDarkModeIcon() {
-    if (darkModeToggle) {
-      darkModeToggle.src = body.classList.contains("dark-mode") ? "img/dark.png" : "img/white.png";
+    function toggleDarkMode() {
+        body.classList.toggle("dark-mode");
+        localStorage.setItem("darkMode", body.classList.contains("dark-mode") ? "enabled" : "disabled");
+        updateDarkModeIcon();
     }
-  }
 
-  if (darkModeToggle) {
-    darkModeToggle.addEventListener("click", toggleDarkMode);
-  }
-
-  // Sidebar Menu
-  const menuButton = document.getElementById("menu-btn");
-  const sidebar = document.getElementById("sidebar");
-
-  function toggleSidebar() {
-    sidebar.classList.toggle("active");
-  }
-
-  function closeSidebar(event) {
-    if (!sidebar.contains(event.target) && event.target !== menuButton) {
-      sidebar.classList.remove("active");
-    }
-  }
-
-  if (menuButton) {
-    menuButton.addEventListener("click", toggleSidebar);
-  }
-
-  document.addEventListener("click", closeSidebar);
-
-  // GIF Icon Navigation
-  const gifIcon = document.getElementById("gif-icon");
-  if (gifIcon) {
-    gifIcon.addEventListener("click", function () {
-      window.location.href = "hype/index.html"; // Change to the target page
-    });
-  }
-}))
-
-;document.addEventListener("DOMContentLoaded", function () {
-    const sidebar = document.querySelector(".sidebar");
-    const menuToggle = document.querySelector(".menu-toggle");
-
-    // Sidebar toggle
-    menuToggle.addEventListener("click", function () {
-        sidebar.style.left = (sidebar.style.left === "0px") ? "-250px" : "0px";
-    });
-
-    // Close sidebar when clicking outside
-    document.addEventListener("click", function (event) {
-        if (!sidebar.contains(event.target) && event.target !== menuToggle) {
-            sidebar.style.left = "-250px";
+    function updateDarkModeIcon() {
+        if (darkModeToggle) {
+            darkModeToggle.src = body.classList.contains("dark-mode") ? "img/dark.png" : "img/white.png";
         }
-    });
+    }
 
+    if (darkModeToggle) {
+        darkModeToggle.addEventListener("click", toggleDarkMode);
+    }
+
+    // Sidebar Menu
+    const menuButton = document.getElementById("menu-btn");
+    const sidebar = document.getElementById("sidebar");
+
+    function toggleSidebar() {
+        sidebar.classList.toggle("active");
+    }
+
+    function closeSidebar(event) {
+        if (!sidebar.contains(event.target) && event.target !== menuButton) {
+            sidebar.classList.remove("active");
+        }
+    }
+
+    if (menuButton) {
+        menuButton.addEventListener("click", toggleSidebar);
+    }
+
+    document.addEventListener("click", closeSidebar);
+
+    // GIF Icon Navigation
+    const gifIcon = document.getElementById("gif-icon");
+    if (gifIcon) {
+        gifIcon.addEventListener("click", function () {
+            window.location.href = "hype/index.html"; // Change to the target page
+        });
+    }
+    
     // Auto dark mode based on system preference
     function applyDarkMode() {
         if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
@@ -80,16 +63,8 @@
     }
     applyDarkMode();
     window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", applyDarkMode);
-});
 
-function applyDarkMode() {
-    document.body.classList.toggle("dark-mode");
-    document.querySelector("header").classList.toggle("dark-mode");
-    document.querySelector("footer").classList.toggle("dark-mode");
-    document.querySelector(".sidebar").classList.toggle("dark-mode");
-}
-
-document.addEventListener("DOMContentLoaded", function () {
+    // Fetch user location and apply translation
     fetch("https://ipapi.co/json/")
         .then(response => response.json())
         .then(data => {
@@ -101,72 +76,49 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         })
         .catch(error => console.error("Gagal mendapatkan lokasi:", error));
-});
 
-function applyTranslation(lang) {
-    const translations = {
-        "en": {
-            "welcome": "Welcome to My Website",
-            "about": "About Me",
-            "contact": "Contact"
-        },
-        "id": {
-            "welcome": "Selamat Datang di Website Saya",
-            "about": "Tentang Saya",
-            "contact": "Kontak"
-        }
-    };
-
-    document.querySelector("#about").textContent = translations[lang]["welcome"];
-    document.querySelector("#my-think").textContent = translations[lang]["about"];
-    document.querySelector("#contact").textContent = translations[lang]["contact"];
-}
-
-document.addEventListener("scroll", function () {
-    document.body.classList.add("glow-effect");
-    setTimeout(() => {
-        document.body.classList.remove("glow-effect");
-    }, 2000);
-});
-
-document.addEventListener("scroll", function () {
-    let scrollX = window.scrollX;
-    let screenWidth = window.innerWidth;
-    
-    if (scrollX > screenWidth / 4) {
-        document.querySelector(".sidebar").classList.add("show");
-    } else {
-        document.querySelector(".sidebar").classList.remove("show");
-    }
-});
-
-async function detectUserLanguage() {
-    try {
-        let response = await fetch("https://ipapi.co/json/");
-        let data = await response.json();
-        let countryCode = data.country_code;
-
-        let translations = {
-            "ID": { "welcome": "Selamat Datang", "about": "Tentang Saya", "contact": "Kontak" },
-            "ES": { "welcome": "Bienvenido", "about": "Sobre mí", "contact": "Contacto" },
-            "FR": { "welcome": "Bienvenue", "about": "À propos", "contact": "Contact" },
-            "default": { "welcome": "Welcome", "about": "About Me", "contact": "Contact" }
+    function applyTranslation(lang) {
+        const translations = {
+            "en": {
+                "welcome": "Welcome to My Website",
+                "about": "About Me",
+                "contact": "Contact"
+            },
+            "id": {
+                "welcome": "Selamat Datang di Website Saya",
+                "about": "Tentang Saya",
+                "contact": "Kontak"
+            }
         };
 
-        let lang = translations[countryCode] || translations["default"];
-
-        document.getElementById("welcome-text").innerText = lang.welcome;
-        document.getElementById("about-text").innerText = lang.about;
-        document.getElementById("contact-text").innerText = lang.contact;
-    } catch (error) {
-        console.error("Error detecting language:", error);
+        document.querySelector("#welcome-text").textContent = translations[lang]["welcome"];
+        document.querySelector("#about-text").textContent = translations[lang]["about"];
+        document.querySelector("#contact-text").textContent = translations[lang]["contact"];
     }
-}
 
-window.onload = detectUserLanguage;
+    // Scroll effect
+    document.addEventListener("scroll", function () {
+        document.body.classList.add("glow-effect");
+        setTimeout(() => {
+            document.body.classList.remove("glow-effect");
+        }, 2000);
+    });
 
-document.addEventListener("mousemove", function (event) {
-    let light = document.getElementById("scroll-light");
-    light.style.top = event.clientY + "px";
-    light.style.left = event.clientX + "px";
+    document.addEventListener("scroll", function () {
+        let scrollX = window.scrollX;
+        let screenWidth = window.innerWidth;
+
+        if (scrollX > screenWidth / 4) {
+            document.querySelector(".sidebar").classList.add("show");
+        } else {
+            document.querySelector(".sidebar").classList.remove("show");
+        }
+    });
+
+    // Light follow mouse cursor
+    document.addEventListener("mousemove", function (event) {
+        let light = document.getElementById("scroll-light");
+        light.style.top = event.clientY + "px";
+        light.style.left = event.clientX + "px";
+    });
 });
