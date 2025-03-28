@@ -128,3 +128,14 @@ document.addEventListener("scroll", function () {
         document.body.classList.remove("glow-effect");
     }, 2000);
 });
+
+document.addEventListener("scroll", function () {
+    let scrollX = window.scrollX;
+    let screenWidth = window.innerWidth;
+    
+    if (scrollX > screenWidth / 4) {
+        document.querySelector(".sidebar").classList.add("show");
+    } else {
+        document.querySelector(".sidebar").classList.remove("show");
+    }
+});
