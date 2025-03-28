@@ -359,3 +359,13 @@ body {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
 }
+
+/* Efek Glow untuk Semua Icon */
+img, .menu-btn, .darkmode-btn, #gif-icon {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+img:hover, .menu-btn:hover, .darkmode-btn:hover, #gif-icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.8);
+}
