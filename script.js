@@ -1,59 +1,67 @@
 (document.addEventListener("DOMContentLoaded", function () {
-  // Dark Mode Toggle
-  const darkModeToggle = document.getElementById("toggle-darkmode");
-  const body = document.body;
+document.addEventListener("DOMContentLoaded", function () {
+    // Dark Mode Toggle
+    const darkModeToggle = document.getElementById("toggle-darkmode");
+    const body = document.body;
 
-  // Check localStorage, if dark mode is enabled, apply it
-  if (localStorage.getItem("darkMode") === "enabled") {
-    body.classList.add("dark-mode");
-  }
+    // Check localStorage, if dark mode is enabled, apply it
+    if (localStorage.getItem("darkMode") === "enabled") {
+        body.classList.add("dark-mode");
+    }
 
-  function toggleDarkMode() {
-    body.classList.toggle("dark-mode");
-    localStorage.setItem("darkMode", body.classList.contains("dark-mode") ? "enabled" : "disabled");
-    updateDarkModeIcon();
-  }
+    function toggleDarkMode() {
+        body.classList.toggle("dark-mode");
+        localStorage.setItem("darkMode", body.classList.contains("dark-mode") ? "enabled" : "disabled");
+        updateDarkModeIcon();
+    }
 
-  function updateDarkModeIcon() {
+    function updateDarkModeIcon() {
+        if (darkModeToggle) {
+            darkModeToggle.src = body.classList.contains("dark-mode") ? "img/dark.png" : "img/white.png";
+        }
+    }
+
     if (darkModeToggle) {
-      darkModeToggle.src = body.classList.contains("dark-mode") ? "img/dark.png" : "img/white.png";
+        darkModeToggle.addEventListener("click", toggleDarkMode);
     }
-  }
 
-  if (darkModeToggle) {
-    darkModeToggle.addEventListener("click", toggleDarkMode);
-  }
+    // Sidebar Menu
+    const menuButton = document.getElementById("menu-btn");
+    const closeButton = document.getElementById('close-btn');
+    const sidebar = document.getElementById("sidebar");
 
-  // Sidebar Menu
-  const menuButton = document.getElementById("menu-btn");
-  const sidebar = document.getElementById("sidebar");
-
-  function toggleSidebar() {
-    sidebar.classList.toggle("active");
-  }
-
-  function closeSidebar(event) {
-    if (!sidebar.contains(event.target) && event.target !== menuButton) {
-      sidebar.classList.remove("active");
+    function toggleSidebar() {
+        sidebar.classList.toggle("active");
     }
-  }
 
-  if (menuButton) {
-    menuButton.addEventListener("click", toggleSidebar);
-  }
+    function closeSidebar(event) {
+        if (!sidebar.contains(event.target) && event.target !== menuButton) {
+            sidebar.classList.remove("active");
+        }
+    }
 
-  document.addEventListener("click", closeSidebar);
+    if (menuButton) {
+        menuButton.addEventListener("click", toggleSidebar);
+    }
 
-  // GIF Icon Navigation
-  const gifIcon = document.getElementById("gif-icon");
-  if (gifIcon) {
-    gifIcon.addEventListener("click", function () {
-      window.location.href = "hype/index.html";
-    });
-  }
-}))
+    if (closeButton) {
+        closeButton.addEventListener('click', function() {
+            sidebar.classList.remove('active');
+        });
+    }
 
-;document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("click", closeSidebar);
+
+    // GIF Icon Navigation
+    const gifIcon = document.getElementById("gif-icon");
+    if (gifIcon) {
+        gifIcon.addEventListener("click", function () {
+            window.location.href = "hype/index.html";
+        });
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
     const sidebar = document.querySelector(".sidebar");
     const menuToggle = document.querySelector(".menu-toggle");
 
@@ -64,7 +72,7 @@
 
     // Close sidebar when clicking outside
     document.addEventListener("click", function (event) {
-        if (!sidebar.contains(event.target) && event.target !== XToggle) {
+        if (!sidebar.contains(event.target) && event.target !== menuToggle) {
             sidebar.style.left = "-250px";
         }
     });
