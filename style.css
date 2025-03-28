@@ -4,7 +4,7 @@
 *::after {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    border-radius: 10px;
     font-family: Arial, sans-serif;
 }
 
@@ -31,7 +31,7 @@ body {
 
 /* Header */
 header {
-    padding: 20px;
+    padding: 10px;
     text-align: center;
     border-radius: 10px;
 }
@@ -120,7 +120,7 @@ main {
     max-width: 700px;
     margin: auto;
     text-align: center;
-    padding: 15px;
+    padding: 10px;
     border-radius: 10px;
 }
 
@@ -135,10 +135,10 @@ h1, h2, h3 {
 /* Content Box */
 .content-box {
     background-color: #1a1a1a;
-    padding: 20px;
+    padding: 10px;
     border-radius: 10px;
     margin-bottom: 7px;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
 }
 
 /* Image Styling */
@@ -150,7 +150,7 @@ img {
 }
 
 img:hover {
-    transform: scale(1.05);
+    transform: scale(1.5);
 }
 
 /* Navigation Buttons */
@@ -182,7 +182,7 @@ img:hover {
 
 /* Hover Effects on Buttons */
 .darkmode-btn:hover, #gif-icon:hover {
-    background: rgba(255, 55, 255, 0.2);
+    background: rgba(255, 55, 255, 0.4);
     transition: background 0.3s ease;
 }
 
@@ -204,32 +204,16 @@ img:hover {
 }
 
 .dark-mode a:hover {
-    color: white;
+    color: #a855f7;
 }
 
 /* Footer */
 footer {
     background-image: url("img/giphy.gif");
     background-size: cover;
-    color: #ffffff;
+    color: #121212;
     text-align: center;
-    padding: 20px;
-}
-
-.contact-icons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 15px;
-}
-
-.contact-icons img {
-    width: 15px;
-    transition: transform 0.3s ease-in-out;
-}
-
-.contact-icons img:hover {
-    transform: scale(1.5);
+    padding: 10px;
 }
 
 /* Responsive Design */
