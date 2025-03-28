@@ -39,19 +39,15 @@ nav a {
     color: var(--primary-color);
     font-weight: bold;
     text-decoration: none;
-    border-radius: 10px;
-    margin: auto;
     font-size: 11px;
     transition: color var(--transition-speed);
+    padding: 5px 10px;
+    border-radius: var(--border-radius);
 }
 
 nav a:hover {
     text-decoration: underline;
     color: var(--secondary-color);
-}
-
-nav a:focus,
-nav a:hover {
     outline: 2px solid var(--secondary-color);
     outline-offset: 2px;
 }
