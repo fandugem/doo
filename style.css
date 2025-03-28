@@ -133,42 +133,43 @@ nav a:hover {
 }
 
 /* Main Content */
+
+/* Main Content */
 main {
     width: 80%;
     max-width: 700px;
     margin: auto;
     text-align: center;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* Titles */
 h1, h2, h3 {
     color: var(--primary-color);
     font-weight: bold;
-    text-align: center;
-    margin-bottom: 0px;
+    margin-bottom: 10px;
 }
 
 /* Content Box */
 .content-box {
     background-color: #1a1a1a;
     padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 0px;
+    border-radius: var(--border-radius);
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
 }
 
 /* Image Styling */
 img {
     width: 100%;
-    border-radius: 10px;
+    border-radius: var(--border-radius);
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-    transition: transform 0.3s ease-in-out;
+    transition: transform var(--transition-speed) ease-in-out;
 }
 
 img:hover {
-    transform: scale(1.5);
+    transform: scale(1.1);
 }
 
 /* Navigation Buttons */
@@ -176,14 +177,14 @@ img:hover {
     position: fixed;
     z-index: 1000;
     background: rgba(0, 0, 0, 0.5);
-    border: 10px;
+    border-radius: var(--border-radius);
     cursor: pointer;
 }
 
 .menu-btn {
     left: 10px;
     top: 10px;
-    font-size: 50px;
+    font-size: 30px;
 }
 
 .darkmode-btn {
@@ -198,10 +199,11 @@ img:hover {
     width: 50px;
 }
 
-/* Hover Effects on Buttons */
+/* Hover Effects */
 .darkmode-btn:hover, #gif-icon:hover {
     background: rgba(255, 55, 255, 0.4);
-    transition: background 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 55, 255, 0.4);
+    transition: background var(--transition-speed);
 }
 
 /* Dark Mode */
@@ -221,7 +223,7 @@ img:hover {
 }
 
 .dark-mode a:hover {
-    color: #a855f7;
+    color: var(--primary-color);
 }
 
 /* Footer */
