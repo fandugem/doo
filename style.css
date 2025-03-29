@@ -275,6 +275,18 @@ footer p {
 .contact-icon {
     width: 20px;  /* Adjust the size as needed */
     height: auto;  /* Maintain aspect ratio */
+    position: relative; /* Atur posisi */
+    z-index: 10; /* Biar di atas elemen lain */
+    margin: 5px; /* Biar nggak mepet */
+}
+
+.text-box {
+    background: rgba(0, 0, 0, 0.6); /* Background semi transparan */
+    padding: 10px 15px;
+    border-radius: 10px; /* Biar nggak runcing */
+    border: none; /* Hapus border kalau mau */
+    color: white;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); /* Efek cahaya */
 }
 
 /* Responsive Design */
