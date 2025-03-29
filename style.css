@@ -52,21 +52,20 @@ nav a:hover {
     outline-offset: 2px;
 }
 
-/* Sidebar */
 .sidebar {
     position: fixed;
     top: 0;
-    left: -100%;
+    left: -300px; /* Biar lebih smooth, jangan -100% */
     width: 300px;
     height: 100%;
     background: #222;
-    transition: left var(--transition-speed) ease-in-out;
+    transition: left 0.3s ease-in-out; /* Smooth transition */
     padding-top: 40px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
     background: url("img/sad.gif") center/cover no-repeat;
     animation: bgMove 15s infinite alternate;
 }
-
+ 
 .sidebar.active {
     left: 0;
 }
