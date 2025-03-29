@@ -182,8 +182,8 @@ h1, h2, h3 {
 /* Content Box */
 .content-box {
     background-color: #1a1a1a;
-    padding: 10px 15px;
-    border-radius: 10px; /* Biar ga runcing ujungnya*/
+    padding: 10px;
+    border-radius: var(--border-radius);
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
 }
 

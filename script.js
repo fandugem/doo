@@ -77,6 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
             window.location.href = "hype/index.html";
         });
     }
+});
 
 let sidebar = document.querySelector(".sidebar");
 let startX = 0; 
