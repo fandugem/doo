@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function updateDarkModeIcon() {
         if (darkModeToggle) {
-            darkModeToggle.src = body.classList.contains("dark-mode") ? "img/dark.png" : "img/white.png";
+            darkModeToggle.src = body.classList.contains("dark-mode") ? "img/bodas.png" : "img/hideng.png";
         }
     }
 
