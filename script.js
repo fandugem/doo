@@ -78,3 +78,15 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
+let sidebar = document.querySelector(".sidebar");
+
+document.addEventListener("wheel", function(event) {
+    if (event.deltaX > 0) { 
+        // Scroll ke kanan → buka sidebar
+        sidebar.classList.add("active");
+    } else if (event.deltaX < 0) { 
+        // Scroll ke kiri → tutup sidebar
+        sidebar.classList.remove("active");
+    }
+});
