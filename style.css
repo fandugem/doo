@@ -124,8 +124,8 @@ nav a:hover {
     background: none;
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
-    border: none; /* Hilangin border */
-    outline: none; /* Hilangin outline */
+    border: none;
+    outline: none;
 }
 
 .close-btn:hover {
@@ -150,15 +150,14 @@ nav a:hover {
     display: block;
     width: 100%;
     height: 4px;
-    background: #a855f7; /* Warna ungu neon */
-    border-radius: 5px; /* Biar nggak kotak */
+    background: #a855f7;
+    border-radius: 5px;
     transition: all 0.3s ease-in-out;
-    box-shadow: 0 0 10px white; /* Cahaya putih */
+    box-shadow: 0 0 10px white;
 }
 
-/* Efek ketika hover */
 #menu-btn:hover span {
-    box-shadow: 0 0 20px white; /* Glow lebih terang */
+    box-shadow: 0 0 20px white;
 }
 
 /* Main Content */
@@ -264,17 +263,16 @@ footer {
     position: relative;
 }
 
-/* Efek cahaya putih di teks footer */
 footer p {
-    color: #000; /* Warna teks hitam */
+    color: #000;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 
                  0 0 20px rgba(255, 255, 255, 0.5),
                  0 0 30px rgba(255, 255, 255, 0.3);
 }
 
 .contact-icon {
-    width: 20px;  /* Adjust the size as needed */
-    height: auto;  /* Maintain aspect ratio */
+    width: 20px;
+    height: auto;
 }
 
 /* Responsive Design */
