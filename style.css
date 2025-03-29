@@ -114,23 +114,21 @@ nav a:hover {
     transform: scale(1.1);
 }
 
-/* Close Button */
-.close-btn {
-    position: absolute;
-    top: 20px;
-    right: 20px;
+/* Close Button */ 
+.close-btn { position: absolute; 
+    top: 20px; 
+    right: 20px; 
     font-size: 25px;
     color: var(--primary-color);
     background: none;
     cursor: pointer;
-    transition: transform 0.3s ease-in-out;
-}
-
+    transition: transform 0.3s ease-in-out; }
+ 
 .close-btn:hover {
     transform: scale(0.8);
-    color: white;
-    outline: 2px solid var(--secondary-color);
-}
+    color: white; /* Hapus outline atau border */
+    outline: none;
+    border: none;
 
 #menu-btn {
     width: 40px; /* Sesuaikan ukuran */
