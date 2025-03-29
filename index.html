@@ -1,47 +1,169 @@
-/* Reset CSS */
-
-{ margin: 10px; padding: 10px; box-sizing: border-box; font-family: Arial, sans-serif; }
-
-
-/* Body Styling */ body { background-color: #111; color: #d4d4d4; text-align: center; max-width: 600px; margin: auto; padding: 10px; line-height: 1.9; }
-
-/* Header */ header { padding: 20px; text-align: center; }
-
-nav a { color: #a855f7; font-weight: bold; text-decoration: none; margin: 0 10px; font-size: 13px; }
-
-nav a:hover { text-decoration: underline; color: white; }
-
-/* Sidebar */ .sidebar { position: fixed; top: 0; left: -100%; width: 300px; height: 100%; background: #222; transition: all 0.3s ease-in-out; padding-top: 60px; box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); }
-
-.sidebar.active { left: 0; }
-
-.sidebar ul { list-style-type: none; }
-
-.sidebar ul li { padding: 15px; text-align: center; }
-
-.sidebar ul li a { color: #a855f7; text-decoration: none; font-size: 16px; }
-
-.sidebar ul li a:hover { color: white; }
-
-.close-btn { position: absolute; top: 15px; right: 15px; font-size: 25px; color: #ff4d4d; background: none; border: none; cursor: pointer; transition: transform 0.2s ease-in-out, color 0.3s ease-in-out; }
-
-.close-btn:hover { transform: scale(1.2); color: white; }
-
-/* Dark Mode */ .dark-mode { background-color: #121212; color: #ffffff; }
-
-.dark-mode header, .dark-mode section, .dark-mode footer, .dark-mode .sidebar { background-color: #222; }
-
-.dark-mode a { color: #bb86fc; }
-
-.dark-mode a:hover { color: white; }
-
-/* Footer */ footer { background-image: url("img/sad.gif"); background-size: cover; color: #a855f7; text-align: center; padding: 20px; }
-My Think - Personal Portfolio                       <button id="menu-btn" class="menu-btn">☰</button>   <img id="toggle-darkmode" class="darkmode-btn" alt="Dark Mode Toggle">   <img id="gif-icon" src="img/anime.gif" alt="GIF Icon">    <!-- Sidebar Menu -->   <div class="sidebar" id="sidebar">       <button class="close-btn" id="close-btn">&times;</button>       <h2>Menu</h2>       <ul>           <li><a href="#">Home</a></li>           <li><a href="#">Language</a></li>           <li><a href="#">Settings</a></li>           <li><a href="#">History</a></li>       </ul>   </div>    <!-- Header -->   <header>       <h1>OVERTHINK</h1>       <nav>        <section>               <a href="#about">About</a>               <a href="#the-think">The Think</a>               <a href="#contact">Contact</a>        </section>       </nav>   </header>    <!-- Main Content -->   <main>       <section id="about">           <h2>About</h2>   <p>       "Yeah, gw punya banyak banget pemikiran yang numpuk di kepala. Kadang masuk akal, kadang absurd,        kadang juga kayak gak ada gunanya. Tapi siapa tau ada yang relate sama lu atau malah bisa kasih perspektif baru.        Jadi gw bikin tempat ini buat naro semua pikiran random gw, biar gak cuma muter-muter di otak doang.   </p>   <p>       Gw tipe orang yang sering overthink, tapi juga cuek di saat yang sama. Kadang gw mikirin hal-hal kecil yang orang lain        gak peduliin, tapi di sisi lain gw juga gak terlalu mikirin hal-hal yang buat sebagian orang itu penting. Aneh kan? Ya begitulah.        Di sini gw bakal share hal-hal yang ada di kepala gw, mulai dari yang ringan sampai yang berat. Dari sekadar pengalaman gym,        bisnis, sampai soal hidup dan manusia secara umum.   </p>   <p>       Buat gw, hidup itu kayak gym—kadang lu struggle, kadang lu ngerasa kuat, tapi yang penting lu tetap progress.        Gak semua hal harus sempurna, yang penting jalan dulu. Banyak orang nunggu "momennya pas" buat mulai sesuatu,        tapi kalau dipikir-pikir, momen yang pas itu gak pernah ada. Lu ciptain sendiri momennya.   </p>   <p>       Kalau lu baca ini dan ngerasa ‘anjir, gw juga mikir kayak gitu’, berarti kita sefrekuensi. Kalau gak, ya gak apa-apa juga.        Setiap orang punya cara pikirnya masing-masing. Ini cuma tempat gw buat nyimpen pemikiran, siapa tau bisa jadi tempat diskusi        atau minimal jadi bacaan buat killing time.   </p>   <p>       Btw, kalau penasaran sama playlist gw, coba klik gambar di bawah. Mungkin ada lagu yang cocok buat nemenin hari lu."   </p>   
-
-Click the image
-
-[Foto Gym](https://open.spotify.com/playlist/0my2XuBYJsulOgMYTy5eEL)              `    <section id="the-think">   <h2>my Think</h2>   <p>       Lu pernah gak sih ngerasa ada banyak hal yang sebenernya pengen lu lakuin, tapi malah ke-distract sama hal-hal gak penting?        Atau mungkin lu ngerasa stuck di satu titik, tapi gak tau harus mulai dari mana buat maju?        Ya, gw juga sering ngalamin itu. Makanya, di bagian ini, gw bakal share beberapa pemikiran dan peluang yang menurut gw menarik.        Siapa tau ada yang klik sama lu atau bisa jadi sesuatu yang lu cari selama ini.   </p>   <p>       1️⃣ **Only Coach 1-on-1** – Gw percaya kalau progress terbaik itu datang dari sesi latihan yang personal.        Gak semua orang cocok sama metode yang sama. Makanya, gw lagi nyari cara buat ngembangin sistem coaching yang lebih fokus,        di mana gw bisa bantu lu satu per satu, tanpa harus campur sama orang lain.        Kalau lu tipe orang yang pengen serius progress tanpa gangguan, ini mungkin bakal cocok buat lu.   </p>   <p>       2️⃣ **Gw Lagi Nyari Partner Buat Collab** – Dunia ini penuh sama orang-orang yang punya visi, tapi gak semua bisa eksekusi.        Gw butuh partner yang gak cuma bisa ngomongin ide, tapi juga gerak buat wujudin sesuatu.        Kalau lu punya skill yang bisa dikolaborasiin, entah itu di dunia bisnis, konten, atau proyek lain, let’s talk.        Siapa tau kita bisa bikin sesuatu yang gede bareng.   </p>   <p>       3️⃣ **Banyak Promosinya WKWK** – Yaudah, ini jujur aja. Kadang gw mikir, kenapa orang harus bayar mahal buat sesuatu yang sebenernya bisa lebih murah?        Jadi, gw sering kepikiran cara-cara buat dapetin deal terbaik, promo tersembunyi, atau bahkan trik dapetin sesuatu dengan harga yang lebih masuk akal.        Gak cuma buat gw doang, tapi juga buat lu kalau tertarik. Gimana? Pengen ikutan berburu promo bareng?   </p>   <p>       Intinya, gw gak mau cuma sekadar ngomong doang. Kalau ada sesuatu yang bisa dikembangin bareng,        atau lu ngerasa ada peluang yang bisa kita gaspol, let’s make it happen. Jangan jadi orang yang cuma “pengen”,        tapi gak pernah gerak.        **Kalau ada yang menarik buat lu, hit me up!**   </p>   `           `<!-- Footer -->   <footer>   <h2>DISCLAIMERS!</h2>   <p>       Semua yang ada di sini adalah hasil pemikiran, pengalaman, dan opini pribadi gw.        Bisa jadi ada yang lu setuju, bisa jadi ada yang lu gak setuju, dan itu gak masalah.        Gw bukan orang yang selalu benar, dan gw juga gak maksa lu buat nerima semua yang gw omongin mentah-mentah.   </p>   <p>       Beberapa hal yang gw tulis di sini mungkin berdasarkan pengalaman pribadi, mungkin juga hasil observasi dari dunia nyata.        Tapi inget, hidup itu subjektif. Apa yang berhasil buat gw, belum tentu berhasil buat lu.        Apa yang menurut gw masuk akal, bisa jadi menurut lu absurd. Dan itu fine.        **Take what makes sense for you, and leave the rest.**   </p>   <p>       Kalau ada bagian yang menurut lu kurang jelas, feel free buat nanya atau diskusi.        Tapi kalau cuma mau debat kusir atau adu ego, mending skip aja. Gw gak punya waktu buat itu.   </p>   <p>       Terakhir, semua konten di sini **bukan nasihat profesional**.         Kalau lu butuh saran dari expert di bidang tertentu (kayak dokter, lawyer, atau financial advisor),        lebih baik konsultasi langsung ke orang yang kompeten. Gw cuma orang biasa yang sharing pengalaman dan cara pandang gw sendiri.   </p>   <p>       **Hidup lu, keputusan lu. Jangan nyalahin orang lain atas pilihan yang lu buat sendiri.**   </p>       <section id="contact">           <h2>Contact Me</h2>           <div class="social-media">               <a href="mailto:hellfandu70@gmail.com">                   <img src="img/gmail.png" alt="Email">               </a>               <a href="https://discord.gg/uCCMaWhz" target="_blank">                   <img src="img/discord.png" alt="Discord">               </a>               <a href="https://www.instagram.com/fandubarata" target="_blank">                   <img src="img/insta.png" alt="Instagram">               </a>           </div>       </section>   <p>&copy; 2025 think.side.doo</p>   `
-
-document.addEventListener("DOMContentLoaded", function () { // Dark Mode Toggle const darkModeToggle = document.getElementById("toggle-darkmode"); const body = document.body;
-// Cek localStorage, kalau dark mode aktif, langsung apply   if (localStorage.getItem("darkMode") === "enabled") {       body.classList.add("dark-mode");   }   updateDarkModeIcon();    function toggleDarkMode() {       body.classList.toggle("dark-mode");       localStorage.setItem("darkMode", body.classList.contains("dark-mode") ? "enabled" : "disabled");       updateDarkModeIcon();   }    function updateDarkModeIcon() {       if (darkModeToggle) {           darkModeToggle.src = body.classList.contains("dark-mode") ? "img/dark.png" : "img/white.png";       }   }    if (darkModeToggle) {       darkModeToggle.addEventListener("click", toggleDarkMode);   }    // Sidebar Menu   const menuButton = document.getElementById("menu-btn");   const sidebar = document.getElementById("sidebar");    function toggleSidebar() {       sidebar.classList.toggle("active");   }    function closeSidebar(event) {       if (!sidebar.contains(event.target) && event.target !== menuButton) {           sidebar.classList.remove("active");       }   }    if (menuButton) {       menuButton.addEventListener("click", toggleSidebar);   }    document.addEventListener("click", closeSidebar);    // GIF Icon Navigation   const gifIcon = document.getElementById("gif-icon");   if (gifIcon) {       gifIcon.addEventListener("click", function () {           window.location.href = "hype/index.html"; // Ganti dengan halaman tujuan       });   }   
-});
+  <!DOCTYPE html>  
+  <html lang="en">  
+  <head>  
+      <meta charset="UTF-8">  
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+      <title>My Think - Personal Portfolio</title>  
+      <link rel="stylesheet" href="style.css">  
+      <script defer src="script.js"></script>  
+  </head>  
+  <body>  <button id="menu-btn" class="menu-btn">☰</button>  
+  <img id="toggle-darkmode" class="darkmode-btn" alt="Dark Mode Toggle">  
+  <img id="gif-icon" src="img/anime.gif" alt="GIF Icon">  
+  <video autoplay loop muted id="sidebar-video">
+    <source src="img/sad.gif" type="video/mp4">
+</video>
+  <!-- Sidebar Menu -->  
+  <div class="sidebar" id="sidebar">  
+      <button class="close-btn" id="close-btn">&times;</button>  
+      <h2>Menu</h2>  
+      <ul>  
+      <h4><li><a href="#about">imah</a></li>  
+          <li><a href="#">nasty</a></li>  
+          <li><a href="#">coaching</a></li>  
+          <li><a href="#">綺麗</a></li>
+          <li><a href="#">_</a></li>  
+      </h4>
+        <section>  
+        <h4>why whould you <br>
+          so funkin courious<br>
+          about my site? it <br>
+          might make u interessed<br>
+          but some that u<br>
+          should know even its<br>
+          on develove i've been <br>
+          put some secret<br>
+          ini every part that <br>
+          u never though and<br>
+          it might gonna hit <br>
+          your mental if u see<br>
+          them fwi :D.i'm still <br>
+          develove this funkin' site<br>
+          so just patient neeguh!</h4> 
+       </section> 
+      </ul>  
+  </div>  
+  
+  <!-- Header -->  
+  <header>  
+      <h2>OVERTHINK</h2>  
+      <nav>  
+       <section>  
+              <a href="#about">About</a>  
+              <a href="#the-think">The Think</a>  
+              <a href="#contact">Contact</a>  
+       </section>  
+      </nav>  
+  </header>  
+  
+  <!-- Main Content -->  
+  <main>  
+      <section id="about">  
+          <h2>About</h2>  
+  <p>  
+      "Yeah, gw punya banyak banget pemikiran yang numpuk di kepala. Kadang masuk akal, kadang absurd,   
+      kadang juga kayak gak ada gunanya. Tapi siapa tau ada yang relate sama lu atau malah bisa kasih perspektif baru.   
+      Jadi gw bikin tempat ini buat naro semua pikiran random gw, biar gak cuma muter-muter di otak doang.  
+  </p>  
+  <p>  
+      Gw tipe orang yang sering overthink, tapi juga cuek di saat yang sama. Kadang gw mikirin hal-hal kecil yang orang lain   
+      gak peduliin, tapi di sisi lain gw juga gak terlalu mikirin hal-hal yang buat sebagian orang itu penting. Aneh kan? Ya begitulah.   
+      Di sini gw bakal share hal-hal yang ada di kepala gw, mulai dari yang ringan sampai yang berat. Dari sekadar pengalaman gym,   
+      bisnis, sampai soal hidup dan manusia secara umum.  
+  </p>  
+  <p>  
+      Buat gw, hidup itu kayak gym—kadang lu struggle, kadang lu ngerasa kuat, tapi yang penting lu tetap progress.   
+      Gak semua hal harus sempurna, yang penting jalan dulu. Banyak orang nunggu "momennya pas" buat mulai sesuatu,   
+      tapi kalau dipikir-pikir, momen yang pas itu gak pernah ada. Lu ciptain sendiri momennya.  
+  </p>  
+  <p>  
+      Kalau lu baca ini dan ngerasa ‘anjir, gw juga mikir kayak gitu’, berarti kita sefrekuensi. Kalau gak, ya gak apa-apa juga.   
+      Setiap orang punya cara pikirnya masing-masing. Ini cuma tempat gw buat nyimpen pemikiran, siapa tau bisa jadi tempat diskusi   
+      atau minimal jadi bacaan buat killing time.  
+  </p>  
+  <p>  
+      Btw, kalau penasaran sama playlist gw, coba klik gambar di bawah. Mungkin ada lagu yang cocok buat nemenin hari lu."  
+  </p>
+  
+  <h3>Click the image</h3>  
+              <a href="https://open.spotify.com/playlist/0my2XuBYJsulOgMYTy5eEL" target="_blank">  
+                  <img src="img/IMG_20250325_103237.jpg" alt="Foto Gym" width="300">  
+              </a>  
+          </section>  <section id="the-think">  
+  <h2>my Think</h2>  
+  <p>  
+      Lu pernah gak sih ngerasa ada banyak hal yang sebenernya pengen lu lakuin, tapi malah ke-distract sama hal-hal gak penting?   
+      Atau mungkin lu ngerasa stuck di satu titik, tapi gak tau harus mulai dari mana buat maju?   
+      Ya, gw juga sering ngalamin itu. Makanya, di bagian ini, gw bakal share beberapa pemikiran dan peluang yang menurut gw menarik.   
+      Siapa tau ada yang klik sama lu atau bisa jadi sesuatu yang lu cari selama ini.  
+  </p>  
+  <p>  
+      1️*Only Coach 1-on-1 – Gw percaya kalau progress terbaik itu datang dari sesi latihan yang personal.   
+      Gak semua orang cocok sama metode yang sama. Makanya, gw lagi nyari cara buat ngembangin sistem coaching yang lebih fokus,   
+      di mana gw bisa bantu lu satu per satu, tanpa harus campur sama orang lain.   
+      Kalau lu tipe orang yang pengen serius progress tanpa gangguan, ini mungkin bakal cocok buat lu.  
+  </p>  
+  <p>  
+      *Gw Lagi Nyari Partner Buat Collab Dunia ini penuh sama orang-orang yang punya visi, tapi gak semua bisa eksekusi.   
+      Gw butuh partner yang gak cuma bisa ngomongin ide, tapi juga gerak buat wujudin sesuatu.   
+      Kalau lu punya skill yang bisa dikolaborasiin, entah itu di dunia bisnis, konten, atau proyek lain, let’s talk.   
+      Siapa tau kita bisa bikin sesuatu yang gede bareng.  
+  </p>  
+  <p>  
+      *Banyak Promosinya hehe Yaudah, ini jujur aja. Kadang gw mikir, kenapa orang harus bayar mahal buat sesuatu yang sebenernya bisa lebih murah?   
+      Jadi, gw sering kepikiran cara-cara buat dapetin deal terbaik, promo tersembunyi, atau bahkan trik dapetin sesuatu dengan harga yang lebih masuk akal.   
+      Gak cuma buat gw doang, tapi juga buat lu kalau tertarik. Gimana? Pengen ikutan berburu promo bareng?  
+  </p>  
+  <p>  
+      Intinya, gw gak mau cuma sekadar ngomong doang. Kalau ada sesuatu yang bisa dikembangin bareng,   
+      atau lu ngerasa ada peluang yang bisa kita gaspol, let’s make it happen. Jangan jadi orang yang cuma “pengen”,   
+      tapi gak pernah gerak.   
+      **Kalau ada yang menarik buat lu, hit me up!**  
+  </p>
+  
+  </section>  
+      </main>  <!-- Footer -->  
+  <footer>  
+  <h2>DISCLAIMERS!</h2>  
+  <p>  
+      Semua yang ada di sini adalah hasil pemikiran, pengalaman, dan opini pribadi gw.   
+      Bisa jadi ada yang lu setuju, bisa jadi ada yang lu gak setuju, dan itu gak masalah.   
+      Gw bukan orang yang selalu benar, dan gw juga gak maksa lu buat nerima semua yang gw omongin mentah-mentah.  
+  </p>  
+  <p>  
+      Beberapa hal yang gw tulis di sini mungkin berdasarkan pengalaman pribadi, mungkin juga hasil observasi dari dunia nyata.   
+      Tapi inget, hidup itu subjektif. Apa yang berhasil buat gw, belum tentu berhasil buat lu.   
+      Apa yang menurut gw masuk akal, bisa jadi menurut lu absurd. Dan itu fine.   
+      **Take what makes sense for you, and leave the rest.**  
+  </p>  
+  <p>  
+      Kalau ada bagian yang menurut lu kurang jelas, feel free buat nanya atau diskusi.   
+      Tapi kalau cuma mau debat kusir atau adu ego, mending skip aja. Gw gak punya waktu buat itu.  
+  </p>  
+  <p>  
+      Terakhir, semua konten di sini **bukan nasihat profesional**.    
+      Kalau lu butuh saran dari expert di bidang tertentu (kayak dokter, lawyer, atau financial advisor),   
+      lebih baik konsultasi langsung ke orang yang kompeten. Gw cuma orang biasa yang sharing pengalaman dan cara pandang gw sendiri.  
+  </p>  
+  <p>  
+      **Hidup lu, keputusan lu. Jangan nyalahin orang lain atas pilihan yang lu buat sendiri.**  
+  </p>  
+      <section id="contact">
+    <h2>Contact Me</h2>
+    <div class="social-media">
+        <a href="mailto:hellfandu70@gmail.com">
+            <img src="img/gmail.png" alt="Email" class="contact-icon">
+        </a>
+        <a href="https://discord.gg/uCCMaWhz" target="_blank">
+            <img src="img/discord.png" alt="Discord" class="contact-icon">
+        </a>
+        <a href="https://www.instagram.com/fandubarata" target="_blank">
+            <img src="img/insta.png" alt="Instagram" class="contact-icon">
+        </a>
+    </div>
+</section>
+  <p>&copy; 2025 think.side.doo</p>
+  
+  </footer>
+  </body>  
+  </html>
