@@ -1,99 +1,24 @@
-/* Reset CSS */
-*, *::before, *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto', Arial, sans-serif;
-}
-
-/* Variables */
-:root {
-    --primary-color: #a855f7;
-    --secondary-color: #bb86fc;
-    --background-color: #111;
-    --text-color: #d4d4d4;
-    --border-radius: 10px;
-    --transition-speed: 0.3s;
-}
-
-/* Body */
 body {
-    background: linear-gradient(45deg, #111, #333);
-    color: var(--text-color);
-    text-align: center;
-    font-size: 11px;
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;
-    line-height: 1.9;
+    background-color: #111;
+    color: #fff;
+    font-family: Arial, sans-serif;
 }
 
-/* Header */
-header {
-    padding: 20px;
-    text-align: center;
-    border-radius: var(--border-radius);
-}
-
-nav a {
-    color: var(--primary-color);
-    font-weight: bold;
-    text-decoration: none;
-    font-size: 11px;
-    transition: color var(--transition-speed);
-    padding: 5px 10px;
-    border-radius: var(--border-radius);
-}
-
-nav a:hover {
-    text-decoration: underline;
-    color: var(--secondary-color);
-    outline: 2px solid var(--secondary-color);
-    outline-offset: 2px;
-}
-
-/* Sidebar */
 .sidebar {
     position: fixed;
+    left: -250px;
     top: 0;
-    left: -100%;
-    width: 300px;
+    width: 250px;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    transition: left 0.3s ease-in-out;
+}
+
+.sidebar-bg {
+    background: url('images/live-anime-bg.jpg') no-repeat center center/cover;
     height: 100%;
-    background: #222;
-    transition: left var(--transition-speed) ease-in-out;
-    padding-top: 40px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-    background: url("img/sad.gif") center/cover no-repeat;
-    animation: bgMove 15s infinite alternate;
-}
-
-.sidebar.active {
-    left: 0;
-}
-
-@keyframes bgMove {
-    0% { background-position: center top; }
-    100% { background-position: center bottom; }
-}
-
-.sidebar ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.sidebar ul li {
-    padding: 10px;
-    text-align: center;
-}
-
-.sidebar ul li a {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-size: 20px;
-}
-
-.sidebar ul li a:hover {
-    color: white;
+    opacity: 0.5;
 }
 
 .sidebar-menu {
@@ -114,152 +39,55 @@ nav a:hover {
     transform: scale(1.1);
 }
 
-/* Close Button */
-.close-btn {
+.menu-toggle {
     position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 25px;
-    color: var(--primary-color);
-    background: none;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
     cursor: pointer;
+}
+
+.glowing-image {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+    transition: filter 0.3s ease-in-out;
+}
+
+.glowing-image:hover {
+    filter: drop-shadow(0 0 10px purple);
+}
+
+.gif-icon {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+}
+
+.floating-animation {
+    position: fixed;
+    top: 50%;
+    right: 10px;
+    animation: float 3s infinite ease-in-out;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+contact-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.contact-icons img {
+    width: 15px;
     transition: transform 0.3s ease-in-out;
 }
 
-.close-btn:hover {
-    transform: scale(0.8);
-    color: white;
-    outline: 2px solid var(--secondary-color);
-}
-
-/* Main Content */
-
-/* Main Content */
-main {
-    width: 80%;
-    max-width: 700px;
-    margin: auto;
-    text-align: center;
-    padding: 20px;
-    border-radius: var(--border-radius);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-/* Titles */
-h1, h2, h3 {
-    color: var(--primary-color);
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-/* Content Box */
-.content-box {
-    background-color: #1a1a1a;
-    padding: 10px;
-    border-radius: var(--border-radius);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-}
-
-/* Image Styling */
-img {
-    width: 100%;
-    border-radius: var(--border-radius);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-    transition: transform var(--transition-speed) ease-in-out;
-}
-
-img:hover {
-    transform: scale(1.1);
-}
-
-/* Navigation Buttons */
-.menu-btn, .darkmode-btn, #gif-icon {
-    position: fixed;
-    z-index: 1000;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: var(--border-radius);
-    cursor: pointer;
-}
-
-.menu-btn {
-    left: 10px;
-    top: 10px;
-    font-size: 30px;
-}
-
-.darkmode-btn {
-    right: 10px;
-    top: 10px;
-    width: 40px;
-}
-
-#gif-icon {
-    right: 10px;
-    bottom: 10px;
-    width: 50px;
-}
-
-/* Hover Effects */
-.darkmode-btn:hover, #gif-icon:hover {
-    background: rgba(255, 55, 255, 0.4);
-    box-shadow: 0 0 10px rgba(255, 55, 255, 0.4);
-    transition: background var(--transition-speed);
-}
-
-/* Dark Mode */
-.dark-mode {
-    background-color: #121212;
-    color: #ffffff;
-}
-
-.dark-mode header,
-.dark-mode section,
-.dark-mode .sidebar {
-    background-color: #333;
-}
-
-.dark-mode a {
-    color: var(--secondary-color);
-}
-
-.dark-mode a:hover {
-    color: var(--primary-color);
-}
-
-/* Footer */
-footer {
-    background-image: url("img/giphy.gif");
-    background-size: cover;
-    color: #121212;
-    text-align: center;
-    font-size: 10px;
-    padding: 20px;
-    position: relative;
-}
-
-/* Efek cahaya putih di teks footer */
-footer p {
-    color: #000; /* Warna teks hitam */
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 
-                 0 0 20px rgba(255, 255, 255, 0.5),
-                 0 0 30px rgba(255, 255, 255, 0.3);
-}
-
-.contact-icon {
-    width: 20px;  /* Adjust the size as needed */
-    height: auto;  /* Maintain aspect ratio */
-}
-
-/* Responsive Design */
-@media (max-width: 800px) {
-    .sidebar {
-        width: 200px;
-    }
-    main {
-        width: 100%;
-        padding: 15px;
-    }
-    .menu-btn {
-        font-size: 25px;
-    }
+.contact-icons img:hover {
+    transform: scale(1.5);
 }
