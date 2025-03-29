@@ -80,17 +80,32 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 let sidebar = document.querySelector(".sidebar");
+let startX = 0; 
 
-let lastScrollX = 0; // Buat nyimpen posisi scroll terakhir
-
+// --- DETEKSI SCROLL DENGAN MOUSE / TRACKPAD ---
 document.addEventListener("wheel", function(event) {
     if (Math.abs(event.deltaX) > Math.abs(event.deltaY)) { 
-        // Cek kalau lebih dominan scroll horizontal daripada vertical
-        if (event.deltaX > 10) { 
-            // Scroll ke kanan → buka sidebar
+        if (event.deltaX > 20) { // Scroll ke kanan → buka sidebar
             sidebar.classList.add("active");
-        } else if (event.deltaX < -10) { 
-            // Scroll ke kiri → tutup sidebar
+        } else if (event.deltaX < -20) { // Scroll ke kiri → tutup sidebar
+            sidebar.classList.remove("active");
+        }
+    }
+});
+
+// --- DETEKSI SWIPE DI HP / TOUCHSCREEN ---
+document.addEventListener("touchstart", function(event) {
+    startX = event.touches[0].clientX; // Simpan posisi awal sentuhan
+});
+
+document.addEventListener("touchmove", function(event) {
+    let endX = event.touches[0].clientX;
+    let diffX = endX - startX;
+
+    if (Math.abs(diffX) > 50) { // Biar gak terlalu sensitif
+        if (diffX > 0) { // Swipe kanan → buka sidebar
+            sidebar.classList.add("active");
+        } else { // Swipe kiri → tutup sidebar
             sidebar.classList.remove("active");
         }
     }
