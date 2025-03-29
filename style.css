@@ -115,7 +115,8 @@ nav a:hover {
 }
 
 /* Close Button */ 
-.close-btn { position: absolute; 
+.close-btn { 
+    position: absolute; 
     top: 20px; 
     right: 20px; 
     font-size: 25px;
