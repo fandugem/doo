@@ -1,11 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Dark Mode Toggle
     const darkModeToggle = document.getElementById("toggle-darkmode");
     const body = document.body;
 
-    // Check localStorage, if dark mode is enabled, apply it
-    if (localStorage.getItem("darkMode") === "enabled") {
-        body.classList.add("dark-mode");
+    function applyDarkMode() {
+        const darkMode = localStorage.getItem("darkMode");
+
+        if (darkMode === "enabled" || (!darkMode && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+            body.classList.add("dark-mode");
+        } else {
+            body.classList.remove("dark-mode");
+        }
+
+        updateDarkModeIcon();
     }
 
     function toggleDarkMode() {
@@ -20,10 +26,17 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    // Langsung jalankan applyDarkMode() sebelum elemen ditampilkan
+    applyDarkMode();
+
     if (darkModeToggle) {
         darkModeToggle.addEventListener("click", toggleDarkMode);
     }
 
+    // Pastikan dark mode tetap sinkron kalau ada perubahan sistem
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", applyDarkMode);
+});
+    
     // Sidebar Menu
     const menuButton = document.getElementById("menu-btn");
     const closeButton = document.getElementById('close-btn');
@@ -75,15 +88,3 @@ document.addEventListener("DOMContentLoaded", function () {
             sidebar.style.left = "-250px";
         }
     });
-
-    // Auto dark mode based on system preference
-    function applyDarkMode() {
-        if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
-            document.body.classList.add("dark-mode");
-        } else {
-            document.body.classList.remove("dark-mode");
-        }
-    }
-    applyDarkMode();
-    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", applyDarkMode);
-});
