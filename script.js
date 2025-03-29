@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // ** Dark Mode Toggle **
     const darkModeToggle = document.getElementById("toggle-darkmode");
     const body = document.body;
 
@@ -26,20 +27,17 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Langsung jalankan applyDarkMode() sebelum elemen ditampilkan
     applyDarkMode();
 
     if (darkModeToggle) {
         darkModeToggle.addEventListener("click", toggleDarkMode);
     }
 
-    // Pastikan dark mode tetap sinkron kalau ada perubahan sistem
     window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", applyDarkMode);
-});
-    
-    // Sidebar Menu
+
+    // ** Sidebar Menu **
     const menuButton = document.getElementById("menu-btn");
-    const closeButton = document.getElementById('close-btn');
+    const closeButton = document.getElementById("close-btn");
     const sidebar = document.getElementById("sidebar");
 
     function toggleSidebar() {
@@ -53,18 +51,26 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (menuButton) {
-        menuButton.addEventListener("click", toggleSidebar);
-    }
-
-    if (closeButton) {
-        closeButton.addEventListener('click', function() {
-            sidebar.classList.remove('active');
+        menuButton.addEventListener("click", function (event) {
+            event.stopPropagation(); // Biar klik tombol nggak langsung nutup
+            toggleSidebar();
         });
     }
 
-    document.addEventListener("click", closeSidebar);
+    if (closeButton) {
+        closeButton.addEventListener("click", function () {
+            sidebar.classList.remove("active");
+        });
+    }
 
-    // GIF Icon Navigation
+    // Hapus event listener yang bikin semua klik dianggap close sidebar
+    document.addEventListener("click", function (event) {
+        if (sidebar.classList.contains("active") && !sidebar.contains(event.target) && event.target !== menuButton) {
+            sidebar.classList.remove("active");
+        }
+    });
+
+    // ** Navigasi GIF Icon **
     const gifIcon = document.getElementById("gif-icon");
     if (gifIcon) {
         gifIcon.addEventListener("click", function () {
@@ -72,19 +78,3 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
-
-document.addEventListener("DOMContentLoaded", function () {
-    const sidebar = document.querySelector(".sidebar");
-    const menuToggle = document.querySelector(".menu-toggle");
-
-    // Sidebar toggle
-    menuToggle.addEventListener("click", function () {
-        sidebar.style.left = (sidebar.style.left === "0px") ? "-250px" : "0px";
-    });
-
-    // Close sidebar when clicking outside
-    document.addEventListener("click", function (event) {
-        if (!sidebar.contains(event.target) && event.target !== menuToggle) {
-            sidebar.style.left = "-250px";
-        }
-    });
