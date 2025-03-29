@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function updateDarkModeIcon() {
         if (darkModeToggle) {
-            darkModeToggle.src = body.classList.contains("dark-mode") ? "img/putih.png" : "img/hitam.png";
+            darkModeToggle.src = body.classList.contains("dark-mode") ? "img/dark.png" : "img/white.png";
         }
     }
 
@@ -34,7 +34,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", applyDarkMode);
-
 
     // ** Sidebar Menu **
     const menuButton = document.getElementById("menu-btn");
