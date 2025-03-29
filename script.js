@@ -112,3 +112,5 @@ document.addEventListener("touchmove", function(event) {
         }, 50); // Delay biar gak terlalu responsif
     }
 });
+
+});
