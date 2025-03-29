@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // ** Dark Mode Toggle **
     const darkModeToggle = document.getElementById("toggle-darkmode");
     const body = document.body;
 
+    // Function to apply dark mode based on localStorage or system preference
     function applyDarkMode() {
         const darkMode = localStorage.getItem("darkMode");
 
@@ -15,28 +15,32 @@ document.addEventListener("DOMContentLoaded", function () {
         updateDarkModeIcon();
     }
 
+    // Function to toggle dark mode
     function toggleDarkMode() {
         body.classList.toggle("dark-mode");
         localStorage.setItem("darkMode", body.classList.contains("dark-mode") ? "enabled" : "disabled");
         updateDarkModeIcon();
     }
 
+    // Function to update the dark mode icon
     function updateDarkModeIcon() {
         if (darkModeToggle) {
             darkModeToggle.src = body.classList.contains("dark-mode") ? "img/putih.png" : "img/hitam.png";
         }
     }
 
+    // Apply dark mode on page load
     applyDarkMode();
 
+    // Add event listener to the dark mode toggle button
     if (darkModeToggle) {
         darkModeToggle.addEventListener("click", toggleDarkMode);
     }
 
+    // Listen for system dark mode preference changes
     window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", applyDarkMode);
 
-
-    // ** Sidebar Menu **
+    // Sidebar Menu
     const menuButton = document.getElementById("menu-btn");
     const closeButton = document.getElementById("close-btn");
     const sidebar = document.getElementById("sidebar");
@@ -53,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (menuButton) {
         menuButton.addEventListener("click", function (event) {
-            event.stopPropagation(); // Biar klik tombol nggak langsung nutup
+            event.stopPropagation(); // Prevent immediate sidebar close
             toggleSidebar();
         });
     }
@@ -64,14 +68,14 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Hapus event listener yang bikin semua klik dianggap close sidebar
+    // Close sidebar when clicking outside
     document.addEventListener("click", function (event) {
         if (sidebar.classList.contains("active") && !sidebar.contains(event.target) && event.target !== menuButton) {
             sidebar.classList.remove("active");
         }
     });
 
-    // ** Navigasi GIF Icon **
+    // GIF Icon Navigation
     const gifIcon = document.getElementById("gif-icon");
     if (gifIcon) {
         gifIcon.addEventListener("click", function () {
@@ -79,36 +83,35 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-let sidebar = document.querySelector(".sidebar");
-let startX = 0; 
+    // Sidebar swipe functionality for touchscreen devices
+    let startX = 0;
 
-// --- DETEKSI SCROLL DENGAN MOUSE / TRACKPAD ---
-document.addEventListener("wheel", function(event) {
-    if (Math.abs(event.deltaX) > Math.abs(event.deltaY)) { 
-        if (event.deltaX > 20) { // Scroll ke kanan → buka sidebar
-            sidebar.classList.add("active");
-        } else if (event.deltaX < -20) { // Scroll ke kiri → tutup sidebar
-            sidebar.classList.remove("active");
+    // Detect horizontal scroll with mouse/trackpad
+    document.addEventListener("wheel", function(event) {
+        if (Math.abs(event.deltaX) > Math.abs(event.deltaY)) {
+            if (event.deltaX > 20) {
+                sidebar.classList.add("active");
+            } else if (event.deltaX < -20) {
+                sidebar.classList.remove("active");
+            }
         }
-    }
-});
+    });
 
-// --- DETEKSI SWIPE DI HP / TOUCHSCREEN ---
-document.addEventListener("touchstart", function(event) {
-    startX = event.touches[0].clientX; // Simpan posisi awal sentuhan
-});
+    // Detect swipe on touchscreen devices
+    document.addEventListener("touchstart", function(event) {
+        startX = event.touches[0].clientX;
+    });
 
-document.addEventListener("touchmove", function(event) {
-    let endX = event.touches[0].clientX;
-    let diffX = endX - startX;
+    document.addEventListener("touchmove", function(event) {
+        let endX = event.touches[0].clientX;
+        let diffX = endX - startX;
 
-    if (Math.abs(diffX) > 50) { // Biar gak terlalu sensitif
-        if (diffX > 0) { // Swipe kanan → buka sidebar
-            sidebar.classList.add("active");
-        } else { // Swipe kiri → tutup sidebar
-            sidebar.classList.remove("active");
+        if (Math.abs(diffX) > 50) {
+            if (diffX > 0) {
+                sidebar.classList.add("active");
+            } else {
+                sidebar.classList.remove("active");
+            }
         }
-    }
-});
-
+    });
 });
