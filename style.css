@@ -5,7 +5,8 @@
     box-sizing: border-box;
     font-family: 'Roboto', Arial, sans-serif;
 }
-/* Variables for consistency */
+
+/* Variables */
 :root {
     --primary-color: #a855f7;
     --secondary-color: #bb86fc;
@@ -15,32 +16,13 @@
     --transition-speed: 0.3s;
 }
 
-/* Dark Mode */
-.dark-mode {
-    background-color: #333; /* Gray background */
-    color: #000; /* Black text */
-}
-
-.dark-mode header,
-.dark-mode section,
-.dark-mode .sidebar {
-    background-color: #555; /* Darker gray for sections */
-}
-
-.dark-mode a {
-    color: var(--primary-color); /* Purple links */
-}
-
-.dark-mode a:hover {
-    color: var(--secondary-color); /* Light purple on hover */
-}
-
-/* General Styling */
+/* Body */
 body {
-    background-color: var(--background-color);
+    background: linear-gradient(45deg, #111, #333);
     color: var(--text-color);
     text-align: center;
-    max-width: 600px;
+    font-size: 11px;
+    max-width: 800px;
     margin: auto;
     padding: 20px;
     line-height: 1.9;
@@ -48,30 +30,26 @@ body {
 
 /* Header */
 header {
-    padding: 10px;
+    padding: 20px;
     text-align: center;
-    border-radius: 10px;
+    border-radius: var(--border-radius);
 }
 
 nav a {
     color: var(--primary-color);
     font-weight: bold;
     text-decoration: none;
-    border-radius: 20px; /* Rounded corners */
-    margin: 0 10px;
-    font-size: 13px;
-    padding: 10px; /* Add padding for spacing */
+    font-size: 11px;
     transition: color var(--transition-speed);
+    padding: 5px 10px;
+    border-radius: var(--border-radius);
 }
 
 nav a:hover {
     text-decoration: underline;
     color: var(--secondary-color);
-}
-
-nav a:focus,
-nav a:hover {
-    outline: none; /* Remove outline */
+    outline: 2px solid var(--secondary-color);
+    outline-offset: 2px;
 }
 
 /* Sidebar */
@@ -85,16 +63,22 @@ nav a:hover {
     transition: left var(--transition-speed) ease-in-out;
     padding-top: 40px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    background: url("img/sad.gif") center/cover no-repeat;
+    animation: bgMove 15s infinite alternate;
 }
 
 .sidebar.active {
     left: 0;
 }
 
-/* Other styles remain the same */
+@keyframes bgMove {
+    0% { background-position: center top; }
+    100% { background-position: center bottom; }
+}
 
 .sidebar ul {
     list-style-type: none;
+    padding: 0;
 }
 
 .sidebar ul li {
@@ -112,6 +96,25 @@ nav a:hover {
     color: white;
 }
 
+.sidebar-menu {
+    list-style: none;
+    padding: 20px;
+}
+
+.sidebar-item {
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.sidebar-item:hover {
+    background: purple;
+    transform: scale(1.1);
+}
+
+/* Close Button */
 .close-btn {
     position: absolute;
     top: 20px;
@@ -119,16 +122,43 @@ nav a:hover {
     font-size: 25px;
     color: var(--primary-color);
     background: none;
-    border-radius: 10px;
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
+    border: none; /* Hilangin border */
+    outline: none; /* Hilangin outline */
 }
 
 .close-btn:hover {
-    transform: scale(1.2);
+    transform: scale(0.8);
     color: white;
-    outline: 2px solid var(--secondary-color);
-    outline-offset: 2px;
+}
+
+/* Menu Button */
+#menu-btn {
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 5px;
+}
+
+#menu-btn span {
+    display: block;
+    width: 100%;
+    height: 4px;
+    background: #a855f7; /* Warna ungu neon */
+    border-radius: 5px; /* Biar nggak kotak */
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 10px white; /* Cahaya putih */
+}
+
+/* Efek ketika hover */
+#menu-btn:hover span {
+    box-shadow: 0 0 20px white; /* Glow lebih terang */
 }
 
 /* Main Content */
@@ -138,36 +168,35 @@ main {
     margin: auto;
     text-align: center;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* Titles */
 h1, h2, h3 {
     color: var(--primary-color);
     font-weight: bold;
-    text-align: center;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 /* Content Box */
 .content-box {
     background-color: #1a1a1a;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 7px;
+    padding: 10px;
+    border-radius: var(--border-radius);
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
 }
 
 /* Image Styling */
 img {
     width: 100%;
-    border-radius: 10px;
+    border-radius: var(--border-radius);
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-    transition: transform 0.3s ease-in-out;
+    transition: transform var(--transition-speed) ease-in-out;
 }
 
 img:hover {
-    transform: scale(1.5);
+    transform: scale(1.1);
 }
 
 /* Navigation Buttons */
@@ -175,7 +204,7 @@ img:hover {
     position: fixed;
     z-index: 1000;
     background: rgba(0, 0, 0, 0.5);
-    border: none;
+    border-radius: var(--border-radius);
     cursor: pointer;
 }
 
@@ -183,12 +212,6 @@ img:hover {
     left: 10px;
     top: 10px;
     font-size: 50px;
-    color: var(--primary-color); /* Purple */
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* White light */
-}
-
-.menu-btn:hover {
-    text-shadow: 0 0 20px rgba(255, 255, 255, 1); /* Stronger light on hover */
 }
 
 .darkmode-btn {
@@ -203,78 +226,6 @@ img:hover {
     width: 50px;
 }
 
-/* Hover Effects on Buttons */
-.darkmode-btn:hover, #gif-icon:hover {
-    background: rgba(255, 55, 255, 0.4);
-    transition: background 0.3s ease;
-}
-
-/* Footer */
-footer {
-    background-image: url("img/giphy.gif");
-    background-size: cover;
-    color: #121212;
-    text-align: center;
-    padding: 20px;
-}
-
-/* Responsive Design */
-@media (max-width: 600px) {
-    .sidebar {
-        width: 185px;
-    }
-    main {
-        width: 100%;
-        padding: 20px;
-    }
-    .menu-btn {
-        font-size: 25px;
-    }
-}
-
-.contact-icon {
-    width: 30px;  /* Adjust the size as needed */
-    height: auto;  /* Maintain aspect ratio */
-    padding: 5px; /* Add padding to create space around the icon */
-}
-
-/* Add CSS Animations */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-body {
-    animation: fadeIn 1s ease-in-out;
-}
-
-header, nav a, .sidebar, .content-box, img, footer {
-    animation: fadeIn 1s ease-in-out;
-}
-
-/* Use Modern Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
-body {
-    font-family: 'Roboto', sans-serif;
-}
-
-/* Add Gradients and Shadows */
-body {
-    background: linear-gradient(45deg, #111, #333);
-}
-
-.content-box, .sidebar, footer {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-nav a:hover, .sidebar ul li a:hover, .close-btn:hover, img:hover {
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.darkmode-btn:hover, #gif-icon:hover {
-    box-shadow: 0 0 10px rgba(255, 55, 255, 0.4);
-}
 /* Hover Effects */
 .darkmode-btn:hover, #gif-icon:hover {
     background: rgba(255, 55, 255, 0.4);
@@ -300,4 +251,42 @@ nav a:hover, .sidebar ul li a:hover, .close-btn:hover, img:hover {
 
 .dark-mode a:hover {
     color: var(--primary-color);
+}
+
+/* Footer */
+footer {
+    background-image: url("img/giphy.gif");
+    background-size: cover;
+    color: #121212;
+    text-align: center;
+    font-size: 10px;
+    padding: 20px;
+    position: relative;
+}
+
+/* Efek cahaya putih di teks footer */
+footer p {
+    color: #000; /* Warna teks hitam */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 
+                 0 0 20px rgba(255, 255, 255, 0.5),
+                 0 0 30px rgba(255, 255, 255, 0.3);
+}
+
+.contact-icon {
+    width: 20px;  /* Adjust the size as needed */
+    height: auto;  /* Maintain aspect ratio */
+}
+
+/* Responsive Design */
+@media (max-width: 800px) {
+    .sidebar {
+        width: 200px;
+    }
+    main {
+        width: 100%;
+        padding: 15px;
+    }
+    .menu-btn {
+        font-size: 25px;
+    }
 }
