@@ -122,13 +122,15 @@ nav a:hover {
     color: var(--primary-color);
     background: none;
     cursor: pointer;
-    transition: transform 0.3s ease-in-out; }
+    transition: transform 0.3s ease-in-out; 
+}
  
 .close-btn:hover {
     transform: scale(0.8);
     color: white; /* Hapus outline atau border */
     outline: none;
     border: none;
+}
 
 #menu-btn {
     width: 40px; /* Sesuaikan ukuran */
