@@ -81,12 +81,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
 let sidebar = document.querySelector(".sidebar");
 
+let lastScrollX = 0; // Buat nyimpen posisi scroll terakhir
+
 document.addEventListener("wheel", function(event) {
-    if (event.deltaX > 0) { 
-        // Scroll ke kanan → buka sidebar
-        sidebar.classList.add("active");
-    } else if (event.deltaX < 0) { 
-        // Scroll ke kiri → tutup sidebar
-        sidebar.classList.remove("active");
+    if (Math.abs(event.deltaX) > Math.abs(event.deltaY)) { 
+        // Cek kalau lebih dominan scroll horizontal daripada vertical
+        if (event.deltaX > 10) { 
+            // Scroll ke kanan → buka sidebar
+            sidebar.classList.add("active");
+        } else if (event.deltaX < -10) { 
+            // Scroll ke kiri → tutup sidebar
+            sidebar.classList.remove("active");
+        }
     }
 });
