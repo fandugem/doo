@@ -1,17 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // ** Dark Mode Toggle **
     const darkModeToggle = document.getElementById("toggle-darkmode");
     const body = document.body;
 
     function applyDarkMode() {
         const darkMode = localStorage.getItem("darkMode");
-
         if (darkMode === "enabled" || (!darkMode && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
             body.classList.add("dark-mode");
         } else {
             body.classList.remove("dark-mode");
         }
-
         updateDarkModeIcon();
     }
 
@@ -23,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function updateDarkModeIcon() {
         if (darkModeToggle) {
-            darkModeToggle.src = body.classList.contains("dark-mode") ? "img/dark.png" : "img/white.png";
+            darkModeToggle.src = body.classList.contains("dark-mode") ? "img/putih.png" : "img/hitam.png";
         }
     }
 
@@ -35,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", applyDarkMode);
 
-    // ** Sidebar Menu **
+    // Sidebar Menu
     const menuButton = document.getElementById("menu-btn");
     const closeButton = document.getElementById("close-btn");
     const sidebar = document.getElementById("sidebar");
@@ -52,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (menuButton) {
         menuButton.addEventListener("click", function (event) {
-            event.stopPropagation(); // Biar klik tombol nggak langsung nutup
+            event.stopPropagation();
             toggleSidebar();
         });
     }
@@ -63,14 +60,13 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Hapus event listener yang bikin semua klik dianggap close sidebar
     document.addEventListener("click", function (event) {
         if (sidebar.classList.contains("active") && !sidebar.contains(event.target) && event.target !== menuButton) {
             sidebar.classList.remove("active");
         }
     });
 
-    // ** Navigasi GIF Icon **
+    // GIF Icon Navigation
     const gifIcon = document.getElementById("gif-icon");
     if (gifIcon) {
         gifIcon.addEventListener("click", function () {
@@ -78,34 +74,33 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-let sidebar = document.querySelector(".sidebar");
-let startX = 0; 
+    // Sidebar swipe functionality for touchscreen devices
+    let startX = 0;
 
-// --- DETEKSI SCROLL DENGAN MOUSE / TRACKPAD ---
-document.addEventListener("wheel", function(event) {
-    if (Math.abs(event.deltaX) > Math.abs(event.deltaY)) { 
-        if (event.deltaX > 20) { // Scroll ke kanan → buka sidebar
-            sidebar.classList.add("active");
-        } else if (event.deltaX < -20) { // Scroll ke kiri → tutup sidebar
-            sidebar.classList.remove("active");
+    document.addEventListener("wheel", function(event) {
+        if (Math.abs(event.deltaX) > Math.abs(event.deltaY)) {
+            if (event.deltaX > 20) {
+                sidebar.classList.add("active");
+            } else if (event.deltaX < -20) {
+                sidebar.classList.remove("active");
+            }
         }
-    }
-});
+    });
 
-// --- DETEKSI SWIPE DI HP / TOUCHSCREEN ---
-document.addEventListener("touchstart", function(event) {
-    startX = event.touches[0].clientX; // Simpan posisi awal sentuhan
-});
+    document.addEventListener("touchstart", function(event) {
+        startX = event.touches[0].clientX;
+    });
 
-document.addEventListener("touchmove", function(event) {
-    let endX = event.touches[0].clientX;
-    let diffX = endX - startX;
+    document.addEventListener("touchmove", function(event) {
+        let endX = event.touches[0].clientX;
+        let diffX = endX - startX;
 
-    if (Math.abs(diffX) > 50) { // Biar gak terlalu sensitif
-        if (diffX > 0) { // Swipe kanan → buka sidebar
-            sidebar.classList.add("active");
-        } else { // Swipe kiri → tutup sidebar
-            sidebar.classList.remove("active");
+        if (Math.abs(diffX) > 50) {
+            if (diffX > 0) {
+                sidebar.classList.add("active");
+            } else {
+                sidebar.classList.remove("active");
+            }
         }
-    }
+    });
 });
