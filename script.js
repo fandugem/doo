@@ -109,5 +109,3 @@ document.addEventListener("touchmove", function(event) {
         }
     }
 });
-
-});
