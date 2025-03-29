@@ -222,34 +222,34 @@ img:hover {
     transition: background 0.3s ease;
 }
 
-/* Footer */
-footer {
-    background-image: url("img/giphy.gif");
-    background-size: cover;
-    color: #121212;
-    text-align: center;
-    padding: 20px;
+/* Efek cahaya putih di teks footer */
+footer p {
+    color: #000; /* Warna teks hitam */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 
+                 0 0 20px rgba(255, 255, 255, 0.5),
+                 0 0 30px rgba(255, 255, 255, 0.3);
+}
+
+.contact-icon {
+    width: 25px;  /* Adjust the size as needed */
+    height: auto;  /* Maintain aspect ratio */
+    padding: 5px:
 }
 
 /* Responsive Design */
-@media (max-width: 600px) {
+@media (max-width: 800px) {
     .sidebar {
-        width: 185px;
+        width: 200px;
     }
     main {
         width: 100%;
-        padding: 20px;
+        padding: 15px;
     }
     .menu-btn {
         font-size: 25px;
     }
 }
 
-.contact-icon {
-    width: 30px;  /* Adjust the size as needed */
-    height: auto;  /* Maintain aspect ratio */
-    padding: 5px; /* Add padding to create space around the icon */
-}
 
 /* Add CSS Animations */
 @keyframes fadeIn {
@@ -287,31 +287,4 @@ nav a:hover, .sidebar ul li a:hover, .close-btn:hover, img:hover {
 
 .darkmode-btn:hover, #gif-icon:hover {
     box-shadow: 0 0 10px rgba(255, 55, 255, 0.4);
-}
-
-/* Efek cahaya putih di teks footer */
-footer p {
-    color: #000; /* Warna teks hitam */
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 
-                 0 0 20px rgba(255, 255, 255, 0.5),
-                 0 0 30px rgba(255, 255, 255, 0.3);
-}
-
-.contact-icon {
-    width: 20px;  /* Adjust the size as needed */
-    height: auto;  /* Maintain aspect ratio */
-}
-
-/* Responsive Design */
-@media (max-width: 800px) {
-    .sidebar {
-        width: 200px;
-    }
-    main {
-        width: 100%;
-        padding: 15px;
-    }
-    .menu-btn {
-        font-size: 25px;
-    }
 }
