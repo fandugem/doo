@@ -114,30 +114,31 @@ nav a:hover {
     transform: scale(1.1);
 }
 
-/* Close Button */ 
-.close-btn { 
-    position: absolute; 
-    top: 20px; 
-    right: 20px; 
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
     font-size: 25px;
     color: var(--primary-color);
     background: none;
     cursor: pointer;
-    transition: transform 0.3s ease-in-out; 
-}
- 
-.close-btn:hover {
-    transform: scale(0.8);
-    color: white; /* Hapus outline atau border */
-    outline: none;
-    border: none;
+    transition: transform 0.3s ease-in-out;
+    border: none; /* Hilangin border */
+    outline: none; /* Hilangin outline */
 }
 
+.close-btn:hover {
+    transform: scale(0.8);
+    color: white;
+}
+
+/* Menu Button */
 #menu-btn {
-    width: 40px; /* Sesuaikan ukuran */
+    width: 40px;
     height: 40px;
     background: transparent;
-    border: none; /* Hilangin border hitam */
+    border: none;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
