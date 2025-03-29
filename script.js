@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", applyDarkMode);
 
+
     // ** Sidebar Menu **
     const menuButton = document.getElementById("menu-btn");
     const closeButton = document.getElementById("close-btn");
