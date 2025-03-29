@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Dark Mode Toggle
     const darkModeToggle = document.getElementById("toggle-darkmode");
     const body = document.body;
 
     // Check localStorage, if dark mode is enabled, apply it
     if (localStorage.getItem("darkMode") === "enabled") {
         body.classList.add("dark-mode");
+        updateDarkModeIcon();
     }
 
     function toggleDarkMode() {
