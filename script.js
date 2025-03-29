@@ -74,33 +74,41 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Sidebar swipe functionality for touchscreen devices
-    let startX = 0;
+let sidebar = document.querySelector(".sidebar");
+let startX = 0;
+let scrollTimeout;
 
-    document.addEventListener("wheel", function(event) {
-        if (Math.abs(event.deltaX) > Math.abs(event.deltaY)) {
-            if (event.deltaX > 20) {
+// --- DETEKSI SCROLL DENGAN MOUSE / TRACKPAD ---
+document.addEventListener("wheel", function(event) {
+    if (Math.abs(event.deltaX) > Math.abs(event.deltaY)) { 
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+            if (event.deltaX > 20) { // Scroll kanan → buka sidebar
                 sidebar.classList.add("active");
-            } else if (event.deltaX < -20) {
+            } else if (event.deltaX < -20) { // Scroll kiri → tutup sidebar
                 sidebar.classList.remove("active");
             }
-        }
-    });
+        }, 50); // Delay biar lebih smooth
+    }
+});
 
-    document.addEventListener("touchstart", function(event) {
-        startX = event.touches[0].clientX;
-    });
+// --- DETEKSI SWIPE DI HP / TOUCHSCREEN ---
+document.addEventListener("touchstart", function(event) {
+    startX = event.touches[0].clientX;
+});
 
-    document.addEventListener("touchmove", function(event) {
-        let endX = event.touches[0].clientX;
-        let diffX = endX - startX;
+document.addEventListener("touchmove", function(event) {
+    let endX = event.touches[0].clientX;
+    let diffX = endX - startX;
 
-        if (Math.abs(diffX) > 50) {
-            if (diffX > 0) {
+    if (Math.abs(diffX) > 50) {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+            if (diffX > 0) { // Swipe kanan → buka sidebar
                 sidebar.classList.add("active");
-            } else {
+            } else { // Swipe kiri → tutup sidebar
                 sidebar.classList.remove("active");
             }
-        }
-    });
+        }, 50); // Delay biar gak terlalu responsif
+    }
 });
