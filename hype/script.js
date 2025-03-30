@@ -7,5 +7,5 @@ window.onload = function() {
 };
 
 document.body.addEventListener("click", function() {
-    alert("You clicked the page!");
+    alert("it's nothing here neegguh!");
 });
