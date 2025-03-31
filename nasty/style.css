@@ -1,0 +1,74 @@
+Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 300px;
+    height: 100%;
+    background: #222;
+    transition: left var(--transition-speed) ease-in-out;
+    padding-top: 40px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    background: url("img/sad.gif") center/cover no-repeat;
+    animation: bgMove 15s infinite alternate;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+@keyframes bgMove {
+    0% { background-position: center top; }
+    100% { background-position: center bottom; }
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+#menu-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* Tombol Close Sidebar */
+#close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #111;
+    color: white;
+}
+
+body.dark-mode .sidebar {
+    background: #333;
+}
+
+body.dark-mode a {
+    color: lightgray;
+}
