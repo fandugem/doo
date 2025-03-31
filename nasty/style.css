@@ -212,7 +212,7 @@ img:hover {
 }
 
 /* Navigation Buttons */
-.menu-btn, .darkmode-btn, #gif-icon {
+.menu-btn, .darkmode-btn, {
     position: fixed;
     z-index: 1000;
     background: rgba(0, 0, 0, 0.5);
@@ -232,14 +232,8 @@ img:hover {
     width: 40px;
 }
 
-#gif-icon {
-    right: 10px;
-    bottom: 10px;
-    width: 50px;
-}
-
 /* Hover Effects */
-.darkmode-btn:hover, #gif-icon:hover {
+.darkmode-btn:hover {
     background: rgba(255, 55, 255, 0.4);
     box-shadow: 0 0 10px rgba(255, 55, 255, 0.4);
     transition: background var(--transition-speed);
