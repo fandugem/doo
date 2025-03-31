@@ -159,6 +159,20 @@ nav a:hover {
     box-shadow: 0 0 20px white;
 }
 
+.sidebar-menu a {
+    display: block;
+    color: var(--primary-color);
+    text-decoration: none;
+    padding: 10px;
+    font-size: 18px;
+    transition: color 0.3s, transform 0.2s;
+}
+
+.sidebar-menu a:hover {
+    color: white;
+    transform: scale(1.1);
+}
+
 /* Main Content */
 main {
     width: 80%;
