@@ -104,11 +104,4 @@ document.addEventListener("DOMContentLoaded", function () {
         // --- TUTUP SIDEBAR KALO KLIK DI LUAR ----
         document.addEventListener("click", closeSidebar);
     }
-
-    // ---- GIF ICON NAVIGATION ----
-    if (gifIcon) {
-        gifIcon.addEventListener("click", function () {
-            window.location.href = "hype/index.html";
-        });
-    }
 });
