@@ -1,49 +1,54 @@
-let current = parseInt(localStorage.getItem('currentSlide')) || 0;
+let current = 0;
 const slides = document.querySelectorAll('.slide');
-const nav = document.querySelector('.navigation');
 
-// Function buat nampilin slide
+// Buat tombol nomor
+const nav = document.querySelector('.navigation');
+const btnWrapper = document.createElement('div');
+btnWrapper.classList.add('page-buttons');
+
+slides.forEach((_, i) => {
+  const btn = document.createElement('button');
+  btn.textContent = i + 1;
+  btn.onclick = () => {
+    current = i;
+    showSlide(current);
+    localStorage.setItem('chapterIndex', current);
+  };
+  btnWrapper.appendChild(btn);
+});
+nav.insertBefore(btnWrapper, nav.children[1]);
+
 function showSlide(index) {
   slides.forEach((slide, i) => {
     slide.classList.remove('active');
     if (i === index) slide.classList.add('active');
   });
 
-  // Update tombol angka
-  document.querySelectorAll('.page-btn').forEach((btn, i) => {
-    btn.classList.toggle('active-slide', i === index);
-  });
-
-  localStorage.setItem('currentSlide', index);
-  current = index;
+  // Update local storage tiap kali pindah slide
+  localStorage.setItem('chapterIndex', index);
 }
 
-// Function buat tombol Prev
-function prevSlide() {
-  current = (current - 1 + slides.length) % slides.length;
-  showSlide(current);
-}
-
-// Function buat tombol Next
 function nextSlide() {
   current = (current + 1) % slides.length;
   showSlide(current);
 }
 
-// Generate tombol angka (1, 2, 3,...)
-function createPagination() {
-  slides.forEach((_, i) => {
-    const btn = document.createElement('button');
-    btn.textContent = i + 1;
-    btn.className = 'page-btn';
-    btn.addEventListener('click', () => showSlide(i));
-    nav.insertBefore(btn, nav.lastElementChild); // taruh sebelum tombol Next
-  });
+function prevSlide() {
+  current = (current - 1 + slides.length) % slides.length;
+  showSlide(current);
 }
 
-createPagination();
-showSlide(current);
+// Cek localStorage dan tampilkan chapter terakhir
+document.addEventListener('DOMContentLoaded', () => {
+  const saved = parseInt(localStorage.getItem('chapterIndex'));
+  if (!isNaN(saved)) {
+    current = saved;
+    showSlide(current);
+  } else {
+    showSlide(0);
+  }
+});
 
-// Attach tombol Prev dan Next biar bisa dipanggil dari HTML
+// Biar prev/next tetap bisa dipanggil dari HTML
 window.prevSlide = prevSlide;
 window.nextSlide = nextSlide;
