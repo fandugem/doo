@@ -3,53 +3,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&display=swap" rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Isekai Story Slider</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #111;
-      color: #fff;
-      margin: 0;
-      padding: 0;
-    }
-    .slider {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
-    .slide {
-      display: none;
-      background: #222;
-      border-radius: 15px;
-      padding: 20px;
-      box-shadow: 0 0 15px rgba(138, 43, 226, 0.6);
-      animation: fade 0.5s ease-in-out;
-    }
-    .slide.active {
-      display: block;
-    }
-    .navigation {
-      text-align: center;
-      margin-top: 20px;
-    }
-    .navigation button {
-      padding: 10px 20px;
-      margin: 0 10px;
-      background: #8a2be2;
-      color: white;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    .navigation button:hover {
-      background: #a860f0;
-    }
-    @keyframes fade {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-  </style>
+  <title>Isekai Story</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
 </head>
 <body>
   <div class="slider" id="slider">
@@ -318,25 +274,5 @@
     <button onclick="prevSlide()">Prev</button>
     <button onclick="nextSlide()">Next</button>
   </div>
-  <script>
-    let current = 0;
-    const slides = document.querySelectorAll('.slide');function showSlide(index) {
-  slides.forEach((slide, i) => {
-    slide.classList.remove('active');
-    if (i === index) slide.classList.add('active');
-  });
-}
-
-function nextSlide() {
-  current = (current + 1) % slides.length;
-  showSlide(current);
-}
-
-function prevSlide() {
-  current = (current - 1 + slides.length) % slides.length;
-  showSlide(current);
-}
-
-  </script>
 </body>
 </html>
