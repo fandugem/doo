@@ -1,1 +1,63 @@
-herf
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Coaching 1 Tahun</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Online Coaching 1 Tahun</h1>
+    <p>Harga: Rp8.000.000</p>
+  </header>
+
+  <section class="details">
+    <h2>Apa yang kamu dapatkan?</h2>
+    <ul>
+      <li>Coaching eksklusif 1-on-1</li>
+      <li>Materi lengkap dan akses komunitas</li>
+      <li>Strategi bisnis, pengembangan diri, dan mindset</li>
+    </ul>
+  </section>
+
+  <section class="payment">
+    <h2>Pilih Metode Pembayaran</h2>
+    <form id="paymentForm" action="thankyou.html">
+      <label>Nama:</label>
+      <input type="text" name="nama" required><br>
+
+      <label>Email:</label>
+      <input type="email" name="email" required><br>
+
+      <label>No. WhatsApp:</label>
+      <input type="text" name="whatsapp" required><br>
+
+      <label>Metode Pembayaran:</label>
+      <select name="metode" required>
+        <option value="DANA">DANA</option>
+        <option value="BCA">Bank BCA</option>
+        <option value="ShopeePay">ShopeePay</option>
+      </select><br>
+
+      <p>Transfer ke:</p>
+      <ul>
+        <li><strong>DANA:</strong> 08XXXXXXXXXX a.n. Kamu</li>
+        <li><strong>BCA:</strong> 3790388347 a.n. hawk</li>
+        <li><strong>ShopeePay:</strong> 08XXXXXXXXXX (via QR Code)</li>
+      </ul>
+
+      <label>Upload Bukti Transfer:</label>
+      <input type="file" accept="image/*" required><br>
+
+      <button type="submit">Kirim Bukti & Daftar</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 - Coaching by Kamu</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
