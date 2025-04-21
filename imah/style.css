@@ -39,3 +39,12 @@
   color: #ffc4f0;
   font-style: italic;
 }
+
+<style>
+  .navigation button.active-slide {
+    background: white;
+    color: #111;
+    font-weight: bold;
+    border: 2px solid #8a2be2;
+  }
+</style>
