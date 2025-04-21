@@ -90,3 +90,19 @@
     font-weight: bold;
     border: 2px solid #8a2be2;
   }
+
+.page-buttons {
+  margin: 15px 0;
+}
+.page-buttons button {
+  margin: 0 3px;
+  padding: 5px 10px;
+  background: #333;
+  color: white;
+  border: 1px solid #8a2be2;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.page-buttons button:hover {
+  background: #8a2be2;
+}
