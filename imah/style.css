@@ -1,3 +1,48 @@
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #111;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    .slider {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    .slide {
+      display: none;
+      background: #222;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 0 15px rgba(138, 43, 226, 0.6);
+      animation: fade 0.5s ease-in-out;
+    }
+    .slide.active {
+      display: block;
+    }
+    .navigation {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .navigation button {
+      padding: 10px 20px;
+      margin: 0 10px;
+      background: #8a2be2;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .navigation button:hover {
+      background: #a860f0;
+    }
+    @keyframes fade {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
 .story-section {
   max-width: 800px;
   margin: 50px auto;
@@ -39,12 +84,9 @@
   color: #ffc4f0;
   font-style: italic;
 }
-
-<style>
   .navigation button.active-slide {
     background: white;
     color: #111;
     font-weight: bold;
     border: 2px solid #8a2be2;
   }
-</style>
