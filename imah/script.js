@@ -24,8 +24,14 @@ function showSlide(index) {
     if (i === index) slide.classList.add('active');
   });
 
-  // Update local storage tiap kali pindah slide
+  // Simpan index ke localStorage
   localStorage.setItem('chapterIndex', index);
+
+  // Scroll ke atas
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
 }
 
 function nextSlide() {
