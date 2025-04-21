@@ -1,0 +1,41 @@
+.story-section {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 30px;
+  background: rgba(20, 20, 30, 0.7);
+  border: 2px solid #6e00ff;
+  border-radius: 20px;
+  box-shadow: 0 0 20px #6e00ff80;
+  color: #e0d9ff;
+  font-family: 'Merriweather', serif;
+  line-height: 1.7;
+  backdrop-filter: blur(8px);
+}
+
+.story-title {
+  font-size: 36px;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 25px;
+  text-shadow: 0 0 10px #9d4bff;
+}
+
+.character-list {
+  list-style-type: square;
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.character-list li {
+  margin: 10px 0;
+  color: #e6d2ff;
+}
+
+.story-section strong {
+  color: #bb86fc;
+}
+
+.story-section em {
+  color: #ffc4f0;
+  font-style: italic;
+}
