@@ -1,0 +1,90 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Isekai Story Slider</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #111;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    .slider {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    .slide {
+      display: none;
+      background: #222;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 0 15px rgba(138, 43, 226, 0.6);
+      animation: fade 0.5s ease-in-out;
+    }
+    .slide.active {
+      display: block;
+    }
+    .navigation {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .navigation button {
+      padding: 10px 20px;
+      margin: 0 10px;
+      background: #8a2be2;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .navigation button:hover {
+      background: #a860f0;
+    }
+    @keyframes fade {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="slider" id="slider">
+    <div class="slide active">
+      <h2>Chapter 1: Awal Petualangan</h2>
+      <p>Asha, mahasiswi sosial semester 2, tiba-tiba terlempar ke dunia lain saat sedang dalam perjalanan pulang...</p>
+    </div>
+    <div class="slide">
+      <h2>Chapter 2: Dunia Asing</h2>
+      <p>Dia terbangun di hutan aneh, disambut oleh makhluk berbicara dan langit ungu yang tak dikenalnya...</p>
+    </div>
+    <!-- Chapter 3-26 bisa ditambah di sini -->
+  </div>
+  <div class="navigation">
+    <button onclick="prevSlide()">Prev</button>
+    <button onclick="nextSlide()">Next</button>
+  </div>
+  <script>
+    let current = 0;
+    const slides = document.querySelectorAll('.slide');function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.classList.remove('active');
+    if (i === index) slide.classList.add('active');
+  });
+}
+
+function nextSlide() {
+  current = (current + 1) % slides.length;
+  showSlide(current);
+}
+
+function prevSlide() {
+  current = (current - 1 + slides.length) % slides.length;
+  showSlide(current);
+}
+
+  </script>
+</body>
+</html>
