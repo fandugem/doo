@@ -106,3 +106,25 @@
 .page-buttons button:hover {
   background: #8a2be2;
 }
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.page-buttons, .prev-next-buttons {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.page-buttons button,
+.prev-next-buttons button {
+  padding: 10px 15px;
+  border-radius: 8px;
+  background-color: purple;
+  color: white;
+  border: none;
+}
