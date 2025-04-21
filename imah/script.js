@@ -28,20 +28,22 @@ function showSlide(index) {
   localStorage.setItem('chapterIndex', index);
 
   // Scroll ke atas
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  });
+  document.querySelector('.slide.active').scrollIntoView({
+  behavior: 'smooth',
+  block: 'start'
+});
 }
 
 function nextSlide() {
   current = (current + 1) % slides.length;
   showSlide(current);
+  localStorage.setItem('chapterIndex', current);
 }
 
 function prevSlide() {
   current = (current - 1 + slides.length) % slides.length;
   showSlide(current);
+  localStorage.setItem('chapterIndex', current);
 }
 
 // Cek localStorage dan tampilkan chapter terakhir
