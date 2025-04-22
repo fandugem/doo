@@ -24,6 +24,10 @@ function showSlide(index) {
     if (i === index) slide.classList.add('active');
   });
 
+  document.querySelectorAll('.page-buttons button').forEach((btn, i) => {
+  btn.classList.toggle('active', i === index);
+});
+  
   // Simpan index ke localStorage
   localStorage.setItem('chapterIndex', index);
 
