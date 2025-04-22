@@ -12,11 +12,10 @@ slides.forEach((_, i) => {
   btn.onclick = () => {
     current = i;
     showSlide(current);
-    localStorage.setItem('chapterIndex', current);
   };
   btnWrapper.appendChild(btn);
 });
-nav.insertBefore(btnWrapper, nav.children[1]);
+nav.insertBefore(btnWrapper, nav.children[0]);
 
 function showSlide(index) {
   slides.forEach((slide, i) => {
@@ -24,43 +23,40 @@ function showSlide(index) {
     if (i === index) slide.classList.add('active');
   });
 
-  // Simpan index ke localStorage
+  // Update tombol aktif
+  document.querySelectorAll('.page-buttons button').forEach((btn, i) => {
+    btn.classList.toggle('active', i === index);
+  });
+
+  // Simpan posisi
   localStorage.setItem('chapterIndex', index);
 
-  // Scroll ke atas
-  document.querySelector('.slide.active').scrollIntoView({
-  behavior: 'smooth',
-  block: 'start'
-});
+  // Scroll ke atas window
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
 }
 
 function nextSlide() {
   current = (current + 1) % slides.length;
   showSlide(current);
-  localStorage.setItem('chapterIndex', current);
 }
 
 function prevSlide() {
   current = (current - 1 + slides.length) % slides.length;
   showSlide(current);
-  localStorage.setItem('chapterIndex', current);
 }
 
-// Cek localStorage dan tampilkan chapter terakhir
+// Cek localStorage
 document.addEventListener('DOMContentLoaded', () => {
   const saved = parseInt(localStorage.getItem('chapterIndex'));
   if (!isNaN(saved)) {
     current = saved;
-    showSlide(current);
-  } else {
-    showSlide(0);
   }
+  showSlide(current);
 });
 
-// Biar prev/next tetap bisa dipanggil dari HTML
+// Biarkan tombol HTML bisa manggil fungsi ini
 window.prevSlide = prevSlide;
 window.nextSlide = nextSlide;
-
-document.querySelectorAll('.page-buttons button').forEach((btn, i) => {
-  btn.classList.toggle('active', i === index);
-});
