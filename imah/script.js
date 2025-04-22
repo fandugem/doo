@@ -24,10 +24,6 @@ function showSlide(index) {
     if (i === index) slide.classList.add('active');
   });
 
-  document.querySelectorAll('.page-buttons button').forEach((btn, i) => {
-  btn.classList.toggle('active', i === index);
-});
-  
   // Simpan index ke localStorage
   localStorage.setItem('chapterIndex', index);
 
@@ -64,3 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Biar prev/next tetap bisa dipanggil dari HTML
 window.prevSlide = prevSlide;
 window.nextSlide = nextSlide;
+
+document.querySelectorAll('.page-buttons button').forEach((btn, i) => {
+  btn.classList.toggle('active', i === index);
+});
