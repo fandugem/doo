@@ -149,3 +149,17 @@
   color: #8a2be2;
   font-weight: bold;
 }
+
+.page-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.page-buttons button.active {
+  background: #ffffff;
+  color: #8a2be2;
+  font-weight: bold;
+}
