@@ -128,3 +128,24 @@
   color: white;
   border: none;
 }
+
+.navigation {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.navigation .page-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.page-buttons button.active {
+  background: #ffffff;
+  color: #8a2be2;
+  font-weight: bold;
+}
