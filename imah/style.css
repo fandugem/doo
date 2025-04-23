@@ -173,9 +173,9 @@
 }
 
 blockquote {
-  border-left: 3px solid #8a2be2;
-  padding-left: 15px;
-  margin-left: 10px;
+  border-left: 4px solid #8a2be2;
+  padding-left: 10px;
+  margin-left: 15px;
   color: #ffd;
   font-style: italic;
   background: rgba(255, 255, 255, 0.05);
@@ -183,7 +183,7 @@ blockquote {
 }
 
 ul {
-  padding-left: 5px;
+  padding-left: 25px;
 }
 
 hr {
