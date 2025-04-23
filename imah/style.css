@@ -173,10 +173,10 @@
 }
 
 blockquote {
-  border-left: 4px solid #8a2be2;
-  padding-left: 10px;
-  margin-left: 15px;
-  color: #ffd;
+  border-left: 3px solid #8a2be2;
+  padding-left: 15px;
+  margin-left: 10px;
+  color: #e1e1ff;
   font-style: italic;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 10px;
