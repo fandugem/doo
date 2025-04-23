@@ -6,6 +6,8 @@ const nav = document.querySelector('.navigation');
 const btnWrapper = document.createElement('div');
 btnWrapper.classList.add('page-buttons');
 
+const chapterContainer = document.getElementById('chapter-container'); // Step 3
+
 slides.forEach((_, i) => {
   const btn = document.createElement('button');
   btn.textContent = i + 1;
@@ -16,6 +18,14 @@ slides.forEach((_, i) => {
   btnWrapper.appendChild(btn);
 });
 nav.appendChild(btnWrapper);
+
+// Tambah tombol manual buat chapter 35
+const btn35 = document.createElement('button');
+btn35.textContent = '35';
+btn35.onclick = () => {
+  goToSlide(35);
+};
+btnWrapper.appendChild(btn35);
 
 function showSlide(index) {
   slides.forEach((slide, i) => {
@@ -61,7 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
 window.prevSlide = prevSlide;
 window.nextSlide = nextSlide;
 
-const chapterContainer = document.getElementById('chapter-container');
 function goToSlide(index) {
   currentSlide = index;
 
