@@ -15,7 +15,7 @@ slides.forEach((_, i) => {
   };
   btnWrapper.appendChild(btn);
 });
-nav.insertBefore(btnWrapper, nav.children[0]);
+nav.appendChild(btnWrapper);
 
 function showSlide(index) {
   slides.forEach((slide, i) => {
