@@ -6,8 +6,6 @@ const nav = document.querySelector('.navigation');
 const btnWrapper = document.createElement('div');
 btnWrapper.classList.add('page-buttons');
 
-const chapterContainer = document.getElementById('chapter-container'); // Step 3
-
 slides.forEach((_, i) => {
   const btn = document.createElement('button');
   btn.textContent = i + 1;
@@ -18,14 +16,6 @@ slides.forEach((_, i) => {
   btnWrapper.appendChild(btn);
 });
 nav.appendChild(btnWrapper);
-
-// Tambah tombol manual buat chapter 35
-const btn35 = document.createElement('button');
-btn35.textContent = '35';
-btn35.onclick = () => {
-  goToSlide(35);
-};
-btnWrapper.appendChild(btn35);
 
 function showSlide(index) {
   slides.forEach((slide, i) => {
@@ -71,29 +61,21 @@ document.addEventListener('DOMContentLoaded', () => {
 window.prevSlide = prevSlide;
 window.nextSlide = nextSlide;
 
-const chapterContainer = document.getElementById("chapter-container");
-
-// Ubah jumlah total chapter sesuai kebutuhan
-const totalChapters = 50;
-
 function goToSlide(index) {
   currentSlide = index;
 
+  // Kalau chapter <= 34 pakai sistem lama
   if (index <= slides.length) {
     slides.forEach((slide, i) => {
       slide.classList.toggle('active', i === index - 1);
     });
     chapterContainer.style.display = 'none';
   } else {
+    // Untuk chapter di atas 34, load file eksternal
     slides.forEach(slide => slide.classList.remove('active'));
     chapterContainer.style.display = 'block';
-    chapterContainer.innerHTML = "<p>Loading...</p>";
-
-    fetch(`chapters/chapter${index}.html`)
-      .then(res => {
-        if (!res.ok) throw new Error("Chapter not found");
-        return res.text();
-      })
+    fetch(`chapter/chapter${index}.html`)
+      .then(res => res.text())
       .then(html => {
         chapterContainer.innerHTML = html;
       })
