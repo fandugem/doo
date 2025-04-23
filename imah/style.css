@@ -163,3 +163,41 @@
   color: #8a2be2;
   font-weight: bold;
 }
+
+.story-container {
+  background: #1a1a2e;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 0 0 15px rgba(173, 216, 230, 0.3);
+  font-family: 'Merriweather', serif;
+  line-height: 1.7;
+}
+
+.chapter-title {
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+  color: #e1e1ff;
+  border-left: 4px solid #8a2be2;
+  padding-left: 10px;
+}
+
+blockquote {
+  border-left: 3px solid #8a2be2;
+  padding-left: 15px;
+  margin-left: 10px;
+  color: #ffd;
+  font-style: italic;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+ul {
+  padding-left: 25px;
+}
+
+hr {
+  border: none;
+  border-top: 1px dashed #8a2be2;
+  margin: 20px 0;
+}
