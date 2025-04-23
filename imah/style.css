@@ -166,9 +166,9 @@
 
 .story-container {
   background: #1a1a2e;
-  border-radius: 20px;
-  padding: 20px;
-  margin: 20px;
+  border-radius: 2px;
+  padding: 3px;
+  margin: 0px;
   box-shadow: 0 0 15px rgba(173, 216, 230, 0.3);
   font-family: 'Merriweather', serif;
   line-height: 1.7;
@@ -193,7 +193,7 @@ blockquote {
 }
 
 ul {
-  padding-left: 25px;
+  padding-left: 5px;
 }
 
 hr {
