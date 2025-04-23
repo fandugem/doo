@@ -61,6 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
 window.prevSlide = prevSlide;
 window.nextSlide = nextSlide;
 
+const chapterContainer = document.getElementById('chapter-container');
 function goToSlide(index) {
   currentSlide = index;
 
