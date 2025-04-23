@@ -6,15 +6,16 @@ const nav = document.querySelector('.navigation');
 const btnWrapper = document.createElement('div');
 btnWrapper.classList.add('page-buttons');
 
-slides.forEach((_, i) => {
+const totalChapters = 50; // atur sesuai jumlah yang lo mau tampil
+for (let i = 0; i < totalChapters; i++) {
   const btn = document.createElement('button');
   btn.textContent = i + 1;
   btn.onclick = () => {
     current = i;
-    showSlide(current);
+    goToSlide(i + 1); // panggil goToSlide buat dukung chapter >34
   };
   btnWrapper.appendChild(btn);
-});
+}
 nav.appendChild(btnWrapper);
 
 function showSlide(index) {
