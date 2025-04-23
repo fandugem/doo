@@ -74,7 +74,7 @@ function goToSlide(index) {
     // Untuk chapter di atas 34, load file eksternal
     slides.forEach(slide => slide.classList.remove('active'));
     chapterContainer.style.display = 'block';
-    fetch(`chapters/chapter${index}.html`)
+    fetch(`chapter/chapter${index}.html`)
       .then(res => res.text())
       .then(html => {
         chapterContainer.innerHTML = html;
