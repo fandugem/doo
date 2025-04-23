@@ -60,3 +60,29 @@ document.addEventListener('DOMContentLoaded', () => {
 // Biarkan tombol HTML bisa manggil fungsi ini
 window.prevSlide = prevSlide;
 window.nextSlide = nextSlide;
+
+function goToSlide(index) {
+  currentSlide = index;
+
+  // Kalau chapter <= 34 pakai sistem lama
+  if (index <= slides.length) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index - 1);
+    });
+    chapterContainer.style.display = 'none';
+  } else {
+    // Untuk chapter di atas 34, load file eksternal
+    slides.forEach(slide => slide.classList.remove('active'));
+    chapterContainer.style.display = 'block';
+    fetch(`chapters/chapter${index}.html`)
+      .then(res => res.text())
+      .then(html => {
+        chapterContainer.innerHTML = html;
+      })
+      .catch(() => {
+        chapterContainer.innerHTML = "<p>Chapter belum tersedia.</p>";
+      });
+  }
+
+  updateButtons();
+}
