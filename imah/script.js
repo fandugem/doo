@@ -44,13 +44,21 @@ function showSlide(index) {
 }
 
 function nextSlide() {
-  current = (current + 1) % slides.length;
-  showSlide(current);
+  if (current + 1 < slides.length) {
+    current++;
+    showSlide(current);
+  } else {
+    goToSlide(35);
+  }
 }
 
 function prevSlide() {
-  current = (current - 1 + slides.length) % slides.length;
-  showSlide(current);
+  if (current > 0) {
+    current--;
+    showSlide(current);
+  } else {
+    goToSlide(35);
+  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
