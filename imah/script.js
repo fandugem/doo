@@ -78,7 +78,7 @@ function goToSlide(index) {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       })
       .catch(() => {
-        chapterContainer.innerHTML = "<p>Chapter belum tersedia.</p>";
+        chapterContainer.innerHTML = "<p>loading chapter...</p>";
       });
   }
 
@@ -89,7 +89,10 @@ function goToSlide(index) {
 function updateButtons() {
   const buttons = document.querySelectorAll('.page-buttons button');
   buttons.forEach((btn, i) => {
-    const isActive = (i === current || i === 34 && current + 1 > slides.length); // 35 is at index 34
+    const isActive = (
+      i === current || 
+      (i === slides.length && current + 1 > slides.length) // untuk tombol "35"
+    );
     btn.classList.toggle('active', isActive);
   });
 }
