@@ -71,15 +71,6 @@ function goToSlide(index) {
   } else {
     slides.forEach(slide => slide.classList.remove('active'));
     chapterContainer.style.display = 'block';
-    if (chapterIndex < 0) {
-  chapterIndex = chapters.length - 1;
-} else if (chapterIndex >= chapters.length) {
-  chapterIndex = 0;
-}
-
-function loadChapter(index) {
-  const chapterContainer = document.getElementById("chapter-container");
-  chapterContainer.innerHTML = ""; // Tambahin ini biar bersih dulu
     fetch(`chapter/chapter${index}.html`)
       .then(res => res.text())
       .then(html => {
