@@ -1,4 +1,3 @@
-
 let current = 0;
 const slides = document.querySelectorAll('.slide');
 
@@ -20,10 +19,11 @@ slides.forEach((_, i) => {
 });
 nav.appendChild(btnWrapper);
 
-// Tambah tombol manual buat chapter 35
+// Tambah tombol manual buat chapter 35 (external)
 const btn35 = document.createElement('button');
 btn35.textContent = '35';
 btn35.onclick = () => {
+  current = 34; // index untuk penanda posisi aktif
   goToSlide(35);
 };
 btnWrapper.appendChild(btn35);
