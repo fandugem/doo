@@ -84,11 +84,18 @@ chapterContainer.style.display = 'none';
     slides.forEach(slide => slide.classList.remove('active'));
     chapterContainer.style.display = 'block';
     fetch(`chapter/chapter${index}.html`)
-      .then(res => res.text())
-      .then(html => {
-        chapterContainer.innerHTML = html;
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      })
+  .then(res => res.text())
+  .then(html => {
+    chapterContainer.innerHTML = `<div class="slide active">${html}</div>`;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // BONUS: reset semua tombol biar ga ganda
+    document.querySelectorAll('.page-buttons button').forEach(btn => btn.classList.remove('active'));
+    
+    // Optional: aktifin tombol 35
+    const buttons = document.querySelectorAll('.page-buttons button');
+    buttons[buttons.length - 1].classList.add('active');
+  })
       .catch(() => {
         chapterContainer.innerHTML = "<p>loading chapter...</p>";
       });
