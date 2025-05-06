@@ -63,6 +63,9 @@ window.prevSlide = prevSlide;
 window.nextSlide = nextSlide;
 
 function goToSlide(index) {
+  slides.forEach(slide => slide.classList.remove('active'));
+chapterContainer.innerHTML = '';
+chapterContainer.style.display = 'none';
   if (index <= slides.length) {
     slides.forEach((slide, i) => {
       slide.classList.toggle('active', i === index - 1);
