@@ -64,7 +64,7 @@ function goToSlide(index) {
     fetch(`chapter/chapter${index}.html`)
       .then(res => res.text())
       .then(html => {
-        chapterContainer.innerHTML = `<div class="slide active">${html}</div>`;
+        chapterContainer.innerHTML = `<div class="slide active"><div class="story-section">${html}</div></div>`;
         current = slides.length;
 
         const buttons = document.querySelectorAll('.page-buttons button');
