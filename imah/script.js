@@ -1,13 +1,11 @@
 let current = 0;
 const slides = document.querySelectorAll('.slide');
-
-// Buat tombol nomor
 const nav = document.querySelector('.navigation');
 const btnWrapper = document.createElement('div');
 btnWrapper.classList.add('page-buttons');
-
 const chapterContainer = document.getElementById('chapter-container');
 
+// Generate tombol untuk chapter 1 - N (slide)
 slides.forEach((_, i) => {
   const btn = document.createElement('button');
   btn.textContent = i + 1;
@@ -17,16 +15,17 @@ slides.forEach((_, i) => {
   };
   btnWrapper.appendChild(btn);
 });
-nav.appendChild(btnWrapper);
 
-// Tambah tombol manual buat chapter 35 (external)
+// Tambah tombol manual untuk chapter 35 (eksternal)
 const btn35 = document.createElement('button');
 btn35.textContent = '35';
 btn35.onclick = () => {
-  current = 34; // index untuk penanda posisi aktif
+  current = slides.length;
   goToSlide(35);
 };
 btnWrapper.appendChild(btn35);
+
+nav.appendChild(btnWrapper);
 
 function showSlide(index) {
   slides.forEach((slide, i) => {
@@ -34,13 +33,64 @@ function showSlide(index) {
     if (i === index) slide.classList.add('active');
   });
 
+  chapterContainer.style.display = 'none';
+  chapterContainer.innerHTML = '';
+
   document.querySelectorAll('.page-buttons button').forEach((btn, i) => {
     btn.classList.toggle('active', i === index);
   });
 
-  localStorage.setItem('chapterIndex', index);
-
+  localStorage.setItem('chapterIndex', index + 1);
+  current = index;
   window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function goToSlide(index) {
+  // Clear semua
+  slides.forEach(slide => slide.classList.remove('active'));
+  chapterContainer.innerHTML = '';
+  chapterContainer.style.display = 'none';
+
+  // Reset tombol
+  document.querySelectorAll('.page-buttons button').forEach(btn => btn.classList.remove('active'));
+
+  if (index <= slides.length) {
+    slides[index - 1].classList.add('active');
+    current = index - 1;
+  } else {
+    chapterContainer.style.display = 'block';
+    chapterContainer.innerHTML = `<div class="slide active"><p>Loading chapter...</p></div>`;
+
+    fetch(`chapter/chapter${index}.html`)
+      .then(res => res.text())
+      .then(html => {
+        chapterContainer.innerHTML = `<div class="slide active">${html}</div>`;
+        current = slides.length;
+
+        const buttons = document.querySelectorAll('.page-buttons button');
+        if (buttons.length > 0) {
+          buttons[buttons.length - 1].classList.add('active');
+        }
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      })
+      .catch(() => {
+        chapterContainer.innerHTML = "<div class='slide active'><p>Chapter belum tersedia.</p></div>";
+      });
+  }
+
+  localStorage.setItem('chapterIndex', index);
+  updateButtons();
+}
+
+function updateButtons() {
+  const buttons = document.querySelectorAll('.page-buttons button');
+  buttons.forEach((btn, i) => {
+    const isActive = (
+      i === current || (i === slides.length && current >= slides.length)
+    );
+    btn.classList.toggle('active', isActive);
+  });
 }
 
 function nextSlide() {
@@ -63,55 +113,17 @@ function prevSlide() {
 
 document.addEventListener('DOMContentLoaded', () => {
   const saved = parseInt(localStorage.getItem('chapterIndex'));
-  if (!isNaN(saved)) current = saved;
-  showSlide(current);
+  if (!isNaN(saved)) {
+    if (saved > slides.length) {
+      goToSlide(saved);
+    } else {
+      current = saved - 1;
+      showSlide(current);
+    }
+  } else {
+    showSlide(0);
+  }
 });
 
 window.prevSlide = prevSlide;
 window.nextSlide = nextSlide;
-
-function goToSlide(index) {
-  slides.forEach(slide => slide.classList.remove('active'));
-chapterContainer.innerHTML = '';
-chapterContainer.style.display = 'none';
-  current = slides.length;
-  if (index <= slides.length) {
-    slides.forEach((slide, i) => {
-      slide.classList.toggle('active', i === index - 1);
-    });
-    chapterContainer.style.display = 'none';
-  } else {
-    slides.forEach(slide => slide.classList.remove('active'));
-    chapterContainer.style.display = 'block';
-    fetch(`chapter/chapter${index}.html`)
-  .then(res => res.text())
-  .then(html => {
-    chapterContainer.innerHTML = `<div class="slide active">${html}</div>`;
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-
-    // BONUS: reset semua tombol biar ga ganda
-    document.querySelectorAll('.page-buttons button').forEach(btn => btn.classList.remove('active'));
-    
-    // Optional: aktifin tombol 35
-    const buttons = document.querySelectorAll('.page-buttons button');
-    buttons[buttons.length - 1].classList.add('active');
-  })
-      .catch(() => {
-        chapterContainer.innerHTML = "<p>loading chapter...</p>";
-      });
-  }
-
-  localStorage.setItem('chapterIndex', index);
-  updateButtons();
-}
-
-function updateButtons() {
-  const buttons = document.querySelectorAll('.page-buttons button');
-  buttons.forEach((btn, i) => {
-    const isActive = (
-      i === current || 
-      (i === slides.length && current + 1 > slides.length) // untuk tombol "35"
-    );
-    btn.classList.toggle('active', isActive);
-  });
-}
