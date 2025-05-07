@@ -191,3 +191,8 @@ hr {
   border-top: 1px dashed #8a2be2;
   margin: 20px 0;
 }
+
+.slide.active {
+  display: block;
+  animation: fade 0.5s ease-in-out;
+}
