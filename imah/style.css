@@ -113,6 +113,13 @@
   margin: 10px 0;
 }
 
+.navigation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
 .page-buttons button,
 .prev-next-buttons button {
   padding: 10px 15px;
