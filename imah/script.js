@@ -65,6 +65,7 @@ function goToSlide(index) {
       .then(res => res.text())
       .then(html => {
   chapterContainer.innerHTML = `<div class="slide active"><div class="story-section">${html}</div></div>`
+        current = slides.length;
 
         const buttons = document.querySelectorAll('.page-buttons button');
         if (buttons.length > 0) {
