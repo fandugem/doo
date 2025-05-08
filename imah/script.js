@@ -46,10 +46,11 @@ function showSlide(index) {
 }
 
 function goToSlide(index) {
-  // Clear semua
+  const slider = document.querySelector('.slider'); // <<< ini lo ambil slider utama
   slides.forEach(slide => slide.classList.remove('active'));
   chapterContainer.innerHTML = '';
   chapterContainer.style.display = 'none';
+  slider.style.display = 'block'; // <<< default munculin dulu
 
   // Reset tombol
   document.querySelectorAll('.page-buttons button').forEach(btn => btn.classList.remove('active'));
@@ -58,37 +59,32 @@ function goToSlide(index) {
     slides[index - 1].classList.add('active');
     current = index - 1;
   } else {
+    // Sembunyikan semua slide internal
+    slider.style.display = 'none'; // <<< ini sembunyiin slide 1–34
     chapterContainer.style.display = 'block';
-    chapterContainer.innerHTML = `<div class="slide active"><p>Loading chapter...</p></div>`;
+    chapterContainer.innerHTML = `<div class="slide active"><div class="story-section">Loading chapter...</div></div>`;
 
     fetch(`chapter/chapter${index}.html`)
-  .then(res => res.text())
-  .then(html => {
-    chapterContainer.innerHTML = ''; // bersihin
-    chapterContainer.style.display = 'block';
+      .then(res => res.text())
+      .then(html => {
+        chapterContainer.innerHTML = `
+          <div class="slide active">
+            <div class="story-section">
+              ${html}
+            </div>
+          </div>
+        `;
 
-    // BUNGKUS konten dengan wrapper slide & story-section
-    const wrapped = `
-      <div class="slide active">
-        <div class="story-section">
-          ${html}
-        </div>
-      </div>`;
-    chapterContainer.innerHTML = wrapped;
+        const buttons = document.querySelectorAll('.page-buttons button');
+        buttons[buttons.length - 1].classList.add('active');
 
-    // Update tombol aktif
-    const buttons = document.querySelectorAll('.page-buttons button');
-    buttons.forEach(btn => btn.classList.remove('active'));
-    if (buttons.length > 0) {
-      buttons[buttons.length - 1].classList.add('active');
-    }
-
-    current = slides.length;
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  })
-  .catch(() => {
-    chapterContainer.innerHTML = "<div class='slide active'><p>Chapter belum tersedia.</p></div>";
-  });
+        current = slides.length;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      })
+      .catch(() => {
+        chapterContainer.innerHTML = "<div class='slide active'><p>Chapter belum tersedia.</p></div>";
+      });
+  }
 
   localStorage.setItem('chapterIndex', index);
   updateButtons();
