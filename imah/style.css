@@ -158,12 +158,6 @@
   margin-bottom: 12px;
 }
 
-.page-buttons button.active {
-  background: #ffffff;
-  color: #8a2be2;
-  font-weight: bold;
-}
-
 .chapter-title {
   font-size: 1.6rem;
   margin-bottom: 15px;
