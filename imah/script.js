@@ -1,5 +1,20 @@
 let current = 0;
-const slides = document.querySelectorAll('.slide');
+let slides;
+
+document.addEventListener('DOMContentLoaded', () => {
+  slides = document.querySelectorAll('.slide');
+  const saved = parseInt(localStorage.getItem('chapterIndex'));
+  if (!isNaN(saved)) {
+    if (saved > slides.length) {
+      goToSlide(saved);
+    } else {
+      current = saved - 1;
+      showSlide(current);
+    }
+  } else {
+    showSlide(0);
+  }
+});
 const nav = document.querySelector('.navigation');
 const btnWrapper = document.createElement('div');
 btnWrapper.classList.add('page-buttons');
