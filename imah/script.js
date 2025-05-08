@@ -4,8 +4,8 @@ const nav = document.querySelector('.navigation');
 const btnWrapper = document.createElement('div');
 btnWrapper.classList.add('page-buttons');
 const chapterContainer = document.getElementById('chapter-container');
+const slider = document.querySelector('.slider');
 
-// Generate tombol untuk chapter 1 - N (slide)
 slides.forEach((_, i) => {
   const btn = document.createElement('button');
   btn.textContent = i + 1;
@@ -16,7 +16,6 @@ slides.forEach((_, i) => {
   btnWrapper.appendChild(btn);
 });
 
-// Tambah tombol manual untuk chapter 35 (eksternal)
 const btn35 = document.createElement('button');
 btn35.textContent = '35';
 btn35.onclick = () => {
@@ -33,6 +32,7 @@ function showSlide(index) {
     if (i === index) slide.classList.add('active');
   });
 
+  slider.style.display = 'block';
   chapterContainer.style.display = 'none';
   chapterContainer.innerHTML = '';
 
@@ -46,34 +46,25 @@ function showSlide(index) {
 }
 
 function goToSlide(index) {
-  const slider = document.querySelector('.slider'); // <<< ini lo ambil slider utama
   slides.forEach(slide => slide.classList.remove('active'));
   chapterContainer.innerHTML = '';
   chapterContainer.style.display = 'none';
-  slider.style.display = 'block'; // <<< default munculin dulu
+  slider.style.display = 'block';
 
-  // Reset tombol
   document.querySelectorAll('.page-buttons button').forEach(btn => btn.classList.remove('active'));
 
   if (index <= slides.length) {
     slides[index - 1].classList.add('active');
     current = index - 1;
   } else {
-    // Sembunyikan semua slide internal
-    slider.style.display = 'none'; // <<< ini sembunyiin slide 1–34
+    slider.style.display = 'none';
     chapterContainer.style.display = 'block';
-    chapterContainer.innerHTML = `<div class="slide active"><div class="story-section">Loading chapter...</div></div>`;
+    chapterContainer.innerHTML = '<div class="slide active"><div class="story-section">Loading chapter...</div></div>';
 
     fetch(`chapter/chapter${index}.html`)
       .then(res => res.text())
       .then(html => {
-        chapterContainer.innerHTML = `
-          <div class="slide active">
-            <div class="story-section">
-              ${html}
-            </div>
-          </div>
-        `;
+        chapterContainer.innerHTML = '<div class="slide active"><div class="story-section">' + html + '</div></div>';
 
         const buttons = document.querySelectorAll('.page-buttons button');
         buttons[buttons.length - 1].classList.add('active');
