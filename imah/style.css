@@ -107,13 +107,6 @@
   background: #8a2be2;
 }
 
-.navigation {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20px;
-}
-
 .page-buttons, .prev-next-buttons {
   display: flex;
   gap: 10px;
