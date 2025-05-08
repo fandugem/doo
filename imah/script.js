@@ -64,8 +64,11 @@ function goToSlide(index) {
     fetch(`chapter/chapter${index}.html`)
       .then(res => res.text())
       .then(html => {
-        chapterContainer.innerHTML = `<div class="slide active"><div class="story-section">${html}</div></div>`;
-        current = slides.length;
+  chapterContainer.innerHTML = `<div class="slide active"><div class="story-section">${html}</div></div>`;
+  console.log('Chapter 35 Loaded:', chapterContainer.innerHTML); // buat ngecek isi
+  ...
+})
+    current = slides.length;
 
         const buttons = document.querySelectorAll('.page-buttons button');
         if (buttons.length > 0) {
