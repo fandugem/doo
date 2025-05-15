@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const chapterContainer = document.getElementById('chapter-container');
   const slider = document.querySelector('.slider');
 
-  // Generate buttons untuk semua slide
+  // Generate tombol untuk slide 1 - N
   slides.forEach((_, i) => {
     const btn = document.createElement('button');
     btn.textContent = i + 1;
@@ -20,21 +20,22 @@ document.addEventListener('DOMContentLoaded', () => {
     btnWrapper.appendChild(btn);
   });
 
-  // Tombol untuk chapter 35 (external)
+  // Tombol untuk chapter 35 (file)
   const btn35 = document.createElement('button');
   btn35.textContent = '35';
   btn35.onclick = () => {
     current = slides.length;
-    goToSlide(35);
+    showExternalChapter(35);
   };
   btnWrapper.appendChild(btn35);
 
   nav.appendChild(btnWrapper);
 
+  // Load dari localStorage
   const saved = parseInt(localStorage.getItem('chapterIndex'));
   if (!isNaN(saved)) {
-    if (saved >= slides.length) {
-      goToSlide(saved);
+    if (saved > slides.length) {
+      showExternalChapter(saved);
     } else {
       current = saved - 1;
       showSlide(current);
@@ -59,35 +60,27 @@ document.addEventListener('DOMContentLoaded', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  function goToSlide(index) {
+  function showExternalChapter(index) {
     slides.forEach(slide => slide.classList.remove('active'));
-    chapterContainer.innerHTML = '';
-    chapterContainer.style.display = 'none';
-    slider.style.display = 'block';
+    slider.style.display = 'none';
+    chapterContainer.style.display = 'block';
+    chapterContainer.innerHTML = '<div class="slide active"><div class="story-section">Loading chapter...</div></div>';
 
-    if (index <= slides.length) {
-      slides[index - 1].classList.add('active');
-      current = index - 1;
-    } else {
-      slider.style.display = 'none';
-      chapterContainer.style.display = 'block';
-      chapterContainer.innerHTML = '<div class="slide active"><div class="story-section">Loading chapter...</div></div>';
-
-      fetch(`chapter/chapter${index}.html`)
-        .then(res => res.text())
-        .then(html => {
-          chapterContainer.innerHTML = '<div class="slide active"><div class="story-section">' + html + '</div></div>';
-          current = slides.length;
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-          updateButtons(current);
-        })
-        .catch(() => {
-          chapterContainer.innerHTML = "<div class='slide active'><p>Chapter belum tersedia.</p></div>";
-        });
-    }
-
-    localStorage.setItem('chapterIndex', index);
-    updateButtons(index - 1);
+    fetch(`chapter/chapter${index}.html`)
+      .then(res => res.text())
+      .then(html => {
+        chapterContainer.innerHTML = `
+          <div class="slide active">
+            <div class="story-section">${html}</div>
+          </div>`;
+        current = slides.length;
+        updateButtons(current);
+        localStorage.setItem('chapterIndex', index);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      })
+      .catch(() => {
+        chapterContainer.innerHTML = "<div class='slide active'><p>Chapter belum tersedia.</p></div>";
+      });
   }
 
   function updateButtons(index) {
@@ -103,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
       current++;
       showSlide(current);
     } else {
-      goToSlide(35);
+      showExternalChapter(35);
     }
   }
 
@@ -112,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
       current--;
       showSlide(current);
     } else {
-      goToSlide(35);
+      showExternalChapter(35);
     }
   }
 
