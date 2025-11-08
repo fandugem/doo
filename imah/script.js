@@ -9,25 +9,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const chapterContainer = document.getElementById('chapter-container');
   const slider = document.querySelector('.slider');
 
-  // Generate tombol untuk slide 1 - N
-  slides.forEach((_, i) => {
+  // Set this to the total number of chapters you have (including slides + external files)
+  const MAX_CHAPTER = 40; // <--- Update this as needed
+
+  // Generate ALL chapter buttons: 1..MAX_CHAPTER
+  for (let i = 1; i <= MAX_CHAPTER; i++) {
     const btn = document.createElement('button');
-    btn.textContent = i + 1;
+    btn.textContent = i;
     btn.onclick = () => {
-      current = i;
-      showSlide(current);
+      if (i <= slides.length) {
+        current = i - 1;
+        showSlide(current);
+      } else {
+        showExternalChapter(i);
+        current = i - 1;
+      }
     };
     btnWrapper.appendChild(btn);
-  });
-
-  // Tombol untuk chapter 35 (file)
-  const btn35 = document.createElement('button');
-  btn35.textContent = '35';
-  btn35.onclick = () => {
-    current = slides.length;
-    showExternalChapter(35);
-  };
-  btnWrapper.appendChild(btn35);
+  }
 
   nav.appendChild(btnWrapper);
 
@@ -36,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!isNaN(saved)) {
     if (saved > slides.length) {
       showExternalChapter(saved);
+      current = saved - 1;
     } else {
       current = saved - 1;
       showSlide(current);
@@ -67,14 +67,16 @@ document.addEventListener('DOMContentLoaded', () => {
     chapterContainer.innerHTML = '<div class="slide active"><div class="story-section">Loading chapter...</div></div>';
 
     fetch(`chapter/chapter${index}.html`)
-      .then(res => res.text())
+      .then(res => {
+        if (!res.ok) throw new Error('Not Found');
+        return res.text();
+      })
       .then(html => {
         chapterContainer.innerHTML = `
           <div class="slide active">
             <div class="story-section">${html}</div>
           </div>`;
-        current = slides.length;
-        updateButtons(current);
+        updateButtons(index - 1); // Note: button index is 0-based
         localStorage.setItem('chapterIndex', index);
         window.scrollTo({ top: 0, behavior: 'smooth' });
       })
@@ -86,26 +88,30 @@ document.addEventListener('DOMContentLoaded', () => {
   function updateButtons(index) {
     const buttons = document.querySelectorAll('.page-buttons button');
     buttons.forEach((btn, i) => {
-      const isActive = i === index || (i === slides.length && current >= slides.length);
-      btn.classList.toggle('active', isActive);
+      btn.classList.toggle('active', i === index);
     });
   }
 
+  // Only call next/prev for visible range; after last slide => loads next external chapter.
   function nextSlide() {
-    if (current + 1 < slides.length) {
+    if (current + 1 < MAX_CHAPTER) {
+      if (current + 1 < slides.length) {
+        showSlide(current + 1);
+      } else {
+        showExternalChapter(current + 2); // chapters are 1-based
+      }
       current++;
-      showSlide(current);
-    } else {
-      showExternalChapter(35);
     }
   }
 
   function prevSlide() {
     if (current > 0) {
+      if (current - 1 < slides.length) {
+        showSlide(current - 1);
+      } else {
+        showExternalChapter(current);
+      }
       current--;
-      showSlide(current);
-    } else {
-      showExternalChapter(35);
     }
   }
 
