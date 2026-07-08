@@ -4,13 +4,13 @@ let slides;
 document.addEventListener('DOMContentLoaded', () => {
   slides = document.querySelectorAll('.slide');
   const nav = document.querySelector('.navigation');
-  const btnWrapper = document.createElement('div');
-  btnWrapper.classList.add('page-buttons');
+  const btnWrapper = document.querySelector('.page-buttons');
+btnWrapper.innerHTML = ""; 
   const chapterContainer = document.getElementById('chapter-container');
   const slider = document.querySelector('.slider');
 
   // Set this to the total number of chapters you have (including slides + external files)
-  const MAX_CHAPTER = 40; // <--- Update this as needed
+  const MAX_CHAPTER = 9999; // <--- Update this as needed
 
   // Generate ALL chapter buttons: 1..MAX_CHAPTER
   for (let i = 1; i <= MAX_CHAPTER; i++) {
@@ -27,8 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     btnWrapper.appendChild(btn);
   }
-
-  nav.appendChild(btnWrapper);
 
   // Load dari localStorage
   const saved = parseInt(localStorage.getItem('chapterIndex'));
@@ -61,29 +59,38 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function showExternalChapter(index) {
-    slides.forEach(slide => slide.classList.remove('active'));
-    slider.style.display = 'none';
-    chapterContainer.style.display = 'block';
-    chapterContainer.innerHTML = '<div class="slide active"><div class="story-section">Loading chapter...</div></div>';
+  current = index - 1;
 
-    fetch(`chapter/chapter${index}.html`)
-      .then(res => {
-        if (!res.ok) throw new Error('Not Found');
-        return res.text();
-      })
-      .then(html => {
-        chapterContainer.innerHTML = `
-          <div class="slide active">
-            <div class="story-section">${html}</div>
-          </div>`;
-        updateButtons(index - 1); // Note: button index is 0-based
-        localStorage.setItem('chapterIndex', index);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      })
-      .catch(() => {
-        chapterContainer.innerHTML = "<div class='slide active'><p>Chapter belum tersedia.</p></div>";
-      });
-  }
+  slides.forEach(slide => slide.classList.remove('active'));
+
+  slider.style.display = "none";
+  chapterContainer.style.display = "block";
+
+  fetch(`chapter/chapter${index}.html`)
+    .then(r => {
+      if (!r.ok) throw new Error();
+      return r.text();
+    })
+    .then(html => {
+      chapterContainer.innerHTML = `
+        <div class="slide active">
+          <div class="story-section">
+            ${html}
+          </div>
+        </div>`;
+
+      updateButtons(current);
+      localStorage.setItem("chapterIndex", index);
+    })
+    .catch(() => {
+      chapterContainer.innerHTML = `
+      <div class="slide active">
+      <div class="story-section">
+      Chapter ${index} belum tersedia.
+      </div>
+      </div>`;
+    });
+}
 
   function updateButtons(index) {
     const buttons = document.querySelectorAll('.page-buttons button');
@@ -92,28 +99,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Only call next/prev for visible range; after last slide => loads next external chapter.
-  function nextSlide() {
-    if (current + 1 < MAX_CHAPTER) {
-      if (current + 1 < slides.length) {
-        showSlide(current + 1);
-      } else {
-        showExternalChapter(current + 2); // chapters are 1-based
-      }
-      current++;
-    }
+function nextSlide() {
+  current++;
+
+  if (current < slides.length) {
+    showSlide(current);
+  } else {
+    showExternalChapter(current + 1);
   }
+}
 
   function prevSlide() {
-    if (current > 0) {
-      if (current - 1 < slides.length) {
-        showSlide(current - 1);
-      } else {
-        showExternalChapter(current);
-      }
-      current--;
-    }
+  if (current <= 0) return;
+
+  current--;
+
+  if (current < slides.length) {
+    showSlide(current);
+  } else {
+    showExternalChapter(current + 1);
   }
+}
 
   window.prevSlide = prevSlide;
   window.nextSlide = nextSlide;
