@@ -59,19 +59,17 @@ btnWrapper.innerHTML = "";
   }
 
   function showExternalChapter(index) {
-  current = index - 1;
-
-  slides.forEach(slide => slide.classList.remove('active'));
-
-  slider.style.display = "none";
-  chapterContainer.style.display = "block";
-
   fetch(`chapter/chapter${index}.html`)
-    .then(r => {
-      if (!r.ok) throw new Error();
-      return r.text();
+    .then(res => {
+      if (!res.ok) throw new Error("Not Found");
+      return res.text();
     })
     .then(html => {
+      slides.forEach(slide => slide.classList.remove('active'));
+
+      slider.style.display = "none";
+      chapterContainer.style.display = "block";
+
       chapterContainer.innerHTML = `
         <div class="slide active">
           <div class="story-section">
@@ -79,16 +77,20 @@ btnWrapper.innerHTML = "";
           </div>
         </div>`;
 
+      current = index - 1;
       updateButtons(current);
       localStorage.setItem("chapterIndex", index);
     })
     .catch(() => {
-      chapterContainer.innerHTML = `
-      <div class="slide active">
-      <div class="story-section">
-      Chapter ${index} belum tersedia.
-      </div>
-      </div>`;
+      // Kalau gagal, BALIK ke chapter sebelumnya
+      slider.style.display = "block";
+      chapterContainer.style.display = "none";
+
+      if (current < slides.length) {
+        showSlide(current);
+      }
+
+      alert("Chapter " + index + " belum tersedia.");
     });
 }
 
