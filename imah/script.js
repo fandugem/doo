@@ -1,28 +1,29 @@
 const SlideManager = (() => {
-  let current = 0;
+  let currentChapter = 1;  // Always 1-indexed
   let slides = [];
   let maxChapter = 0;
 
   function init() {
     slides = document.querySelectorAll('.slide');
     const btnWrapper = document.querySelector('.page-buttons');
+    const slider = document.querySelector('.slider');
     const chapterContainer = document.getElementById('chapter-container');
 
-    if (!btnWrapper) {
-      console.error('Missing .page-buttons element');
+    // Validate required DOM elements
+    if (!btnWrapper || !slider || !chapterContainer) {
+      console.error('Missing required DOM elements');
       return;
     }
 
     btnWrapper.innerHTML = '';
-    maxChapter = slides.length + 10;
+    maxChapter = slides.length; // Start with actual slides; extend as chapters load
 
-    // Event delegation - efficient and clean
     btnWrapper.addEventListener('click', handleButtonClick);
 
-    // Generate buttons
     for (let i = 1; i <= maxChapter; i++) {
       const btn = document.createElement('button');
       btn.textContent = i;
+      btn.setAttribute('aria-label', `Chapter ${i}`);
       btnWrapper.appendChild(btn);
     }
 
@@ -40,24 +41,24 @@ const SlideManager = (() => {
     if (chapterNum < 1 || chapterNum > maxChapter) return;
 
     if (chapterNum <= slides.length) {
-      showSlide(chapterNum - 1);
+      showSlide(chapterNum);
     } else {
       showExternalChapter(chapterNum);
     }
   }
 
-  function showSlide(index) {
+  function showSlide(chapterNum) {
     const slider = document.querySelector('.slider');
     const chapterContainer = document.getElementById('chapter-container');
 
     slides.forEach((slide, i) => {
-      slide.classList.toggle('active', i === index);
+      slide.classList.toggle('active', i + 1 === chapterNum);
     });
 
     slider.style.display = 'block';
     chapterContainer.style.display = 'none';
-    updateUI(index + 1);
-    current = index;
+    updateUI(chapterNum);
+    currentChapter = chapterNum;
   }
 
   function showExternalChapter(chapterNum) {
@@ -66,22 +67,25 @@ const SlideManager = (() => {
 
     fetch(`chapter/chapter${chapterNum}.html`)
       .then(res => {
-        if (!res.ok) throw new Error(`Chapter ${chapterNum} not found`);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
         return res.text();
       })
       .then(html => {
         slides.forEach(slide => slide.classList.remove('active'));
         slider.style.display = 'none';
         chapterContainer.style.display = 'block';
-        chapterContainer.innerHTML = `<div class="slide active"><div class="story-section">${html}</div></div>`;
-
+        
+        // Safely insert HTML
+        chapterContainer.innerHTML = '<div class="slide active"><div class="story-section"></div></div>';
+        chapterContainer.querySelector('.story-section').innerHTML = html;
+        
         updateUI(chapterNum);
-        current = chapterNum - 1;
+        currentChapter = chapterNum;
       })
       .catch(err => {
-        console.error(err);
-        alert(`Chapter ${chapterNum} is not available.`);
-        showSlide(Math.min(current, slides.length - 1));
+        console.error(`Failed to load chapter ${chapterNum}:`, err);
+        // Show error message inline instead of alert
+        chapterContainer.innerHTML = `<div class="error">Chapter ${chapterNum} could not be loaded.</div>`;
       });
   }
 
@@ -109,31 +113,25 @@ const SlideManager = (() => {
       if (!isNaN(saved) && saved >= 1 && saved <= maxChapter) {
         goToChapter(saved);
       } else {
-        showSlide(0);
+        goToChapter(1);
       }
     } catch (e) {
       console.warn('Could not load saved progress:', e);
-      showSlide(0);
+      goToChapter(1);
     }
   }
 
-  // Public API
   function nextSlide() {
-    if (current + 1 >= maxChapter) return;
-    goToChapter(current + 2);
+    if (currentChapter + 1 > maxChapter) return;
+    goToChapter(currentChapter + 1);
   }
 
   function prevSlide() {
-    if (current <= 0) return;
-    goToChapter(current);
+    if (currentChapter <= 1) return;
+    goToChapter(currentChapter - 1);
   }
 
   document.addEventListener('DOMContentLoaded', init);
 
-  return {
-    nextSlide,
-    prevSlide,
-    goToChapter,
-    init
-  };
+  return { nextSlide, prevSlide, goToChapter, init };
 })();
