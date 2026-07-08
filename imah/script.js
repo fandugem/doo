@@ -18,10 +18,10 @@ btnWrapper.innerHTML = "";
     btn.textContent = i;
     btn.onclick = () => {
       if (i <= slides.length) {
-        current = i - 1;
         showSlide(current);
       } else {
         showExternalChapter(i);
+        current = index - 1;
         current = i - 1;
       }
     };
@@ -102,24 +102,22 @@ btnWrapper.innerHTML = "";
   }
 
 function nextSlide() {
-  current++;
+  if (current + 1 >= MAX_CHAPTER) return;
 
-  if (current < slides.length) {
-    showSlide(current);
+  if (current + 1 < slides.length) {
+    showSlide(current + 1);
   } else {
-    showExternalChapter(current + 1);
+    showExternalChapter(current + 2);
   }
 }
 
   function prevSlide() {
   if (current <= 0) return;
 
-  current--;
-
-  if (current < slides.length) {
-    showSlide(current);
+  if (current - 1 < slides.length) {
+    showSlide(current - 1);
   } else {
-    showExternalChapter(current + 1);
+    showExternalChapter(current);
   }
 }
 
