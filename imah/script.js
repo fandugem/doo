@@ -10,14 +10,14 @@ btnWrapper.innerHTML = "";
   const slider = document.querySelector('.slider');
 
   // Set this to the total number of chapters you have (including slides + external files)
-  // <--- Update this as needed
+ const MAX_CHAPTER = 9999; // <--- Update this as needed
 
   // Generate ALL chapter buttons: 1..MAX_CHAPTER
   for (let i = 1; i <= MAX_CHAPTER; i++) {
     const btn = document.createElement('button');
     btn.textContent = i;
     btn.onclick = () => {
-      if (i <= slides.length) {
+      if (i <= 33) {
         showSlide(current);
       } else {
         showExternalChapter(i);
