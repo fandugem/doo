@@ -1,25 +1,25 @@
 const SlideManager = (() => {
   let current = 0;
-  let slides;
+  let slides = [];
   let maxChapter = 0;
 
   function init() {
     slides = document.querySelectorAll('.slide');
     const btnWrapper = document.querySelector('.page-buttons');
     const chapterContainer = document.getElementById('chapter-container');
-    const slider = document.querySelector('.slider');
 
-    btnWrapper.innerHTML = "";
-    maxChapter = slides.length + 10; // Adjust based on your actual external chapters
+    if (!btnWrapper) {
+      console.error('Missing .page-buttons element');
+      return;
+    }
 
-    // Event delegation instead of per-button handlers
-    btnWrapper.addEventListener('click', (e) => {
-      if (e.target.tagName === 'BUTTON') {
-        goToChapter(parseInt(e.target.textContent));
-      }
-    });
+    btnWrapper.innerHTML = '';
+    maxChapter = slides.length + 10;
 
-    // Generate buttons efficiently
+    // Event delegation - efficient and clean
+    btnWrapper.addEventListener('click', handleButtonClick);
+
+    // Generate buttons
     for (let i = 1; i <= maxChapter; i++) {
       const btn = document.createElement('button');
       btn.textContent = i;
@@ -27,9 +27,13 @@ const SlideManager = (() => {
     }
 
     loadSavedProgress();
+  }
 
-    window.nextSlide = () => goToChapter(current + 2);
-    window.prevSlide = () => goToChapter(current);
+  function handleButtonClick(e) {
+    if (e.target.tagName === 'BUTTON') {
+      const chapterNum = parseInt(e.target.textContent);
+      goToChapter(chapterNum);
+    }
   }
 
   function goToChapter(chapterNum) {
@@ -67,8 +71,8 @@ const SlideManager = (() => {
       })
       .then(html => {
         slides.forEach(slide => slide.classList.remove('active'));
-        slider.style.display = "none";
-        chapterContainer.style.display = "block";
+        slider.style.display = 'none';
+        chapterContainer.style.display = 'block';
         chapterContainer.innerHTML = `<div class="slide active"><div class="story-section">${html}</div></div>`;
 
         updateUI(chapterNum);
@@ -87,19 +91,22 @@ const SlideManager = (() => {
       btn.classList.toggle('active', i + 1 === chapterNum);
     });
 
+    saveProgress(chapterNum);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function saveProgress(chapterNum) {
     try {
       localStorage.setItem('chapterIndex', chapterNum);
     } catch (e) {
       console.warn('localStorage unavailable:', e);
     }
-
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   function loadSavedProgress() {
     try {
       const saved = parseInt(localStorage.getItem('chapterIndex'));
-      if (!isNaN(saved) && saved >= 1) {
+      if (!isNaN(saved) && saved >= 1 && saved <= maxChapter) {
         goToChapter(saved);
       } else {
         showSlide(0);
@@ -110,92 +117,23 @@ const SlideManager = (() => {
     }
   }
 
-  document.addEventListener('DOMContentLoaded', init);
-})();      showSlide(current);
-    }
-  } else {
-    showSlide(0);
+  // Public API
+  function nextSlide() {
+    if (current + 1 >= maxChapter) return;
+    goToChapter(current + 2);
   }
-
-  function showSlide(index) {
-    slides.forEach((slide, i) => {
-      slide.classList.remove('active');
-      if (i === index) slide.classList.add('active');
-    });
-
-    slider.style.display = 'block';
-    chapterContainer.style.display = 'none';
-    chapterContainer.innerHTML = '';
-
-    updateButtons(index);
-    localStorage.setItem('chapterIndex', index + 1);
-    current = index;
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  function showExternalChapter(index) {
-  fetch(`chapter/chapter${index}.html`)
-    .then(res => {
-      if (!res.ok) throw new Error("Not Found");
-      return res.text();
-    })
-    .then(html => {
-      slides.forEach(slide => slide.classList.remove('active'));
-
-      slider.style.display = "none";
-      chapterContainer.style.display = "block";
-
-      chapterContainer.innerHTML = `
-        <div class="slide active">
-          <div class="story-section">
-            ${html}
-          </div>
-        </div>`;
-
-      current = index - 1;
-      updateButtons(current);
-      localStorage.setItem("chapterIndex", index);
-    })
-    .catch(() => {
-      // Kalau gagal, BALIK ke chapter sebelumnya
-      slider.style.display = "block";
-      chapterContainer.style.display = "none";
-
-      if (current < slides.length) {
-        showSlide(current);
-      }
-
-      alert("Chapter " + index + " belum tersedia.");
-    });
-}
-
-  function updateButtons(index) {
-    const buttons = document.querySelectorAll('.page-buttons button');
-    buttons.forEach((btn, i) => {
-      btn.classList.toggle('active', i === index);
-    });
-  }
-
-function nextSlide() {
-  if (current + 1 >= MAX_CHAPTER) return;
-
-  if (current + 1 < slides.length) {
-    showSlide(current + 1);
-  } else {
-    showExternalChapter(current + 2);
-  }
-}
 
   function prevSlide() {
-  if (current <= 0) return;
-
-  if (current - 1 < slides.length) {
-    showSlide(current - 1);
-  } else {
-    showExternalChapter(current);
+    if (current <= 0) return;
+    goToChapter(current);
   }
-}
 
-  window.prevSlide = prevSlide;
-  window.nextSlide = nextSlide;
-});
+  document.addEventListener('DOMContentLoaded', init);
+
+  return {
+    nextSlide,
+    prevSlide,
+    goToChapter,
+    init
+  };
+})();
