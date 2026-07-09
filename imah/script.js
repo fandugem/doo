@@ -116,13 +116,15 @@ if (chapterNum <= 34) {
   }
 }
 
-  document.addEventListener('DOMContentLoaded', init);
+  document.addEventListener("DOMContentLoaded", init);
 
-  return { nextSlide, prevSlide, goToChapter, init };
+return {
+    nextSlide,
+    prevSlide,
+    goToChapter
+};
+
 })();
 
 window.nextSlide = SlideManager.nextSlide;
 window.prevSlide = SlideManager.prevSlide;
-
-
-
