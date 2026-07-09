@@ -38,13 +38,11 @@ const SlideManager = (() => {
   }
 
   function goToChapter(chapterNum) {
-    alert(chapterNum);
+    alert("goToChapter = " + chapterNum);
 
     if (chapterNum <= 34) {
-        alert("slide");
         showSlide(chapterNum);
     } else {
-        alert("external");
         showExternalChapter(chapterNum);
     }
 
