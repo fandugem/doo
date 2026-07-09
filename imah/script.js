@@ -38,19 +38,21 @@ const SlideManager = (() => {
   }
 
   function goToChapter(chapterNum) {
-    if (chapterNum < 1 || chapterNum > maxChapter) return;
+  if (chapterNum < 1) return;
 
-    if (chapterNum <= slides.length) {
-      showSlide(chapterNum);
-    } else {
-      showExternalChapter(chapterNum);
-    }
+  if (chapterNum <= slides.length) {
+    showSlide(chapterNum);
+    return;
   }
+
+  showExternalChapter(chapterNum);
+    currentChapter = chapterNum;
+}
 
   function showSlide(chapterNum) {
     const slider = document.querySelector('.slider');
     const chapterContainer = document.getElementById('chapter-container');
-
+    currentChapter = chapterNum;
     slides.forEach((slide, i) => {
       slide.classList.toggle('active', i + 1 === chapterNum);
     });
@@ -122,16 +124,22 @@ const SlideManager = (() => {
   }
 
   function nextSlide() {
-    if (currentChapter + 1 > maxChapter) return;
-    goToChapter(currentChapter + 1);
-  }
+  goToChapter(currentChapter + 1);
+}
 
   function prevSlide() {
-    if (currentChapter <= 1) return;
+  if (currentChapter > 1) {
     goToChapter(currentChapter - 1);
   }
+}
 
   document.addEventListener('DOMContentLoaded', init);
 
   return { nextSlide, prevSlide, goToChapter, init };
 })();
+
+window.nextSlide = SlideManager.nextSlide;
+window.prevSlide = SlideManager.prevSlide;
+
+
+
