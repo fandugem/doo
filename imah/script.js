@@ -129,5 +129,4 @@ return {
 
 })();
 
-window.nextSlide = SlideManager.nextSlide;
-window.prevSlide = SlideManager.prevSlide;
+
