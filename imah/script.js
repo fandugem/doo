@@ -16,8 +16,7 @@ const SlideManager = (() => {
     }
 
     btnWrapper.innerHTML = '';
-    maxChapter = slides.length; // Start with actual slides; extend as chapters load
-
+    maxChapter = 34;
     btnWrapper.addEventListener('click', handleButtonClick);
 
     for (let i = 1; i <= maxChapter; i++) {
@@ -40,7 +39,7 @@ const SlideManager = (() => {
   function goToChapter(chapterNum) {
   if (chapterNum < 1) return;
 
-  if (chapterNum <= slides.length) {
+if (chapterNum <= 34) {
     showSlide(chapterNum);
     return;
   }
