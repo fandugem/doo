@@ -124,9 +124,14 @@ const SlideManager = (() => {
   }
 
   function nextSlide() {
-  goToChapter(currentChapter + 1);
-}
+    const active = document.querySelector(".slide.active");
 
+    if (active) {
+        currentChapter = [...slides].indexOf(active) + 1;
+    }
+
+    goToChapter(currentChapter + 1);
+}
   function prevSlide() {
   if (currentChapter > 1) {
     goToChapter(currentChapter - 1);
