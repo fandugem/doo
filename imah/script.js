@@ -64,6 +64,7 @@ const SlideManager = (() => {
   }
 
   function showExternalChapter(chapterNum) {
+    alert("Buka chapter " + chapterNum); {
     const chapterContainer = document.getElementById('chapter-container');
     const slider = document.querySelector('.slider');
 
