@@ -64,33 +64,16 @@ const SlideManager = (() => {
   }
 
   function showExternalChapter(chapterNum) {
-    alert("Buka chapter " + chapterNum); {
-    const chapterContainer = document.getElementById('chapter-container');
-    const slider = document.querySelector('.slider');
+    const slider = document.querySelector(".slider");
+    const chapterContainer = document.getElementById("chapter-container");
 
-    fetch(`chapter/chapter${chapterNum}.html`)
-      .then(res => {
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        return res.text();
-      })
-      .then(html => {
-        slides.forEach(slide => slide.classList.remove('active'));
-        slider.style.display = 'none';
-        chapterContainer.style.display = 'block';
-        
-        // Safely insert HTML
-        chapterContainer.innerHTML = '<div class="slide active"><div class="story-section"></div></div>';
-        chapterContainer.querySelector('.story-section').innerHTML = html;
-        
-        updateUI(chapterNum);
-        currentChapter = chapterNum;
-      })
-      .catch(err => {
-        console.error(`Failed to load chapter ${chapterNum}:`, err);
-        // Show error message inline instead of alert
-        chapterContainer.innerHTML = `<div class="error">Chapter ${chapterNum} could not be loaded.</div>`;
-      });
-  }
+    slider.style.display = "none";
+    chapterContainer.style.display = "block";
+
+    chapterContainer.innerHTML = "<h1>TEST CHAPTER " + chapterNum + "</h1>";
+
+    currentChapter = chapterNum;
+}
 
   function updateUI(chapterNum) {
     const buttons = document.querySelectorAll('.page-buttons button');
