@@ -69,12 +69,28 @@ const SlideManager = (() => {
     const slider = document.querySelector(".slider");
     const chapterContainer = document.getElementById("chapter-container");
 
-    slider.style.display = "none";
-    chapterContainer.style.display = "block";
+    fetch(`chapter/chapter${chapterNum}.html`)
+        .then(res => {
+            if (!res.ok) throw new Error("404");
+            return res.text();
+        })
+        .then(html => {
+            slider.style.display = "none";
+            chapterContainer.style.display = "block";
 
-    chapterContainer.innerHTML = "<h1>TEST CHAPTER " + chapterNum + "</h1>";
+            chapterContainer.innerHTML = `
+                <div class="slide active">
+                    ${html}
+                </div>
+            `;
 
-    currentChapter = chapterNum;
+            currentChapter = chapterNum;
+            updateUI(chapterNum);
+        })
+        .catch(err => {
+            console.error(err);
+            alert("Gagal buka: chapter/chapter" + chapterNum + ".html");
+        });
 }
 
   function updateUI(chapterNum) {
