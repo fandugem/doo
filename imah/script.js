@@ -1,4 +1,4 @@
-alert("SCRIPT BARU KELOAD");
+
 const SlideManager = (() => {
   let currentChapter = 1;  // Always 1-indexed
   let slides = [];
@@ -38,7 +38,7 @@ const SlideManager = (() => {
   }
 
   function goToChapter(chapterNum) {
-    alert("goToChapter = " + chapterNum);
+
 
     if (chapterNum <= 34) {
         showSlide(chapterNum);
@@ -149,3 +149,4 @@ return {
 })();
 
 
+window.SlideManager = SlideManager;
