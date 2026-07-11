@@ -5,7 +5,6 @@ const SlideManager = (() => {
   let maxChapter = 0;
 
   function init() {
-    alert(slides.length);
     slides = document.querySelectorAll('.slide');
     const btnWrapper = document.querySelector('.page-buttons');
     const slider = document.querySelector('.slider');
@@ -93,15 +92,24 @@ const SlideManager = (() => {
 }
 
   function updateUI(chapterNum) {
-    const buttons = document.querySelectorAll('.page-buttons button');
-    buttons.forEach((btn, i) => {
-      btn.classList.toggle('active', i + 1 === chapterNum);
+    const btnWrapper = document.querySelector(".page-buttons");
+
+    while (btnWrapper.children.length < chapterNum) {
+        const n = btnWrapper.children.length + 1;
+
+        const btn = document.createElement("button");
+        btn.textContent = n;
+        btn.onclick = () => goToChapter(n);
+
+        btnWrapper.appendChild(btn);
+    }
+
+    [...btnWrapper.children].forEach((btn, i) => {
+        btn.classList.toggle("active", i + 1 === chapterNum);
     });
 
     saveProgress(chapterNum);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
+}
   function saveProgress(chapterNum) {
     try {
       localStorage.setItem('chapterIndex', chapterNum);
@@ -111,19 +119,14 @@ const SlideManager = (() => {
   }
 
   function loadSavedProgress() {
-    try {
-      const saved = parseInt(localStorage.getItem('chapterIndex'));
-      if (!isNaN(saved) && saved >= 1 && saved <= maxChapter) {
-        goToChapter(saved);
-      } else {
-        goToChapter(1);
-      }
-    } catch (e) {
-      console.warn('Could not load saved progress:', e);
-      goToChapter(1);
-    }
-  }
+    const saved = parseInt(localStorage.getItem("chapterIndex"));
 
+    if (!isNaN(saved) && saved >= 1) {
+        goToChapter(saved);
+    } else {
+        goToChapter(1);
+    }
+}
   function nextSlide() {
     currentChapter++;
     goToChapter(currentChapter);
