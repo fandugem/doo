@@ -5,6 +5,8 @@ const SlideManager = (() => {
   let maxChapter = 0;
 
   function init() {
+    console.log(slides.length);
+slides.forEach((s,i)=>console.log(i+1,s.querySelector("h2")?.textContent));
     slides = document.querySelectorAll('.slide');
     const btnWrapper = document.querySelector('.page-buttons');
     const slider = document.querySelector('.slider');
