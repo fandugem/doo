@@ -1,4 +1,4 @@
-
+alert(slides.length);
 const SlideManager = (() => {
   let currentChapter = 1;  // Always 1-indexed
   let slides = [];
