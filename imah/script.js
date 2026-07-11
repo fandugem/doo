@@ -1,10 +1,11 @@
-alert(slides.length);
+
 const SlideManager = (() => {
   let currentChapter = 1;  // Always 1-indexed
   let slides = [];
   let maxChapter = 0;
 
   function init() {
+    alert(slides.length);
     slides = document.querySelectorAll('.slide');
     const btnWrapper = document.querySelector('.page-buttons');
     const slider = document.querySelector('.slider');
