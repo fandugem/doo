@@ -124,20 +124,16 @@ const SlideManager = (() => {
   }
 
   function nextSlide() {
-    const active = document.querySelector(".slide.active");
+    currentChapter++;
+    goToChapter(currentChapter);
+}
 
-    if (active) {
-        currentChapter = [...slides].indexOf(active) + 1;
+function prevSlide() {
+    if (currentChapter > 1) {
+        currentChapter--;
+        goToChapter(currentChapter);
     }
-
-    goToChapter(currentChapter + 1);
 }
-  function prevSlide() {
-  if (currentChapter > 1) {
-    goToChapter(currentChapter - 1);
-  }
-}
-
   document.addEventListener("DOMContentLoaded", init);
 
 return {
