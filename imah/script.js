@@ -92,21 +92,14 @@ const SlideManager = (() => {
 }
 
   function updateUI(chapterNum) {
-    const btnWrapper = document.querySelector(".page-buttons");
-
-    while (btnWrapper.children.length < chapterNum) {
-        const btn = document.createElement("button");
-        btn.textContent = btnWrapper.children.length + 1;
-        btn.onclick = () => goToChapter(parseInt(btn.textContent));
-        btnWrapper.appendChild(btn);
-    }
-
-    document.querySelectorAll(".page-buttons button").forEach((btn, i) => {
-        btn.classList.toggle("active", i + 1 === chapterNum);
+    const buttons = document.querySelectorAll('.page-buttons button');
+    buttons.forEach((btn, i) => {
+      btn.classList.toggle('active', i + 1 === chapterNum);
     });
 
     saveProgress(chapterNum);
-}
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 
   function saveProgress(chapterNum) {
     try {
@@ -117,17 +110,22 @@ const SlideManager = (() => {
   }
 
   function loadSavedProgress() {
-    const saved = parseInt(localStorage.getItem("chapterIndex"));
-
-    if (!isNaN(saved) && saved >= 1) {
+    try {
+      const saved = parseInt(localStorage.getItem('chapterIndex'));
+      if (!isNaN(saved) && saved >= 1 && saved <= maxChapter) {
         goToChapter(saved);
-    } else {
+      } else {
         goToChapter(1);
+      }
+    } catch (e) {
+      console.warn('Could not load saved progress:', e);
+      goToChapter(1);
     }
-}
+  }
 
   function nextSlide() {
-    goToChapter(currentChapter + 1);
+    currentChapter++;
+    goToChapter(currentChapter);
 }
 
 function prevSlide() {
